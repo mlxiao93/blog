@@ -27,8 +27,8 @@
     },
 
     _fetchSearchData: function () {
-      var searchPath = '/search.xml';
-      
+      var searchPath = 'search.xml';
+
       if (!this._searchData) {
         var that = this;
         $.ajax({
@@ -62,15 +62,15 @@
           searchContent += '<header class="post-header"><h1 class="post-title"><a class="post-link" href="'
                             + item.url + '">' + item.title +'</a></h1></header>';
           searchContent += '<div class="post-content">' + item.content.split('<a id="more"></a>')[0]
-                            + '<div class="read-more"><a href="' + item.url 
+                            + '<div class="read-more"><a href="' + item.url
                             + '" class="read-more-link">Read more..</a></div></div>';
           searchContent += '</article>';
-        }); 
+        });
       } else {
         searchContent += '<div class="no-result"><h2>No result found!</h2></div>';
       }
 
-      searchContent = '<div id="content" class="content" ><section class="search-result post">' 
+      searchContent = '<div id="content" class="content" ><section class="search-result post">'
                       + searchContent + '</section></div>';
       return searchContent;
     },
@@ -187,7 +187,7 @@
           var isLastOne = i + 1 === $toclink.length,
               currentTop = headerlinkTop[i] - HEADERFIX,
               nextTop = isLastOne ? Infinity : headerlinkTop[i+1] - HEADERFIX;
-              
+
           if (currentTop < scrollTop && scrollTop <= nextTop) {
             $($toclink[i]).addClass('active')
           } else {
@@ -217,7 +217,7 @@
         } else {
           $mobileNav.fadeOut();
         }
-      }); 
+      });
     },
 
     _toggleNavbarMenu: function () {
