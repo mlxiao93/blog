@@ -1,4 +1,4 @@
-menu: 
+menu:
   home: Home
   archives: Archives
   tags: Tags
@@ -15,7 +15,7 @@ posts:
   prev_post: Prev
   next_post: Next
   toc: Contents
-  readmore: Read more..
+  readmore: Read more...
 
 counter:
   archives:

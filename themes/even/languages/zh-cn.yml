@@ -1,4 +1,4 @@
-menu: 
+menu:
   home: 首页
   archives: 归档
   tags: 标签
@@ -6,8 +6,8 @@ menu:
   about: 关于
 
 footer:
-  powered: "由 %s 强力驱动"
-  theme: 主题
+  powered: "powered by %s"
+  theme: theme
 
 posts:
   prev: 上一页
@@ -15,7 +15,7 @@ posts:
   prev_post: 上一篇
   next_post: 下一篇
   toc: 文章目录
-  readmore: 阅读更多
+  readmore: Read more...
 
 counter:
   archives:
