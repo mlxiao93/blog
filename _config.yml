@@ -69,6 +69,4 @@ theme: even
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type:
-
-# Duoshuo
-duoshuo_shortname: mlxiao
+    
