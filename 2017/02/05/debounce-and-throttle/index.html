@@ -21,22 +21,22 @@
 
 
 
-  <link rel="alternate" href="/blog/atom.xml" title="m.l 's blog">
+  <link rel="alternate" href="/atom.xml" title="m.l 's blog">
 
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/blog/favicon.ico?v=2.1.x" />
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.1.x" />
 
 
 
-<link rel="canonical" href="https://mlxiao93.github.io/blog/2017/02/05/debounce-and-throttle/"/>
+<link rel="canonical" href="mlxiao.com/2017/02/05/debounce-and-throttle/"/>
 
 
 <meta name="description" content="前端开发中某些dom事件的触发频率非常高，有时候监听这些事件的函数并不需要那么高的执行频率，此时就得用上这两个函数">
 <meta property="og:type" content="article">
 <meta property="og:title" content="debounce和throttle函数">
-<meta property="og:url" content="https://mlxiao93.github.io/blog/2017/02/05/debounce-and-throttle/index.html">
+<meta property="og:url" content="mlxiao.com/2017/02/05/debounce-and-throttle/index.html">
 <meta property="og:site_name" content="m.l 's blog">
 <meta property="og:description" content="前端开发中某些dom事件的触发频率非常高，有时候监听这些事件的函数并不需要那么高的执行频率，此时就得用上这两个函数">
 <meta property="og:updated_time" content="2017-02-05T15:08:25.000Z">
@@ -45,11 +45,11 @@
 <meta name="twitter:description" content="前端开发中某些dom事件的触发频率非常高，有时候监听这些事件的函数并不需要那么高的执行频率，此时就得用上这两个函数">
 
 
-<link rel="stylesheet" type="text/css" href="/blog/css/style.css?v=2.1.x" />
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.1.x" />
 
 
 
-  <link rel="stylesheet" type="text/css" href="/blog/lib/fancybox/jquery.fancybox.css" />
+  <link rel="stylesheet" type="text/css" href="/lib/fancybox/jquery.fancybox.css" />
 
 
 
@@ -64,7 +64,7 @@
   <body>
     <div class="container">
       <header id="header" class="header"><div class="logo-wrapper">
-  <a href="/blog/." class="logo">m.l 's blog</a>
+  <a href="/." class="logo">m.l 's blog</a>
 </div>
 
 <nav class="site-nav">
@@ -72,7 +72,7 @@
     <ul id="menu" class="menu">
       
         <li class="menu-item">
-          <a class="menu-item-link" href="/blog/">
+          <a class="menu-item-link" href="/">
             
             
               Home
@@ -81,7 +81,7 @@
         </li>
       
         <li class="menu-item">
-          <a class="menu-item-link" href="/blog/archives/">
+          <a class="menu-item-link" href="/archives/">
             
             
               Archives
@@ -90,7 +90,7 @@
         </li>
       
         <li class="menu-item">
-          <a class="menu-item-link" href="/blog/tags">
+          <a class="menu-item-link" href="/tags">
             
             
               Tags
@@ -99,7 +99,7 @@
         </li>
       
         <li class="menu-item">
-          <a class="menu-item-link" href="/blog/about">
+          <a class="menu-item-link" href="/about">
             
             
               About
@@ -123,7 +123,7 @@
 <div class="mobile-navbar">
   <div class="mobile-header">
     <div class="mobile-header-logo">
-      <a href="/blog/." class="logo">m.l 's blog</a>
+      <a href="/." class="logo">m.l 's blog</a>
     </div>
 
     <div class="mobile-header-icon">
@@ -134,28 +134,28 @@
   </div>
   <nav class="mobile-menu">
     
-      <a class="mobile-menu-item" href="/blog/">
+      <a class="mobile-menu-item" href="/">
         
         
           Home
         
       </a>
     
-      <a class="mobile-menu-item" href="/blog/archives/">
+      <a class="mobile-menu-item" href="/archives/">
         
         
           Archives
         
       </a>
     
-      <a class="mobile-menu-item" href="/blog/tags">
+      <a class="mobile-menu-item" href="/tags">
         
         
           Tags
         
       </a>
     
-      <a class="mobile-menu-item" href="/blog/about">
+      <a class="mobile-menu-item" href="/about">
         
         
           About
@@ -211,7 +211,7 @@
       <footer class="post-footer">
         <div class="post-tags">
           
-            <a href="/blog/tags/javascript/">javascript</a>
+            <a href="/tags/javascript/">javascript</a>
           
         </div>
 
@@ -219,7 +219,7 @@
   <nav class="post-nav">
     
     
-      <a class="next" href="/blog/2017/02/05/lazy-man/">
+      <a class="next" href="/2017/02/05/lazy-man/">
         <span class="next-text nav-default">实现LazyMan</span>
         <span class="prev-text nav-mobile">Next</span>
         <i class="iconfont icon-right"></i>
@@ -237,7 +237,7 @@
   <div class="comments" id="comments">
     
       <div class="ds-thread" data-thread-key="2017/02/05/debounce-and-throttle/"
-           data-title="debounce和throttle函数" data-url="https://mlxiao93.github.io/blog/blog/2017/02/05/debounce-and-throttle/">
+           data-title="debounce和throttle函数" data-url="mlxiao.com/2017/02/05/debounce-and-throttle/">
       </div>
     
   </div>
@@ -332,15 +332,15 @@
 
 
   
-    <script type="text/javascript" src="/blog/lib/jquery/jquery-3.1.1.min.js"></script>
+    <script type="text/javascript" src="/lib/jquery/jquery-3.1.1.min.js"></script>
   
 
   
-    <script type="text/javascript" src="/blog/lib/fancybox/jquery.fancybox.pack.js"></script>
+    <script type="text/javascript" src="/lib/fancybox/jquery.fancybox.pack.js"></script>
   
 
-    <script type="text/javascript" src="/blog/js/src/even.js?v=2.1.x"></script>
-<script type="text/javascript" src="/blog/js/src/bootstrap.js?v=2.1.x"></script>
+    <script type="text/javascript" src="/js/src/even.js?v=2.1.x"></script>
+<script type="text/javascript" src="/js/src/bootstrap.js?v=2.1.x"></script>
 
   </body>
 </html>
