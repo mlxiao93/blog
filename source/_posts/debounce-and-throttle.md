@@ -1,0 +1,60 @@
+---
+title: debounce和throttle函数
+date: 2017-02-05 21:55:19
+tags:
+ - javascript
+---
+
+前端开发中某些dom事件的触发频率非常高，有时候监听这些事件的函数并不需要那么高的执行频率，此时就得用上这两个函数
+
+<!-- more -->
+
+## debounce
+防抖函数
+应用场景：auto complete, 监听onchange并从后台拉取建议，需要等待用户输入完毕(规定时间内没有输入)再调用后台
+
+``` js
+function debounce(fn, timeout) {
+  timeout = timeout || 0;
+  var timer;
+  return function() {
+    let _args = arguments;
+    let self = this;
+    timer && clearTimeout(timer);
+    timer = setTimeout(function() {
+      fn.apply(self, _args);
+    }, timeout);
+  }
+}
+
+```
+
+## throttle
+节流函数
+应用场景：轮播图的翻页，假如翻页动画的执行时间是400ms，为了防止用户快速重复点击导致bug，可以使用该函数设置400ms内只能执行一次翻页
+``` js
+function throttle(fn, timeout, execLast) {    //execLast: 是否执行最后一次触发，若最后一次触发在上一次执行的timeout内，默认不执行
+  timeout = timeout || 0;
+  let lastExecTime = 0;
+  var timer;
+  return function() {
+    timer && clearTimeout(timer);
+    let _args = arguments;
+    let self = this;
+
+    if (execLast) {
+      timer = setTimeout(function() {
+        lastExecTime = Date.now();
+        fn.apply(self, _args);
+      }, timeout);
+    }
+    if (Date.now() - lastExecTime < timeout) return;
+
+    lastExecTime = Date.now();
+    fn.apply(self, _args);
+  }
+}
+```
+
+## 区别
+用一个形象的例子比喻：debounce就是一辆定时发车的公交车，throttle就是一辆人满发车的黑车
