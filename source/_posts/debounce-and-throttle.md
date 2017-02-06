@@ -57,4 +57,4 @@ function throttle(fn, timeout, execLast) {    //execLast: 是否执行最后一�
 ```
 
 ## 区别
-用一个形象的例子比喻：debounce就是一辆定时发车的公交车，throttle就是一辆人满发车的黑车
+用一个形象的例子比喻：debounce是一辆人满发车的黑车，throttle则是定时发车的公交车
