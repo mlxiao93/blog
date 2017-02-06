@@ -7,7 +7,7 @@ $(document).ready(function () {
 
   var path = location.pathname;
   var menuItems = $('.site-nav .menu-item');
-  if (path === '/'） {
+  if (path === '\/'）{
     $(menuItems[0]).addClass('active');
   } else if (/archives\/$/i.test(path)) {
     $(menuItems[1]).addClass('active');
