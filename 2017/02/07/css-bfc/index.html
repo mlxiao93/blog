@@ -33,17 +33,17 @@
 <link rel="canonical" href="mlxiao.com/2017/02/07/css-bfc/"/>
 
 
-<meta name="description" content="BFC是什么，block formatting context，翻译下来就是块级格式化上下文，那么它到底是什么?新建一个html，在body下写一个div，div里写一个p标签，p标签内写上大名鼎鼎的”Hello world”，然后给div加上一个背景色，然后神奇的事情发生了：去掉body的默认margin后，背景色居然没有从顶部开始，其实这个问题就可以用BFC来解决">
+<meta name="description" content="BFC是什么，block formatting context，翻译下来就是块级格式化上下文，那么它到底是什么?新建一个html，在body下写一个div，div里写一个p标签，p标签内写上大名鼎鼎的”Hello world”，然后给div加上一个背景色，然后神奇的事情发生了：">
 <meta property="og:type" content="article">
 <meta property="og:title" content="css之BFC">
 <meta property="og:url" content="mlxiao.com/2017/02/07/css-bfc/index.html">
 <meta property="og:site_name" content="m.l 's blog">
-<meta property="og:description" content="BFC是什么，block formatting context，翻译下来就是块级格式化上下文，那么它到底是什么?新建一个html，在body下写一个div，div里写一个p标签，p标签内写上大名鼎鼎的”Hello world”，然后给div加上一个背景色，然后神奇的事情发生了：去掉body的默认margin后，背景色居然没有从顶部开始，其实这个问题就可以用BFC来解决">
+<meta property="og:description" content="BFC是什么，block formatting context，翻译下来就是块级格式化上下文，那么它到底是什么?新建一个html，在body下写一个div，div里写一个p标签，p标签内写上大名鼎鼎的”Hello world”，然后给div加上一个背景色，然后神奇的事情发生了：">
 <meta property="og:image" content="http://o86lf0oxm.bkt.clouddn.com/blog-css-bfc-01.png">
-<meta property="og:updated_time" content="2017-02-07T10:12:52.924Z">
+<meta property="og:updated_time" content="2017-02-07T11:42:06.810Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="css之BFC">
-<meta name="twitter:description" content="BFC是什么，block formatting context，翻译下来就是块级格式化上下文，那么它到底是什么?新建一个html，在body下写一个div，div里写一个p标签，p标签内写上大名鼎鼎的”Hello world”，然后给div加上一个背景色，然后神奇的事情发生了：去掉body的默认margin后，背景色居然没有从顶部开始，其实这个问题就可以用BFC来解决">
+<meta name="twitter:description" content="BFC是什么，block formatting context，翻译下来就是块级格式化上下文，那么它到底是什么?新建一个html，在body下写一个div，div里写一个p标签，p标签内写上大名鼎鼎的”Hello world”，然后给div加上一个背景色，然后神奇的事情发生了：">
 <meta name="twitter:image" content="http://o86lf0oxm.bkt.clouddn.com/blog-css-bfc-01.png">
 
 
@@ -199,8 +199,9 @@
 
     <div class="post-content">
       
-        <p>BFC是什么，block formatting context，翻译下来就是块级格式化上下文，那么它到底是什么?<br>新建一个html，在body下写一个div，div里写一个p标签，p标签内写上大名鼎鼎的”Hello world”，然后给div加上一个背景色，然后神奇的事情发生了：<br><img src="http://o86lf0oxm.bkt.clouddn.com/blog-css-bfc-01.png" alt="demo"><br>去掉body的默认margin后，背景色居然没有从顶部开始，其实这个问题就可以用BFC来解决</p>
+        <p>BFC是什么，block formatting context，翻译下来就是块级格式化上下文，那么它到底是什么?<br>新建一个html，在body下写一个div，div里写一个p标签，p标签内写上大名鼎鼎的”Hello world”，然后给div加上一个背景色，然后神奇的事情发生了：</p>
 <a id="more"></a>
+<p><img src="http://o86lf0oxm.bkt.clouddn.com/blog-css-bfc-01.png" alt="demo"><br>去掉body的默认margin后，背景色居然没有从顶部开始，其实这个问题就可以用BFC来解决</p>
 <h2 id="官方解释：BFC"><a href="#官方解释：BFC" class="headerlink" title="官方解释：BFC"></a>官方解释：<a href="https://www.w3.org/TR/CSS2/visuren.html#block-formatting" target="_blank" rel="external">BFC</a></h2><p>个人理解：（参考<a href="http://www.html-js.com/article/1866" target="_blank" rel="external">这篇博文</a>）<br>1 在一个BFC中，盒子从包含块的顶端开始垂直地一个接一个地排列，两个盒子之间的垂直的间隙是由他们的margin 值所决定的。两个相邻的块级盒子的垂直外边距会发生重叠。<br>2 在BFC中，每一个盒子的margin会触碰到容器的border<br><small><em>注：盒子可以理解为一个块级元素</em></small></p>
 <h2 id="BFC创建条件"><a href="#BFC创建条件" class="headerlink" title="BFC创建条件"></a><a href="https://developer.mozilla.org/zh-CN/docs/Web/Guide/CSS/Block_formatting_context" target="_blank" rel="external">BFC创建条件</a></h2><p><small><em>摘抄自MDN：</em></small></p>
 <blockquote>
@@ -234,9 +235,15 @@
         
   <nav class="post-nav">
     
+      <a class="prev" href="/2017/02/07/css-flex/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">css3 flex</span>
+        <span class="prev-text nav-mobile">Prev</span>
+      </a>
     
-      <a class="next" href="/2017/02/06/webpack/">
-        <span class="next-text nav-default">使用webpack构建项目</span>
+    
+      <a class="next" href="/2017/02/05/debounce-and-throttle/">
+        <span class="next-text nav-default">debounce和throttle函数</span>
         <span class="prev-text nav-mobile">Next</span>
         <i class="iconfont icon-right"></i>
       </a>

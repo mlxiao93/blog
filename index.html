@@ -174,6 +174,80 @@
     <header class="post-header">
       <h1 class="post-title">
         
+          <a class="post-link" href="/2017/02/08/webpack/">使用webpack构建项目</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          Feb 8, 2017
+        </span>
+      </div>
+    </header>
+
+    
+
+    <div class="post-content">
+      
+        
+          
+        
+
+        
+          <p>此文基于<a href="https://webpack.js.org/">webpack2</a>，做为个人稳定使用的一套webpack配置，记录下来，以供参考。<br><small><em><a href="https://github.com/mlxiao93/webpack-demo">查看源码</a></em></small></p>
+          <div class="read-more">
+            <a href="/2017/02/08/webpack/" class="read-more-link">Read more..</a>
+          </div>
+        
+      
+    </div>
+
+    
+  </article>
+
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/2017/02/07/css-flex/">css3 flex</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          Feb 7, 2017
+        </span>
+      </div>
+    </header>
+
+    
+
+    <div class="post-content">
+      
+        
+          
+        
+
+        
+          <p>flex作为css3引入的一种布局方式，简化了前端开发。现阶段移动端已经可以放心使用了，pc端不考虑老旧IE的话也是个最好的选择</p>
+          <div class="read-more">
+            <a href="/2017/02/07/css-flex/" class="read-more-link">Read more..</a>
+          </div>
+        
+      
+    </div>
+
+    
+  </article>
+
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
           <a class="post-link" href="/2017/02/07/css-bfc/">css之BFC</a>
         
       </h1>
@@ -194,46 +268,9 @@
         
 
         
-          <p>BFC是什么，block formatting context，翻译下来就是块级格式化上下文，那么它到底是什么?<br>新建一个html，在body下写一个div，div里写一个p标签，p标签内写上大名鼎鼎的”Hello world”，然后给div加上一个背景色，然后神奇的事情发生了：<br><img src="http://o86lf0oxm.bkt.clouddn.com/blog-css-bfc-01.png" alt="demo"><br>去掉body的默认margin后，背景色居然没有从顶部开始，其实这个问题就可以用BFC来解决</p>
+          <p>BFC是什么，block formatting context，翻译下来就是块级格式化上下文，那么它到底是什么?<br>新建一个html，在body下写一个div，div里写一个p标签，p标签内写上大名鼎鼎的”Hello world”，然后给div加上一个背景色，然后神奇的事情发生了：</p>
           <div class="read-more">
             <a href="/2017/02/07/css-bfc/" class="read-more-link">Read more..</a>
-          </div>
-        
-      
-    </div>
-
-    
-  </article>
-
-    
-      
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/2017/02/06/webpack/">使用webpack构建项目</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          Feb 6, 2017
-        </span>
-      </div>
-    </header>
-
-    
-
-    <div class="post-content">
-      
-        
-          
-        
-
-        
-          <p>此文基于<a href="https://webpack.js.org/">webpack2</a>，做为个人稳定使用的一套webpack配置，记录下来，以供参考。<br><small><em><a href="https://github.com/mlxiao93/webpack-demo">查看源码</a></em></small></p>
-          <div class="read-more">
-            <a href="/2017/02/06/webpack/" class="read-more-link">Read more..</a>
           </div>
         
       
@@ -348,6 +385,43 @@
 <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Sup</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">this</span>.foo = &#123;<span class="attr">name</span>: <span class="string">'hello'</span>&#125;;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Sub</span>(<span class="params"></span>) </span>&#123;&#125;;</div><div class="line">Sub.prototype = <span class="keyword">new</span> Sup();</div><div class="line"></div><div class="line"><span class="comment">/* ---test--- */</span></div><div class="line"><span class="keyword">var</span> sub = <span class="keyword">new</span> Sub();</div><div class="line"><span class="built_in">console</span>.log(sub.foo.name);    <span class="comment">//hello</span></div></pre></td></tr></table></figure>
           <div class="read-more">
             <a href="/2017/02/04/js-extend/" class="read-more-link">Read more..</a>
+          </div>
+        
+      
+    </div>
+
+    
+  </article>
+
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/2017/02/04/browser-compatibility/">浏览器兼容性问题</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          Feb 4, 2017
+        </span>
+      </div>
+    </header>
+
+    
+
+    <div class="post-content">
+      
+        
+          
+        
+
+        
+          <p>兼容性问题大多针对IE系列，此文收集各种网上和身边遇到的兼容性问题及其解决方案，长期更新</p>
+          <div class="read-more">
+            <a href="/2017/02/04/browser-compatibility/" class="read-more-link">Read more..</a>
           </div>
         
       

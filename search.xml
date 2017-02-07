@@ -4,34 +4,8 @@
   
     
     <entry>
-      <title><![CDATA[css之BFC]]></title>
-      <url>mlxiao.com/2017/02/07/css-bfc/</url>
-      <content type="html"><![CDATA[<p>BFC是什么，block formatting context，翻译下来就是块级格式化上下文，那么它到底是什么?<br>新建一个html，在body下写一个div，div里写一个p标签，p标签内写上大名鼎鼎的”Hello world”，然后给div加上一个背景色，然后神奇的事情发生了：<br><img src="http://o86lf0oxm.bkt.clouddn.com/blog-css-bfc-01.png" alt="demo"><br>去掉body的默认margin后，背景色居然没有从顶部开始，其实这个问题就可以用BFC来解决</p>
-<a id="more"></a>
-<h2 id="官方解释：BFC"><a href="#官方解释：BFC" class="headerlink" title="官方解释：BFC"></a>官方解释：<a href="https://www.w3.org/TR/CSS2/visuren.html#block-formatting" target="_blank" rel="external">BFC</a></h2><p>个人理解：（参考<a href="http://www.html-js.com/article/1866" target="_blank" rel="external">这篇博文</a>）<br>1 在一个BFC中，盒子从包含块的顶端开始垂直地一个接一个地排列，两个盒子之间的垂直的间隙是由他们的margin 值所决定的。两个相邻的块级盒子的垂直外边距会发生重叠。<br>2 在BFC中，每一个盒子的margin会触碰到容器的border<br><small><em>注：盒子可以理解为一个块级元素</em></small></p>
-<h2 id="BFC创建条件"><a href="#BFC创建条件" class="headerlink" title="BFC创建条件"></a><a href="https://developer.mozilla.org/zh-CN/docs/Web/Guide/CSS/Block_formatting_context" target="_blank" rel="external">BFC创建条件</a></h2><p><small><em>摘抄自MDN：</em></small></p>
-<blockquote>
-<p>块格式化上下文（block formatting context） 是Web页面的可视CSS渲染的一部分。它是块盒子的布局发生及浮动体彼此交互的区域。<br>块格式化上下文由以下之一创建：</p>
-<ul>
-<li>根元素或其它包含它的元素</li>
-<li>浮动 (元素的 float 不是 none)</li>
-<li>绝对定位的元素 (元素具有 position 为 absolute 或 fixed)</li>
-<li>内联块 inline-blocks (元素具有 display: inline-block)</li>
-<li>表格单元格 (元素具有 display: table-cell，HTML表格单元格默认属性)</li>
-<li>表格标题 (元素具有 display: table-caption, HTML表格标题默认属性)</li>
-<li>块元素 元素具有overflow 值不是 visible</li>
-<li>弹性盒子 flex boxes (元素具有display: flex 或 inline-flex)</li>
-<li>display: flow-root</li>
-</ul>
-</blockquote>
-<h2 id="margin重叠问题"><a href="#margin重叠问题" class="headerlink" title="margin重叠问题"></a><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Box_Model/Mastering_margin_collapsing" target="_blank" rel="external">margin重叠问题</a></h2><p>块级父元素的margin会和第一(最后)一个块级子元素的margin发生重叠</p>
-<p>这个问题其实就是本文开头提出的问题：p标签默认有一个margin值，和包裹p标签的div标签的margin发生重叠，使div也有了一个margin值。解决这个问题的办法就是使用上述<a href="#BFC创建条件">BFC创建条件</a>中的任意一种方法使div形成一个BFC就行了。(可以给div设一个”overflow: auto”)</p>
-]]></content>
-    </entry>
-    
-    <entry>
       <title><![CDATA[使用webpack构建项目]]></title>
-      <url>mlxiao.com/2017/02/06/webpack/</url>
+      <url>mlxiao.com/2017/02/08/webpack/</url>
       <content type="html"><![CDATA[<p>此文基于<a href="https://webpack.js.org/" target="_blank" rel="external">webpack2</a>，做为个人稳定使用的一套webpack配置，记录下来，以供参考。<br><small><em><a href="https://github.com/mlxiao93/webpack-demo" target="_blank" rel="external">查看源码</a></em></small></p>
 <a id="more"></a>
 <h2 id="webpack概念"><a href="#webpack概念" class="headerlink" title="webpack概念"></a>webpack概念</h2><p>webpack是一个模块化打包工具，使用js作为载体将所有静态资源打包在一起，支持的loader和plugin等能对各种静态资源进行预处理，极大地方便了前端的工程化开发。详情参考<a href="https://webpack.js.org/" target="_blank" rel="external">官网</a>，此处放张官网概念图：</p>
@@ -157,6 +131,78 @@
     </entry>
     
     <entry>
+      <title><![CDATA[css3 flex]]></title>
+      <url>mlxiao.com/2017/02/07/css-flex/</url>
+      <content type="html"><![CDATA[<p>flex作为css3引入的一种布局方式，简化了前端开发。现阶段移动端已经可以放心使用了，pc端不考虑老旧IE的话也是个最好的选择</p>
+<a id="more"></a>
+<h2 id="兼容性"><a href="#兼容性" class="headerlink" title="兼容性"></a>兼容性</h2><p><a href="http://caniuse.com/" target="_blank" rel="external">can i use</a><br><img src="http://o86lf0oxm.bkt.clouddn.com/blog-css-flex-01.png" alt="compatibility"></p>
+<p>实际上可以通过特定语法-ms-flexbox，使IE10及以上兼容</p>
+<h2 id="基础概念"><a href="#基础概念" class="headerlink" title="基础概念"></a>基础概念</h2><p>任何一个元素都能通过:<code>display: flex</code>指定为flex box，flex box的直接子元素则变成flex item</p>
+<h3 id="flex-box-属性"><a href="#flex-box-属性" class="headerlink" title="flex box 属性"></a>flex box 属性</h3><ul>
+<li><p><code>flex-direction: row | row-reverse | column | column-reverse;</code><br>指定flex item的排列方向</p>
+</li>
+<li><p><code>flex-wrap: nowrap | wrap | wrap-reverse;</code><br>flex item是否换行以及换行的方式</p>
+</li>
+<li><p><code>flex-flow: {flex-direction} {flex-wrap};</code><br>flex-direction和flex-wrap的合并写法，例如：<code>flex-flow: row nowrap</code></p>
+</li>
+<li><p><code>justify-content: flex-start | flex-end | center | space-between | space-around;</code><br>指定flex item在flex-direction方向上的对齐方式</p>
+</li>
+<li><p><code>align-items: flex-start | flex-end | center | baseline | stretch;</code><br>指定flex item在垂直于flex-direction方向上的对齐方式</p>
+</li>
+<li><p><code>align-content: align-content: flex-start | flex-end | center | space-between | space-around | stretch;</code><br>如果flex item发生换行，该属性可以指定各行之间的对齐方式</p>
+</li>
+</ul>
+<h3 id="flex-item-属性"><a href="#flex-item-属性" class="headerlink" title="flex item 属性"></a>flex item 属性</h3><ul>
+<li><p><code>order: {number=0}</code><br>指定flex item的排列权值，值越小，排列越靠前</p>
+</li>
+<li><p><code>flex-grow: {number=0}</code><br>flex box在flex-direction方向上有剩余空间时，指定flex item的放大权值</p>
+</li>
+<li><p><code>flex-shrink: {number=1};</code><br>flex box在flex-direction方向上空间不足时，指定flex item的缩小权值</p>
+</li>
+<li><p><code>flex-basis: {length=auto}  /* length和width或height类似 */</code><br>flex box在flex-direction方向上有剩余空间时，指定flex item占据的固定空间</p>
+</li>
+<li><p><code>flex: {flex-grow} {flex-shrink} {flex-basis}</code><br>flex-grow、flex-shrink、flex-basis的合并写法，该属性有两个快捷值：auto(1 1 auto)和none(0 0 auto)</p>
+</li>
+<li><p><code>align-self: auto | flex-start | flex-end | center | baseline | stretch;</code><br>可覆盖flex box的align-items属性，效果也一样，只不过只作用于当前flex item</p>
+</li>
+</ul>
+<h2 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h2><h3 id="居中对齐"><a href="#居中对齐" class="headerlink" title="居中对齐"></a>居中对齐</h3><p></p><p data-height="265" data-theme-id="0" data-slug-hash="rjrbQe" data-default-tab="css,result" data-user="mlxiao93" data-embed-version="2" data-pen-title="h-v-center" class="codepen">See the Pen <a href="http://codepen.io/mlxiao93/pen/rjrbQe/" target="_blank" rel="external">h-v-center</a> by mlxiao93 (<a href="http://codepen.io/mlxiao93" target="_blank" rel="external">@mlxiao93</a>) on <a href="http://codepen.io" target="_blank" rel="external">CodePen</a>.</p><p></p>
+<script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+
+<h3 id="经典三栏布局"><a href="#经典三栏布局" class="headerlink" title="经典三栏布局"></a>经典三栏布局</h3><p>两侧定宽，中间自适应</p>
+<p></p><p data-height="265" data-theme-id="0" data-slug-hash="LxBoWm" data-default-tab="css,result" data-user="mlxiao93" data-embed-version="2" data-pen-title="LxBoWm" class="codepen">See the Pen <a href="http://codepen.io/mlxiao93/pen/LxBoWm/" target="_blank" rel="external">LxBoWm</a> by mlxiao93 (<a href="http://codepen.io/mlxiao93" target="_blank" rel="external">@mlxiao93</a>) on <a href="http://codepen.io" target="_blank" rel="external">CodePen</a>.</p><p></p>
+<script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[css之BFC]]></title>
+      <url>mlxiao.com/2017/02/07/css-bfc/</url>
+      <content type="html"><![CDATA[<p>BFC是什么，block formatting context，翻译下来就是块级格式化上下文，那么它到底是什么?<br>新建一个html，在body下写一个div，div里写一个p标签，p标签内写上大名鼎鼎的”Hello world”，然后给div加上一个背景色，然后神奇的事情发生了：</p>
+<a id="more"></a>
+<p><img src="http://o86lf0oxm.bkt.clouddn.com/blog-css-bfc-01.png" alt="demo"><br>去掉body的默认margin后，背景色居然没有从顶部开始，其实这个问题就可以用BFC来解决</p>
+<h2 id="官方解释：BFC"><a href="#官方解释：BFC" class="headerlink" title="官方解释：BFC"></a>官方解释：<a href="https://www.w3.org/TR/CSS2/visuren.html#block-formatting" target="_blank" rel="external">BFC</a></h2><p>个人理解：（参考<a href="http://www.html-js.com/article/1866" target="_blank" rel="external">这篇博文</a>）<br>1 在一个BFC中，盒子从包含块的顶端开始垂直地一个接一个地排列，两个盒子之间的垂直的间隙是由他们的margin 值所决定的。两个相邻的块级盒子的垂直外边距会发生重叠。<br>2 在BFC中，每一个盒子的margin会触碰到容器的border<br><small><em>注：盒子可以理解为一个块级元素</em></small></p>
+<h2 id="BFC创建条件"><a href="#BFC创建条件" class="headerlink" title="BFC创建条件"></a><a href="https://developer.mozilla.org/zh-CN/docs/Web/Guide/CSS/Block_formatting_context" target="_blank" rel="external">BFC创建条件</a></h2><p><small><em>摘抄自MDN：</em></small></p>
+<blockquote>
+<p>块格式化上下文（block formatting context） 是Web页面的可视CSS渲染的一部分。它是块盒子的布局发生及浮动体彼此交互的区域。<br>块格式化上下文由以下之一创建：</p>
+<ul>
+<li>根元素或其它包含它的元素</li>
+<li>浮动 (元素的 float 不是 none)</li>
+<li>绝对定位的元素 (元素具有 position 为 absolute 或 fixed)</li>
+<li>内联块 inline-blocks (元素具有 display: inline-block)</li>
+<li>表格单元格 (元素具有 display: table-cell，HTML表格单元格默认属性)</li>
+<li>表格标题 (元素具有 display: table-caption, HTML表格标题默认属性)</li>
+<li>块元素 元素具有overflow 值不是 visible</li>
+<li>弹性盒子 flex boxes (元素具有display: flex 或 inline-flex)</li>
+<li>display: flow-root</li>
+</ul>
+</blockquote>
+<h2 id="margin重叠问题"><a href="#margin重叠问题" class="headerlink" title="margin重叠问题"></a><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Box_Model/Mastering_margin_collapsing" target="_blank" rel="external">margin重叠问题</a></h2><p>块级父元素的margin会和第一(最后)一个块级子元素的margin发生重叠</p>
+<p>这个问题其实就是本文开头提出的问题：p标签默认有一个margin值，和包裹p标签的div标签的margin发生重叠，使div也有了一个margin值。解决这个问题的办法就是使用上述<a href="#BFC创建条件">BFC创建条件</a>中的任意一种方法使div形成一个BFC就行了。(可以给div设一个”overflow: auto”)</p>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[debounce和throttle函数]]></title>
       <url>mlxiao.com/2017/02/05/debounce-and-throttle/</url>
       <content type="html"><![CDATA[<p>前端开发中某些dom事件的触发频率非常高，有时候监听这些事件的函数并不需要那么高的执行频率，此时就得用上这两个函数</p>
@@ -208,6 +254,28 @@
 </ol>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Sup</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">this</span>.foo = &#123;<span class="attr">name</span>: <span class="string">'hello'</span>&#125;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Sub</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  Sup.apply(<span class="keyword">this</span>, <span class="built_in">arguments</span>);   <span class="comment">// step 1</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// step 2</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Temp</span>(<span class="params"></span>) </span>&#123;&#125;</div><div class="line">Temp.prototype = Sup.prototype;</div><div class="line"><span class="keyword">let</span> temp = <span class="keyword">new</span> Temp();</div><div class="line"></div><div class="line">temp.constructor = Sub;  <span class="comment">// step 3</span></div><div class="line"></div><div class="line">Sub.prototype = temp;  <span class="comment">// step 4</span></div></pre></td></tr></table></figure>
 <h2 id="ES6继承"><a href="#ES6继承" class="headerlink" title="ES6继承"></a>ES6继承</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Sup</span> </span>&#123;&#125;</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Sub</span> <span class="keyword">extends</span> <span class="title">Sup</span> </span>&#123;&#125;</div></pre></td></tr></table></figure>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[浏览器兼容性问题]]></title>
+      <url>mlxiao.com/2017/02/04/browser-compatibility/</url>
+      <content type="html"><![CDATA[<p>兼容性问题大多针对IE系列，此文收集各种网上和身边遇到的兼容性问题及其解决方案，长期更新</p>
+<a id="more"></a>
+<p><strong>IE6不支持png背景透明</strong><br><em>解决方案：</em><a href="http://www.zhangxinxu.com/wordpress/2009/08/ie6%E4%B8%8Bpng%E8%83%8C%E6%99%AF%E4%B8%8D%E9%80%8F%E6%98%8E%E9%97%AE%E9%A2%98%E7%9A%84%E7%BB%BC%E5%90%88%E6%8B%93%E5%B1%95/" target="_blank" rel="external">@张鑫旭博客</a></p>
+<ul>
+<li><p>使用滤镜</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.target</span> &#123;<span class="attribute">background</span>:<span class="built_in">url</span>(path/to/image);&#125;</div><div class="line">*<span class="selector-tag">html</span> <span class="selector-class">.target</span> &#123;<span class="attribute">background</span>:none; <span class="attribute">filter</span>:progid:DXImageTransform.Microsoft.<span class="built_in">AlphaImageLoader</span>(src=<span class="string">'path/to/image'</span>);&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>使用jquery插件<a href="https://github.com/johnantoni/jquery.pngfix" target="_blank" rel="external">jquery.pngFix.pack.js</a></p>
+</li>
+</ul>
+<hr>
+<p><strong>IE6双边距</strong><br>在IE6下，如果对元素设置了浮动，同时又设置了margin-left或margin-right，margin值会加倍。<br><em>解决方案：</em>在float的标签样式控制中加入 _display:inline; 将其转化为行内属性。( _ 这个符号只有ie6会识别)</p>
+<hr>
+<p><strong>渐进识别的方式，从总体中逐渐排除局部</strong><br>首先，巧妙的使用“\9”这一标记，将IE游览器从所有情况中分离出来。<br>接着，再次使用 “+” 将IE8和IE7、IE6分离开来，这样IE8已经独立识别。<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">.target &#123;</div><div class="line">  background-color:#f1ee18; /*所有识别*/</div><div class="line">  .background-color:#00deff\9; /*IE6、7、8识别*/</div><div class="line">  +background-color:#a200ff; /*IE6、7识别*/</div><div class="line">  _background-color:#1e0bd1; /*IE6识别*/</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<hr>
+<p><strong>Chrome 中文界面下默认会将小于 12px 的文本强制按照 12px 显示</strong><br><em>解决方案：</em> <code>-webkit-text-size-adjust: none;</code></p>
 ]]></content>
     </entry>
     

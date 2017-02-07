@@ -11,10 +11,12 @@
 
 
 
-  <meta name="description" content="javascript css html blog 开发 前端"/>
+  <meta name="description" content="浏览器兼容性问题"/>
 
 
 
+
+  <meta name="keywords" content="html css js," />
 
 
 
@@ -28,18 +30,19 @@
 
 
 
-<link rel="canonical" href="mlxiao.com/archives/2017/02/"/>
+<link rel="canonical" href="mlxiao.com/2017/02/04/browser-compatibility/"/>
 
 
-<meta name="description" content="javascript css html blog 开发 前端">
-<meta property="og:type" content="website">
-<meta property="og:title" content="m.l 's blog">
-<meta property="og:url" content="mlxiao.com/archives/2017/02/index.html">
+<meta name="description" content="兼容性问题大多针对IE系列，此文收集各种网上和身边遇到的兼容性问题及其解决方案，长期更新">
+<meta property="og:type" content="article">
+<meta property="og:title" content="浏览器兼容性问题">
+<meta property="og:url" content="mlxiao.com/2017/02/04/browser-compatibility/index.html">
 <meta property="og:site_name" content="m.l 's blog">
-<meta property="og:description" content="javascript css html blog 开发 前端">
+<meta property="og:description" content="兼容性问题大多针对IE系列，此文收集各种网上和身边遇到的兼容性问题及其解决方案，长期更新">
+<meta property="og:updated_time" content="2017-02-07T11:40:42.226Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="m.l 's blog">
-<meta name="twitter:description" content="javascript css html blog 开发 前端">
+<meta name="twitter:title" content="浏览器兼容性问题">
+<meta name="twitter:description" content="兼容性问题大多针对IE系列，此文收集各种网上和身边遇到的兼容性问题及其解决方案，长期更新">
 
 
 <link rel="stylesheet" type="text/css" href="/css/style.css?v=2.1.x" />
@@ -55,11 +58,7 @@
 
 
 
-    <title>
-  
-    Archives · m.l 's blog
-  
-</title>
+    <title> 浏览器兼容性问题 · m.l 's blog </title>
   </head>
 
   <body>
@@ -172,176 +171,80 @@
           <div id="content" class="content">
             
   
-  <section id="archive" class="archive">
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          浏览器兼容性问题
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          Feb 4, 2017
+        </span>
+      </div>
+    </header>
+
     
+
+    <div class="post-content">
       
-        <div class="archive-title">
-          <h2 class="archive-name"> All </h2>
-          <span class="archive-post-counter">
-            7 Posts In Total
-          </span>
+        <p>兼容性问题大多针对IE系列，此文收集各种网上和身边遇到的兼容性问题及其解决方案，长期更新</p>
+<a id="more"></a>
+<p><strong>IE6不支持png背景透明</strong><br><em>解决方案：</em><a href="http://www.zhangxinxu.com/wordpress/2009/08/ie6%E4%B8%8Bpng%E8%83%8C%E6%99%AF%E4%B8%8D%E9%80%8F%E6%98%8E%E9%97%AE%E9%A2%98%E7%9A%84%E7%BB%BC%E5%90%88%E6%8B%93%E5%B1%95/" target="_blank" rel="external">@张鑫旭博客</a></p>
+<ul>
+<li><p>使用滤镜</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.target</span> &#123;<span class="attribute">background</span>:<span class="built_in">url</span>(path/to/image);&#125;</div><div class="line">*<span class="selector-tag">html</span> <span class="selector-class">.target</span> &#123;<span class="attribute">background</span>:none; <span class="attribute">filter</span>:progid:DXImageTransform.Microsoft.<span class="built_in">AlphaImageLoader</span>(src=<span class="string">'path/to/image'</span>);&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>使用jquery插件<a href="https://github.com/johnantoni/jquery.pngfix" target="_blank" rel="external">jquery.pngFix.pack.js</a></p>
+</li>
+</ul>
+<hr>
+<p><strong>IE6双边距</strong><br>在IE6下，如果对元素设置了浮动，同时又设置了margin-left或margin-right，margin值会加倍。<br><em>解决方案：</em>在float的标签样式控制中加入 _display:inline; 将其转化为行内属性。( _ 这个符号只有ie6会识别)</p>
+<hr>
+<p><strong>渐进识别的方式，从总体中逐渐排除局部</strong><br>首先，巧妙的使用“\9”这一标记，将IE游览器从所有情况中分离出来。<br>接着，再次使用 “+” 将IE8和IE7、IE6分离开来，这样IE8已经独立识别。<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">.target &#123;</div><div class="line">  background-color:#f1ee18; /*所有识别*/</div><div class="line">  .background-color:#00deff\9; /*IE6、7、8识别*/</div><div class="line">  +background-color:#a200ff; /*IE6、7识别*/</div><div class="line">  _background-color:#1e0bd1; /*IE6识别*/</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<hr>
+<p><strong>Chrome 中文界面下默认会将小于 12px 的文本强制按照 12px 显示</strong><br><em>解决方案：</em> <code>-webkit-text-size-adjust: none;</code></p>
+
+      
+    </div>
+
+    
+      <footer class="post-footer">
+        <div class="post-tags">
+          
+            <a href="/tags/html-css-js/">html css js</a>
+          
         </div>
-      
-    
-
-    
-      
-        
-        
 
         
-          
-          <div class="collection-title">
-            <h2 class="archive-year">2017</h2>
-          </div>
-        
-      
-      
-      <div class="archive-post">
-        <span class="archive-post-time">
-          
-            02-08
-          
-        </span>
-        <span class="archive-post-title">
-          <a href="/2017/02/08/webpack/" class="archive-post-link">
-            使用webpack构建项目
-          </a>
-        </span>
-      </div>
+  <nav class="post-nav">
     
-      
-        
-        
-
-        
-      
-      
-      <div class="archive-post">
-        <span class="archive-post-time">
-          
-            02-07
-          
-        </span>
-        <span class="archive-post-title">
-          <a href="/2017/02/07/css-flex/" class="archive-post-link">
-            css3 flex
-          </a>
-        </span>
-      </div>
-    
-      
-        
-        
-
-        
-      
-      
-      <div class="archive-post">
-        <span class="archive-post-time">
-          
-            02-07
-          
-        </span>
-        <span class="archive-post-title">
-          <a href="/2017/02/07/css-bfc/" class="archive-post-link">
-            css之BFC
-          </a>
-        </span>
-      </div>
-    
-      
-        
-        
-
-        
-      
-      
-      <div class="archive-post">
-        <span class="archive-post-time">
-          
-            02-05
-          
-        </span>
-        <span class="archive-post-title">
-          <a href="/2017/02/05/debounce-and-throttle/" class="archive-post-link">
-            debounce和throttle函数
-          </a>
-        </span>
-      </div>
-    
-      
-        
-        
-
-        
-      
-      
-      <div class="archive-post">
-        <span class="archive-post-time">
-          
-            02-05
-          
-        </span>
-        <span class="archive-post-title">
-          <a href="/2017/02/05/lazy-man/" class="archive-post-link">
-            实现LazyMan
-          </a>
-        </span>
-      </div>
-    
-      
-        
-        
-
-        
-      
-      
-      <div class="archive-post">
-        <span class="archive-post-time">
-          
-            02-04
-          
-        </span>
-        <span class="archive-post-title">
-          <a href="/2017/02/04/js-extend/" class="archive-post-link">
-            JS实现继承
-          </a>
-        </span>
-      </div>
-    
-      
-        
-        
-
-        
-      
-      
-      <div class="archive-post">
-        <span class="archive-post-time">
-          
-            02-04
-          
-        </span>
-        <span class="archive-post-title">
-          <a href="/2017/02/04/browser-compatibility/" class="archive-post-link">
-            浏览器兼容性问题
-          </a>
-        </span>
-      </div>
-    
-  </section>
-
-  
-  <nav class="pagination">
+      <a class="prev" href="/2017/02/04/js-extend/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">JS实现继承</span>
+        <span class="prev-text nav-mobile">Prev</span>
+      </a>
     
     
   </nav>
 
+      </footer>
+    
+  </article>
 
 
           </div>
           
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/02/04/browser-compatibility/"
+           data-title="浏览器兼容性问题" data-url="mlxiao.com/2017/02/04/browser-compatibility/">
+      </div>
+    
+  </div>
+
 
         </div>  
       </main>
