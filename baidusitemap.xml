@@ -3,7 +3,6 @@
 
 
     
-    
   <url>
     <loc>http://mlxiao.com/2017/02/04/browser-compatibility/</loc>
     <lastmod>2017-02-07T15:35:00.000Z</lastmod>
@@ -12,9 +11,9 @@
         <title>浏览器兼容性问题</title>
         <pubTime>2017-02-04T00:30:22.000Z</pubTime>
         
-        <tag>css</tag>
-         
         <tag>html</tag>
+         
+        <tag>css</tag>
          
         <tag>js</tag>
          
