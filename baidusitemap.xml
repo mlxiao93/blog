@@ -3,6 +3,7 @@
 
 
     
+    
   <url>
     <loc>http://mlxiao.com/2017/02/04/browser-compatibility/</loc>
     <lastmod>2017-02-07T15:35:00.000Z</lastmod>
@@ -25,12 +26,12 @@
 
     
   <url>
-    <loc>http://mlxiao.com/2017/02/07/css-flex/</loc>
+    <loc>http://mlxiao.com/2017/02/07/css-bfc/</loc>
     <lastmod>2017-02-07T15:25:21.000Z</lastmod>
     <data>
         <display>
-        <title>css3 flex</title>
-        <pubTime>2017-02-07T12:05:11.000Z</pubTime>
+        <title>css之BFC</title>
+        <pubTime>2017-02-07T08:10:33.000Z</pubTime>
         
         <tag>css</tag>
          
@@ -42,12 +43,12 @@
 
     
   <url>
-    <loc>http://mlxiao.com/2017/02/07/css-bfc/</loc>
+    <loc>http://mlxiao.com/2017/02/07/css-flex/</loc>
     <lastmod>2017-02-07T15:25:21.000Z</lastmod>
     <data>
         <display>
-        <title>css之BFC</title>
-        <pubTime>2017-02-07T08:10:33.000Z</pubTime>
+        <title>css3 flex</title>
+        <pubTime>2017-02-07T12:05:11.000Z</pubTime>
         
         <tag>css</tag>
          
