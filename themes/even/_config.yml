@@ -5,6 +5,9 @@
 # Site creation time
 since: 2017
 
+description:  前端 javascript es6 css html
+url: http://mlxiao.com
+
 # Custom your favicon.ico in `site/source`
 favicon: /favicon.ico
 
@@ -68,3 +71,8 @@ duoshuo_shortname: mlxiao
 # Version
 # ===========================================
 version: 2.1.x
+
+sitemap:
+  path: sitemap.xml
+baidusitemap:
+  path: baidusitemap.xml
