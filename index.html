@@ -174,6 +174,43 @@
     <header class="post-header">
       <h1 class="post-title">
         
+          <a class="post-link" href="/2017/02/07/css-bfc/">css之BFC</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          Feb 7, 2017
+        </span>
+      </div>
+    </header>
+
+    
+
+    <div class="post-content">
+      
+        
+          
+        
+
+        
+          <p>BFC是什么，block formatting context，翻译下来就是块级格式化上下文，那么它到底是什么?<br>新建一个html，在body下写一个div，div里写一个p标签，p标签内写上大名鼎鼎的”Hello world”，然后给div加上一个背景色，然后神奇的事情发生了：<br><img src="http://o86lf0oxm.bkt.clouddn.com/blog-css-bfc-01.png" alt="demo"><br>去掉body的默认margin后，背景色居然没有从顶部开始，其实这个问题就可以用BFC来解决</p>
+          <div class="read-more">
+            <a href="/2017/02/07/css-bfc/" class="read-more-link">Read more..</a>
+          </div>
+        
+      
+    </div>
+
+    
+  </article>
+
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
           <a class="post-link" href="/2017/02/06/webpack/">使用webpack构建项目</a>
         
       </h1>
@@ -196,7 +233,7 @@
         
           <p>此文基于<a href="https://webpack.js.org/">webpack2</a>，做为个人稳定使用的一套webpack配置，记录下来，以供参考。<br><small><em><a href="https://github.com/mlxiao93/webpack-demo">查看源码</a></em></small></p>
           <div class="read-more">
-            <a href="/2017/02/06/webpack/" class="read-more-link">Read more...</a>
+            <a href="/2017/02/06/webpack/" class="read-more-link">Read more..</a>
           </div>
         
       
@@ -233,7 +270,7 @@
         
           <p>前端开发中某些dom事件的触发频率非常高，有时候监听这些事件的函数并不需要那么高的执行频率，此时就得用上这两个函数</p>
           <div class="read-more">
-            <a href="/2017/02/05/debounce-and-throttle/" class="read-more-link">Read more...</a>
+            <a href="/2017/02/05/debounce-and-throttle/" class="read-more-link">Read more..</a>
           </div>
         
       
@@ -272,7 +309,7 @@
 <h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">LazyMan(&apos;Hank&apos;)</div><div class="line">//log：Hi, this is Hank</div></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">LazyMan(&apos;Hank&apos;).eat(&apos;super&apos;).eat(&apos;dinner&apos;)</div><div class="line">//log: Hi, this is Hank</div><div class="line">//log: Eat super</div><div class="line">//log: Eat dinner</div></pre></td></tr></table></figure>
           <div class="read-more">
-            <a href="/2017/02/05/lazy-man/" class="read-more-link">Read more...</a>
+            <a href="/2017/02/05/lazy-man/" class="read-more-link">Read more..</a>
           </div>
         
       
@@ -310,7 +347,7 @@
           <h2 id="原型链继承"><a href="#原型链继承" class="headerlink" title="原型链继承"></a>原型链继承</h2><p>子类的原型指向父类的对象</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Sup</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">this</span>.foo = &#123;<span class="attr">name</span>: <span class="string">'hello'</span>&#125;;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Sub</span>(<span class="params"></span>) </span>&#123;&#125;;</div><div class="line">Sub.prototype = <span class="keyword">new</span> Sup();</div><div class="line"></div><div class="line"><span class="comment">/* ---test--- */</span></div><div class="line"><span class="keyword">var</span> sub = <span class="keyword">new</span> Sub();</div><div class="line"><span class="built_in">console</span>.log(sub.foo.name);    <span class="comment">//hello</span></div></pre></td></tr></table></figure>
           <div class="read-more">
-            <a href="/2017/02/04/js-extend/" class="read-more-link">Read more...</a>
+            <a href="/2017/02/04/js-extend/" class="read-more-link">Read more..</a>
           </div>
         
       
