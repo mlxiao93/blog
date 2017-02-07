@@ -7,7 +7,8 @@ tags:
  - 工具
 ---
 
-此文基于[webpack2](https://webpack.js.org/)，做为个人稳定使用的一套webpack配置，记录下来，以供参考
+此文基于[webpack2](https://webpack.js.org/)，做为个人稳定使用的一套webpack配置，记录下来，以供参考。
+<small>*[查看源码](https://github.com/mlxiao93/webpack-demo)*</small>
 
 <!-- more -->
 
@@ -48,14 +49,14 @@ cnpm i -D webpack@beta
     cnpm i -D webpack-merge
     ```
 #### 开始写webpack config
+  <span class="filename">webpack-config/base.js<span>    
   ``` js
-  /** webpack-config/base.js */
   module.exports = {
     //common config
   };
   ```
+  <span class="filename">webpack-config/dev.js, webpack-config/prod.js<span>
   ``` js
-  /** webpack-config/dev.js, webpack-config/prod.js */
   const webpackMerge = require('webpack-merge');
   const base = require('./base');
 
@@ -63,8 +64,8 @@ cnpm i -D webpack@beta
     //specific config
   });
   ```
+  <span class="filename">webpack.config.js<span>
   ``` js
-  /** webpack.config.js */
   const devModule = require('./webpack-config/dev');
   const prodModule = require('./webpack-config/prod');
 
@@ -86,8 +87,8 @@ cnpm i -D webpack@beta
   module.exports = finalModule;
   ```
 #### 编写[npm scripts](http://www.ruanyifeng.com/blog/2016/10/npm_scripts.html)，区分环境
+  <span class="filename">package.json<span>
   ``` json
-  /** package.json */
   {
     "name": "webpack-demo",
     "version": "1.0.0",
@@ -115,8 +116,8 @@ cnpm i -D webpack@beta
   cnpm i -D webpack-dev-server
   ```
 + 配置webpack config
+  <span class="filename">webpack-config/dev.js<span>
   ```
-  /** webpack-config/dev.js */
   ...
   module.exports = webpackMerge(base, {
     entry: process.cwd() + '/src/index.js',
@@ -127,8 +128,8 @@ cnpm i -D webpack@beta
   });
   ```
 + 修改npm scripts
+  <span class="filename">package.json<span>
   ```
-  /** package.json */
   {
    ...
    "scripts": {
@@ -146,8 +147,8 @@ src下放一个favicon.ico作为网站的icon
   cnpm i -D html-webpack-plugin
   ```
 + 配置webpack config
+  <span class="filename">webpack-config/dev.js<span>
   ``` js
-  /** webpack-config/dev.js */
   ...
   const HtmlWebpackPlugin = require('html-webpack-plugin');
   ...
@@ -165,8 +166,8 @@ src下放一个favicon.ico作为网站的icon
   ```
 到这一步算是完成了最基本的开发环境配置，命令行执行`npm run dev`，然后浏览器打开localhost:8080就能看到成果
 将npm scripts中的[start命令](https://docs.npmjs.com/cli/start)指向npm run dev，这样每次开始开发只需要执行`npm start`
+<span class="filename">package.json<span>
 ```
-/** package.json */
 {
   ...
   "scripts": {
@@ -183,19 +184,20 @@ webpack本身只能处理js模块，如果需要处理其他类型的文件，�
 ##### ES6+支持
 ES6+虽然不能直接被浏览器全部识别，但是能用babel转换成ES5代码。
 + 安装babel编译相关依赖
-``` bash
-cnpm i -D babel-core babel-preset-latest babel-preset-stage-2 babel-loader
-```
-+ 新建.babelrc文件并写入:
-```
-/** .babelrc */
-{
-  "presets": ["latest", "stage-2"]
-}
-```
-+ 配置rules
+  ``` bash
+  cnpm i -D babel-core babel-preset-latest babel-preset-stage-2 babel-runtime babel-plugin-transform-runtime babel-loader
   ```
-  /** webpack-config/dev.js */
++ 新建.babelrc文件并写入:
+  <span class="filename">.babelrc<span>
+  ```
+  {
+    "presets": ["latest", "stage-2"],
+    "plugins": ["transform-runtime"]
+  }
+  ```
++ 配置rules
+  <span class="filename">webpack-config/dev.js<span>
+  ```
   module.exports = webpackMerge(base, {
     ...
     module: {
@@ -221,8 +223,8 @@ cnpm i -D babel-core babel-preset-latest babel-preset-stage-2 babel-loader
   cnpm i -D style-loader css-loader postcss-loader autoprefixer node-sass sass-loader
   ```
 + 新建postcss.config.js
+  <span class="filename">postcss.config.js<span>
   ``` js
-  /** postcss.config.js */
   module.exports = {
     plugins: [
       require('autoprefixer')({browsers: ['last 2 versions', 'iOS 7', 'Firefox > 20']})
@@ -230,8 +232,8 @@ cnpm i -D babel-core babel-preset-latest babel-preset-stage-2 babel-loader
   };
   ```
 + 配置rules
+  <span class="filename">webpack-config/dev.js<span>
   ```
-  /** webpack-config/dev.js */
   module.exports = webpackMerge(base, {
     ...
     module: {
@@ -270,8 +272,8 @@ cnpm i -D babel-core babel-preset-latest babel-preset-stage-2 babel-loader
   cnpm i -D html-loader file-loader url-loader
   ```
 + 配置rules
+  <span class="filename">webpack-config/dev.js<span>
   ```
-  /** webpack-config/dev.js */
   module.exports = webpackMerge(base, {
     ...
     module: {
@@ -302,20 +304,22 @@ cnpm i -D babel-core babel-preset-latest babel-preset-stage-2 babel-loader
   ```
 **至此，dev环境配置完成**
 
-### 配置prod环境，并抽出公共部分
+### 配置production环境
+
+#### 抽出公共部分
 + entry可以共用，prod的output需要加上文件chunkhash用来刷新缓存,并将文件输出至dist目录
+  <span class="filename">webpack-config/dev.js<span>
   ``` js
-  /** webpack-config/dev.js */
   - entry: process.cwd() + '/src/index.js',
   ```
+  <span class="filename">webpack-config/base.js<span>
   ``` js
-  /** webpack-config/base.js */
   module.exports = {
     entry: process.cwd() + '/src/index.js',
   };
   ```
+  <span class="filename">webpack-config/prod.js<span>
   ``` js
-  /** webpack-config/prod.js */
   const webpackMerge = require('webpack-merge');
   const base = require('./base');
 
@@ -327,16 +331,16 @@ cnpm i -D babel-core babel-preset-latest babel-preset-stage-2 babel-loader
   });
   ```
 + HtmlWebpackPlugin公共
+  <span class="filename">webpack-config/dev.js<span>
   ``` js
-    /** webpack-config/dev.js */
     -new HtmlWebpackPlugin({
     -  filename: 'index.html',
     -  template: process.cwd() + '/src/index.html',
     -  favicon: process.cwd() + '/src/index.html'
     -})
   ```
+  <span class="filename">webpack-config/base.js<span>
   ``` js
-  /** webpack-config/base.js */
   const HtmlWebpackPlugin = require('html-webpack-plugin');
 
   module.exports = {
@@ -350,9 +354,9 @@ cnpm i -D babel-core babel-preset-latest babel-preset-stage-2 babel-loader
     ],
   };
   ```
-+ js、html和图片loader公共，prod的css loader需要调用[ExtractTextPlugin](https://webpack.js.org/guides/code-splitting-css/#using-extract-text-webpack-plugin-extracttextplugin)将css从js中分离出来
++ js、html和图片loader公共，prod的css loader需要使用[ExtractTextPlugin](https://webpack.js.org/guides/code-splitting-css/#using-extract-text-webpack-plugin-extracttextplugin)将css从js中分离出来
+  <span class="filename">webpack-config/dev.js<span>
   ``` js
-  /** webpack-config/dev.js */
   -{
   -  test: /\.js$/,
   -  exclude: [/node_modules/],
@@ -378,8 +382,8 @@ cnpm i -D babel-core babel-preset-latest babel-preset-stage-2 babel-loader
   -}
 
   ```
+  <span class="filename">webpack-config/base.js<span>
   ``` js
-  /** webpack-config/base.js */
   ...
   module.exports = {
     ...
@@ -412,10 +416,10 @@ cnpm i -D babel-core babel-preset-latest babel-preset-stage-2 babel-loader
   };
   ```
   ``` bash
-  cnpm i -D extract-text-webpack-plugin
+  cnpm i -D extract-text-webpack-plugin@beta
   ```
+  <span class="filename">webpack-config/prod.js<span>
   ``` js
-  /** webpack-config/prod.js */
   ...
   const ExtractTextPlugin = require("extract-text-webpack-plugin");
   ...
@@ -424,9 +428,18 @@ cnpm i -D babel-core babel-preset-latest babel-preset-stage-2 babel-loader
       {
         test: /\.scss$/,
         exclude: [/node_modules/],
-        loader: ExtractTextPlugin.extract({
-          fallbackLoader: 'style-loader',
-          loader: ['css-loader?minimize', 'postcss-loader', 'sass-loader']
+        use: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: [
+            {
+              loader: 'css-loader',
+              options: {
+                minimize: true
+              }
+            },
+            'postcss-loader',
+            'sass-loader'
+          ]
         })
       }
     ]
@@ -438,3 +451,141 @@ cnpm i -D babel-core babel-preset-latest babel-preset-stage-2 babel-loader
     })
   ],
   ```
+
+#### production环境的其它处理
+##### 使用[UglifyJsPlugin](https://webpack.js.org/plugins/uglifyjs-webpack-plugin/#uglifyjs-webpack-plugin)压缩js
+``` bash
+cnpm i - D uglifyjs-webpack-plugin
+```
+<span class="filename">webpack-config/prod.js<span>
+``` js
+...
+const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
+...
+module.exports = webpackMerge(base, {
+  ...
+  const webpack = require('webpack');
+  ...
+  plugins: [
+    ...
+    new UglifyJSPlugin({
+      compress: {
+        warnings: false,
+      },
+      output: {
+        comments: false
+      }
+    })
+    ...
+  ]
+  ...
+})
+...
+```
+
+##### 使用[CleanWebpackPlugin](https://github.com/johnagan/clean-webpack-plugin)清空output目录
+构建前先清空，防止出现垃圾文件
+``` bash
+cnpm i -D clean-webpack-plugin
+```
+<span class="filename">webpack-config/prod.js<span>
+``` js
+...
+module.exports = webpackMerge(base, {
+  ...
+  plugins: [
+    ...
+    const CleanWebpackPlugin = require('clean-webpack-plugin');
+    ...
+    new CleanWebpackPlugin(['dist'], {
+      root: process.cwd(),
+      exclude: []
+    })
+    ...
+  ]
+  ...
+})
+...
+```
+
+**至此，production环境配置完毕，同时抽出了公共部分**
+
+### 配置[resolve.alias](https://webpack.js.org/configuration/resolve/#resolve-alias)
++ 开发的时候如果有一个很深的目录比如：src/a/b/c/d/, 然后在d目录下的一个模块需要引入a目录下的模块，需要这样写：`import '../../../some-module'`，为了方便可以配置一个为src目录配置一个alias，这样模块引入只需要这样写：`import src/a/some-module`。
+<span class="filename">webpack-config/base.js<span>
+``` js
+...
+const path = require('path');
+...
+module.exports = {
+  ...
+  resolve: {
+    extensions: ['.js'],
+    alias: {
+      src: path.resolve(__dirname, './../src')
+    }
+  }
+  ...
+};
+```
++ 通常dev环境和production环境的配置参数比如api domain会有差异，所以需要利用alias将用户两个环境配置文件区分开来
+  *src目录下新建config目录，src/config目录下新增三个文件：base.js、dev.js、prod.js*
+  <span class="filename">webpack-config/base.js<span>
+  ``` js
+  export default {
+    version: '1.0.0'
+  }
+  ```
+  <span class="filename">webpack-config/dev.js<span>
+  ``` js
+  import base from './base'
+
+  export default {
+    ...base,
+    env: 'dev'
+  }
+  ```
+  <span class="filename">webpack-config/prod.js<span>
+  ``` js
+  import base from './base'
+
+  export default {
+    ...base,
+    env: 'prod'
+  }
+  ```
+  *配置alias*
+  <span class="filename">webpack-config/dev.js<span>
+  ``` js
+  ...
+  const path = require('path');
+  ...
+  module.exports = webpackMerge(base, {
+    ...
+    resolve: {
+      alias: {
+        config: path.resolve(__dirname, './../src/config/dev.js')
+      }
+    }
+    ...
+  })
+  ...
+  ```
+  <span class="filename">webpack-config/prod.js<span>
+  ``` js
+  ...
+  const path = require('path');
+  ...
+  module.exports = webpackMerge(base, {
+    ...
+    resolve: {
+      alias: {
+        config: path.resolve(__dirname, './../src/config/prod.js')
+      }
+    }
+    ...
+  })
+  ...
+  ```
+## 最终成果
+https://github.com/mlxiao93/webpack-demo

@@ -49,6 +49,13 @@ img[alt=avatar] {
   width: 100px;
 }
 
+.filename {
+  font-size: 14px;
+  color: #aaa;
+  position: relative;
+  top: 14px;
+}
+
 @media (max-width: 599px) {
   #main {
     min-height: calc(100vh - 260px);
