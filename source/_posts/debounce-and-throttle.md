@@ -2,7 +2,7 @@
 title: debounce和throttle函数
 date: 2017-02-05 21:55:19
 tags:
- - javascript
+ - js
 ---
 
 前端开发中某些dom事件的触发频率非常高，有时候监听这些事件的函数并不需要那么高的执行频率，此时就得用上这两个函数

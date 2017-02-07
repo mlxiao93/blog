@@ -7,10 +7,11 @@ tags:
 
 BFC是什么，block formatting context，翻译下来就是块级格式化上下文，那么它到底是什么?
 新建一个html，在body下写一个div，div里写一个p标签，p标签内写上大名鼎鼎的"Hello world"，然后给div加上一个背景色，然后神奇的事情发生了：
-![demo](http://o86lf0oxm.bkt.clouddn.com/blog-css-bfc-01.png)
-去掉body的默认margin后，背景色居然没有从顶部开始，其实这个问题就可以用BFC来解决
 
 <!-- more -->
+
+![demo](http://o86lf0oxm.bkt.clouddn.com/blog-css-bfc-01.png)
+去掉body的默认margin后，背景色居然没有从顶部开始，其实这个问题就可以用BFC来解决
 
 ## 官方解释：[BFC](https://www.w3.org/TR/CSS2/visuren.html#block-formatting)
 个人理解：（参考[这篇博文](http://www.html-js.com/article/1866)）

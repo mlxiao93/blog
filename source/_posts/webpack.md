@@ -1,9 +1,9 @@
 ---
 title: 使用webpack构建项目
-date: 2017-02-06 11:48:09
+date: 2017-02-08 11:48:09
 tags:
  - webpack
- - javascript
+ - js
  - 工具
 ---
 

@@ -2,7 +2,7 @@
 title: 实现LazyMan
 date: 2017-02-05 17:42:48
 tags:
- - javascript
+ - js
 ---
 
 LazyMan是一道经典的javascript流程控制问题
