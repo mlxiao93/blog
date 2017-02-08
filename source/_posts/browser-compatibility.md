@@ -22,7 +22,7 @@ tags:
 
 ---
 
-**IE6双边距**
+**IE6双倍margin**
 在IE6下，如果对元素设置了浮动，同时又设置了margin-left或margin-right，margin值会加倍。
 *解决方案：*在float的标签样式控制中加入 \_display:inline; 将其转化为行内属性。( _ 这个符号只有ie6会识别)
 
@@ -44,3 +44,7 @@ tags:
 
 **Chrome 中文界面下默认会将小于 12px 的文本强制按照 12px 显示**
 *解决方案：* `-webkit-text-size-adjust: none;`
+
+**scrollTop属性**
+chrome写法是`document.body.scrollTop`, IE和旧版firefox写法是`document.documentElement.scrollTop`
+*解决方案：* `var scrollTop = document.body.scrollTop || document.documentElement.scrollTop;`
