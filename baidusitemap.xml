@@ -4,46 +4,8 @@
 
     
   <url>
-    <loc>http://mlxiao.com/2017/02/04/browser-compatibility/</loc>
-    <lastmod>2017-02-07T15:35:00.000Z</lastmod>
-    <data>
-        <display>
-        <title>浏览器兼容性问题</title>
-        <pubTime>2017-02-04T00:30:22.000Z</pubTime>
-        
-        <tag>css</tag>
-         
-        <tag>html</tag>
-         
-        <tag>js</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://mlxiao.com/2017/02/07/css-bfc/</loc>
-    <lastmod>2017-02-07T15:25:21.000Z</lastmod>
-    <data>
-        <display>
-        <title>css之BFC</title>
-        <pubTime>2017-02-07T08:10:33.000Z</pubTime>
-        
-        <tag>css</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://mlxiao.com/2017/02/07/css-flex/</loc>
-    <lastmod>2017-02-07T15:25:21.000Z</lastmod>
+    <lastmod>2017-02-08T04:59:13.670Z</lastmod>
     <data>
         <display>
         <title>css3 flex</title>
@@ -59,8 +21,84 @@
 
     
   <url>
+    <loc>http://mlxiao.com/2017/02/04/browser-compatibility/</loc>
+    <lastmod>2017-02-08T02:08:58.289Z</lastmod>
+    <data>
+        <display>
+        <title>浏览器兼容性问题</title>
+        <pubTime>2017-02-04T00:30:22.000Z</pubTime>
+        
+        <tag>html</tag>
+         
+        <tag>css</tag>
+         
+        <tag>js</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://mlxiao.com/2017/02/07/css-bfc/</loc>
+    <lastmod>2017-02-07T11:42:06.810Z</lastmod>
+    <data>
+        <display>
+        <title>css之BFC</title>
+        <pubTime>2017-02-07T08:10:33.000Z</pubTime>
+        
+        <tag>css</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://mlxiao.com/2017/02/08/webpack/</loc>
+    <lastmod>2017-02-07T11:36:07.103Z</lastmod>
+    <data>
+        <display>
+        <title>使用webpack构建项目</title>
+        <pubTime>2017-02-08T03:48:09.000Z</pubTime>
+        
+        <tag>js</tag>
+         
+        <tag>webpack</tag>
+         
+        <tag>工具</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://mlxiao.com/2017/02/05/lazy-man/</loc>
+    <lastmod>2017-02-07T10:29:21.290Z</lastmod>
+    <data>
+        <display>
+        <title>实现LazyMan</title>
+        <pubTime>2017-02-05T09:42:48.000Z</pubTime>
+        
+        <tag>js</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://mlxiao.com/2017/02/04/js-extend/</loc>
-    <lastmod>2017-02-07T15:25:21.000Z</lastmod>
+    <lastmod>2017-02-07T10:29:17.456Z</lastmod>
     <data>
         <display>
         <title>JS实现继承</title>
@@ -77,51 +115,13 @@
     
   <url>
     <loc>http://mlxiao.com/2017/02/05/debounce-and-throttle/</loc>
-    <lastmod>2017-02-07T15:25:21.000Z</lastmod>
+    <lastmod>2017-02-07T10:29:14.086Z</lastmod>
     <data>
         <display>
         <title>debounce和throttle函数</title>
         <pubTime>2017-02-05T13:55:19.000Z</pubTime>
         
         <tag>js</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://mlxiao.com/2017/02/05/lazy-man/</loc>
-    <lastmod>2017-02-07T15:25:21.000Z</lastmod>
-    <data>
-        <display>
-        <title>实现LazyMan</title>
-        <pubTime>2017-02-05T09:42:48.000Z</pubTime>
-        
-        <tag>js</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://mlxiao.com/2017/02/08/webpack/</loc>
-    <lastmod>2017-02-07T15:25:21.000Z</lastmod>
-    <data>
-        <display>
-        <title>使用webpack构建项目</title>
-        <pubTime>2017-02-08T03:48:09.000Z</pubTime>
-        
-        <tag>js</tag>
-         
-        <tag>webpack</tag>
-         
-        <tag>工具</tag>
          
          
            
