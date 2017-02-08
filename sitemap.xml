@@ -2,65 +2,65 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://mlxiao.com/2017/02/07/css-flex/</loc>
+    <loc>http://mlxiao.com/2017/02/04/browser-compatibility/</loc>
     
-    <lastmod>2017-02-08T05:07:29.621Z</lastmod>
+    <lastmod>2017-02-08T11:33:36.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://mlxiao.com/2017/02/04/browser-compatibility/</loc>
+    <loc>http://mlxiao.com/2017/02/07/css-flex/</loc>
     
-    <lastmod>2017-02-08T02:08:58.289Z</lastmod>
+    <lastmod>2017-02-08T11:18:00.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://mlxiao.com/2017/02/07/css-bfc/</loc>
     
-    <lastmod>2017-02-07T11:42:06.810Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://mlxiao.com/2017/02/08/webpack/</loc>
-    
-    <lastmod>2017-02-07T11:36:07.103Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://mlxiao.com/2017/02/05/lazy-man/</loc>
-    
-    <lastmod>2017-02-07T10:29:21.290Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://mlxiao.com/2017/02/04/js-extend/</loc>
-    
-    <lastmod>2017-02-07T10:29:17.456Z</lastmod>
+    <lastmod>2017-02-07T15:25:21.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://mlxiao.com/2017/02/05/debounce-and-throttle/</loc>
     
-    <lastmod>2017-02-07T10:29:14.086Z</lastmod>
+    <lastmod>2017-02-07T15:25:21.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://mlxiao.com/2017/02/05/lazy-man/</loc>
+    
+    <lastmod>2017-02-07T15:25:21.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://mlxiao.com/2017/02/04/js-extend/</loc>
+    
+    <lastmod>2017-02-07T15:25:21.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://mlxiao.com/2017/02/08/webpack/</loc>
+    
+    <lastmod>2017-02-07T15:25:21.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://mlxiao.com/about/index.html</loc>
     
-    <lastmod>2017-02-06T02:08:45.908Z</lastmod>
+    <lastmod>2017-02-06T00:47:09.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://mlxiao.com/tags/index.html</loc>
     
-    <lastmod>2017-02-04T08:59:13.038Z</lastmod>
+    <lastmod>2017-02-04T11:20:13.000Z</lastmod>
     
   </url>
   

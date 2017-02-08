@@ -276,11 +276,12 @@
 </li>
 </ul>
 <hr>
-<p><strong>IE6双边距</strong><br>在IE6下，如果对元素设置了浮动，同时又设置了margin-left或margin-right，margin值会加倍。<br><em>解决方案：</em>在float的标签样式控制中加入 _display:inline; 将其转化为行内属性。( _ 这个符号只有ie6会识别)</p>
+<p><strong>IE6双倍margin</strong><br>在IE6下，如果对元素设置了浮动，同时又设置了margin-left或margin-right，margin值会加倍。<br><em>解决方案：</em>在float的标签样式控制中加入 _display:inline; 将其转化为行内属性。( _ 这个符号只有ie6会识别)</p>
 <hr>
 <p><strong>渐进识别的方式，从总体中逐渐排除局部</strong><br>首先，巧妙的使用“\9”这一标记，将IE游览器从所有情况中分离出来。<br>接着，再次使用 “+” 将IE8和IE7、IE6分离开来，这样IE8已经独立识别。<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">.target &#123;</div><div class="line">  background-color:#f1ee18; /*所有识别*/</div><div class="line">  .background-color:#00deff\9; /*IE6、7、8识别*/</div><div class="line">  +background-color:#a200ff; /*IE6、7识别*/</div><div class="line">  _background-color:#1e0bd1; /*IE6识别*/</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <hr>
 <p><strong>Chrome 中文界面下默认会将小于 12px 的文本强制按照 12px 显示</strong><br><em>解决方案：</em> <code>-webkit-text-size-adjust: none;</code></p>
+<p><strong>scrollTop属性</strong><br>chrome写法是<code>document.body.scrollTop</code>, IE和旧版firefox写法是<code>document.documentElement.scrollTop</code><br><em>解决方案：</em> <code>var scrollTop = document.body.scrollTop || document.documentElement.scrollTop;</code></p>
 ]]></content>
     </entry>
     
