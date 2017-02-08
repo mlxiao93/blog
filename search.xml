@@ -175,6 +175,8 @@
 
 <h3 id="骰子"><a href="#骰子" class="headerlink" title="骰子"></a>骰子</h3><p></p><p data-height="316" data-theme-id="0" data-slug-hash="ggdRym" data-default-tab="html,result" data-user="mlxiao93" data-embed-version="2" data-pen-title="ggdRym" class="codepen">See the Pen <a href="http://codepen.io/mlxiao93/pen/ggdRym/" target="_blank" rel="external">ggdRym</a> by mlxiao93 (<a href="http://codepen.io/mlxiao93" target="_blank" rel="external">@mlxiao93</a>) on <a href="http://codepen.io" target="_blank" rel="external">CodePen</a>.</p><p></p>
 <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+
+<p>此处的立体效果用到了一个关键的css3属性：<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/perspective" target="_blank" rel="external">perspective</a></p>
 ]]></content>
     </entry>
     
