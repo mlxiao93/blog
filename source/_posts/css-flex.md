@@ -68,3 +68,5 @@ flex作为css3引入的一种布局方式，简化了前端开发。现阶段移
 ### 骰子
 <p data-height="316" data-theme-id="0" data-slug-hash="ggdRym" data-default-tab="html,result" data-user="mlxiao93" data-embed-version="2" data-pen-title="ggdRym" class="codepen">See the Pen <a href="http://codepen.io/mlxiao93/pen/ggdRym/">ggdRym</a> by mlxiao93 (<a href="http://codepen.io/mlxiao93">@mlxiao93</a>) on <a href="http://codepen.io">CodePen</a>.</p>
 <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+
+此处的立体效果用到了一个关键的css3属性：[perspective](https://developer.mozilla.org/en-US/docs/Web/CSS/perspective)
