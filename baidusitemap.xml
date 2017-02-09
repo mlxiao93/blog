@@ -4,14 +4,33 @@
 
     
   <url>
+    <loc>http://mlxiao.com/2017/02/09/promise/</loc>
+    <lastmod>2017-02-09T09:40:33.563Z</lastmod>
+    <data>
+        <display>
+        <title>实现一个Promise</title>
+        <pubTime>2017-02-09T08:57:54.000Z</pubTime>
+        
+        <tag>js es6</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://mlxiao.com/2017/02/09/callback-promise-async-await/</loc>
-    <lastmod>2017-02-09T06:16:36.875Z</lastmod>
+    <lastmod>2017-02-09T08:57:09.302Z</lastmod>
     <data>
         <display>
         <title>callback、promise、async/await的使用</title>
         <pubTime>2017-02-09T03:49:48.000Z</pubTime>
         
         <tag>js</tag>
+         
+        <tag>es6</tag>
          
          
            
@@ -70,9 +89,9 @@
         <title>浏览器兼容性问题</title>
         <pubTime>2017-02-04T00:30:22.000Z</pubTime>
         
-        <tag>css</tag>
-         
         <tag>html</tag>
+         
+        <tag>css</tag>
          
         <tag>js</tag>
          

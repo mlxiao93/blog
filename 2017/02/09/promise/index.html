@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="description" content="实现一个Promise"/>
+
+
+
+
+  <meta name="keywords" content="js es6," />
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="m.l 's blog">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.1.x" />
+
+
+
+<link rel="canonical" href="http://mlxiao.com/2017/02/09/promise/"/>
+
+
+<meta name="description" content="使用es6语法做一个简单的实现">
+<meta property="og:type" content="article">
+<meta property="og:title" content="实现一个Promise">
+<meta property="og:url" content="http://mlxiao.com/2017/02/09/promise/index.html">
+<meta property="og:site_name" content="m.l 's blog">
+<meta property="og:description" content="使用es6语法做一个简单的实现">
+<meta property="og:updated_time" content="2017-02-09T09:40:33.563Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="实现一个Promise">
+<meta name="twitter:description" content="使用es6语法做一个简单的实现">
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.1.x" />
+
+
+
+  <link rel="stylesheet" type="text/css" href="/lib/fancybox/jquery.fancybox.css" />
+
+
+
+
+  
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?b749a7ec8f4ce4e8913350bbc7a424d8";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+    <title> 实现一个Promise · m.l 's blog </title>
+  </head>
+
+  <body>
+    <div class="container">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/." class="logo">m.l 's blog</a>
+</div>
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/">
+            
+            
+              Home
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/archives/">
+            
+            
+              Archives
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/tags">
+            
+            
+              Tags
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/about">
+            
+            
+              About
+            
+          </a>
+        </li>
+      
+      
+        <li class="menu-search">
+          <form>
+            <i class="iconfont icon-search" id="open-search"></i>
+            <input type="text" class="search-input" id="search-input" />
+            <i class="iconfont icon-close" id="close-search"></i>
+          </form>
+        </li>
+      
+    </ul>
+  
+</nav>
+
+<div class="mobile-navbar">
+  <div class="mobile-header">
+    <div class="mobile-header-logo">
+      <a href="/." class="logo">m.l 's blog</a>
+    </div>
+
+    <div class="mobile-header-icon">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+  <nav class="mobile-menu">
+    
+      <a class="mobile-menu-item" href="/">
+        
+        
+          Home
+        
+      </a>
+    
+      <a class="mobile-menu-item" href="/archives/">
+        
+        
+          Archives
+        
+      </a>
+    
+      <a class="mobile-menu-item" href="/tags">
+        
+        
+          Tags
+        
+      </a>
+    
+      <a class="mobile-menu-item" href="/about">
+        
+        
+          About
+        
+      </a>
+    
+  </nav>
+</div>
+      </header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content">
+            
+  
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          实现一个Promise
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          Feb 9, 2017
+        </span>
+      </div>
+    </header>
+
+    
+      <div class="post-toc" id="post-toc">
+        <h2 class="post-toc-title">Contents</h2>
+        <div class="post-toc-content">
+          <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#功能描述"><span class="toc-text">功能描述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实现思路"><span class="toc-text">实现思路</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实现代码"><span class="toc-text">实现代码</span></a></li></ol>
+        </div>
+      </div>
+    
+
+    <div class="post-content">
+      
+        <p>使用es6语法做一个简单的实现</p>
+<a id="more"></a>
+<h2 id="功能描述"><a href="#功能描述" class="headerlink" title="功能描述"></a>功能描述</h2><p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise" target="_blank" rel="external">Promise定义</a><br>此处只实现一个包含构造函数，resolve方法和reject方法的简化版本</p>
+<h2 id="实现思路"><a href="#实现思路" class="headerlink" title="实现思路"></a>实现思路</h2><ul>
+<li>需要有一个对象(defferred)保存resolve callback和reject callback，一个工厂函数(Promise)返回这个对象</li>
+<li>defferred对象需要有个then方法用来注册resolve callback和reject callback</li>
+<li>defferred对象需要一个resolve方法执行resolve callback，一个reject方法执行reject callback</li>
+<li>工厂函数(Promise)的构造函数接收一个函数作为参数，返回defferred对象</li>
+<li>工厂函数(Promise)需要两个静态方法: resolve，reject，均返回defferred对象</li>
+<li>使用setTimeout保证callback的注册先于resolve或reject方法的执行(见代码22行、30行、39行)</li>
+</ul>
+<h2 id="实现代码"><a href="#实现代码" class="headerlink" title="实现代码"></a>实现代码</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Defferred</span> </span>&#123;</div><div class="line">  resolveCallback = <span class="function"><span class="params">()</span> =&gt;</span> &#123;&#125;;</div><div class="line">  rejectCallback = <span class="function"><span class="params">()</span> =&gt;</span> &#123;&#125;;</div><div class="line"></div><div class="line">  then(resolveCallback = <span class="function"><span class="params">()</span> =&gt;</span> &#123;&#125;, rejectCallback = <span class="function"><span class="params">()</span> =&gt;</span> &#123;&#125;) &#123;</div><div class="line">    <span class="keyword">this</span>.resolveCallback = resolveCallback;</div><div class="line">    <span class="keyword">this</span>.rejectCallback = rejectCallback;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  resolve(data) &#123;</div><div class="line">    <span class="keyword">this</span>.resolveCallback(data);</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  reject(data) &#123;</div><div class="line">    <span class="keyword">this</span>.rejectCallback(data);</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="title">Promise</span> </span>&#123;</div><div class="line">  <span class="keyword">static</span> resolve = <span class="function"><span class="keyword">function</span>(<span class="params">data</span>) </span>&#123;</div><div class="line">    <span class="keyword">let</span> defferred = <span class="keyword">new</span> Defferred();</div><div class="line">    setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</div><div class="line">      defferred.resolve(data);</div><div class="line">    &#125;)</div><div class="line">    <span class="keyword">return</span> defferred;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="keyword">static</span> reject = <span class="function"><span class="keyword">function</span>(<span class="params">data</span>) </span>&#123;</div><div class="line">    <span class="keyword">let</span> defferred = <span class="keyword">new</span> Defferred();</div><div class="line">    setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</div><div class="line">      defferred.reject(data);</div><div class="line">    &#125;)</div><div class="line">    <span class="keyword">return</span> defferred;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  defferred = <span class="keyword">new</span> Defferred();</div><div class="line"></div><div class="line">  <span class="keyword">constructor</span>(fn = () =&gt; &#123;&#125;) &#123;</div><div class="line">    setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</div><div class="line">      fn.call(<span class="literal">null</span>, data =&gt; &#123;</div><div class="line">        <span class="keyword">this</span>.defferred.resolve(data);</div><div class="line">      &#125;, data =&gt; &#123;</div><div class="line">        <span class="keyword">this</span>.defferred.reject(data);</div><div class="line">      &#125;);</div><div class="line">    &#125;);</div><div class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.defferred;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>调用测试：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> <span class="built_in">Promise</span> <span class="keyword">from</span> <span class="string">'./promise'</span></div><div class="line"></div><div class="line"><span class="built_in">Promise</span>.resolve(<span class="string">'hello'</span>).then(<span class="function"><span class="params">data</span> =&gt;</span> <span class="built_in">console</span>.log(data));  <span class="comment">//立即输出"hello"</span></div><div class="line"></div><div class="line"><span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</div><div class="line">  setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</div><div class="line">    resolve(<span class="string">'world'</span>);</div><div class="line">  &#125;, <span class="number">2000</span>);</div><div class="line">&#125;).then(<span class="function"><span class="params">data</span> =&gt;</span> <span class="built_in">console</span>.log(data));   <span class="comment">//两秒后输出world</span></div></pre></td></tr></table></figure></p>
+
+      
+    </div>
+
+    
+      <footer class="post-footer">
+        <div class="post-tags">
+          
+            <a href="/tags/js-es6/">js es6</a>
+          
+        </div>
+
+        
+  <nav class="post-nav">
+    
+    
+      <a class="next" href="/2017/02/09/callback-promise-async-await/">
+        <span class="next-text nav-default">callback、promise、async/await的使用</span>
+        <span class="prev-text nav-mobile">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    
+  </nav>
+
+      </footer>
+    
+  </article>
+
+
+          </div>
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/02/09/promise/"
+           data-title="实现一个Promise" data-url="http://mlxiao.com/2017/02/09/promise/">
+      </div>
+    
+  </div>
+
+
+        </div>  
+      </main>
+
+      <footer id="footer" class="footer">
+  <div class="social-links">
+    
+      
+        
+          <a href="mailto:mlxiao93@163.com" class="iconfont icon-email" title="email"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        
+          <a href="https://github.com/mlxiao93" target="_blank" class="iconfont icon-github" title="github"></a>
+        
+      
+    
+      
+    
+      
+    
+
+    
+  </div>
+
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" target="_blank" href="https://hexo.io/">Hexo</a>
+  </span>
+
+  <span class="theme-info">
+    Theme -
+    <a class="theme-link" target="_blank"  href="https://github.com/ahonn/hexo-theme-even">Even</a>
+  </span>
+
+  <span class="copyright-year">
+    
+    &copy;
+    
+    2017
+
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">m.l xiao</span>
+  </span>
+</div>
+
+      </footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"mlxiao"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+
+
+    
+  
+
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/jquery/jquery-3.1.1.min.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/fancybox/jquery.fancybox.pack.js"></script>
+  
+
+    <script type="text/javascript" src="/js/src/even.js?v=2.1.x"></script>
+<script type="text/javascript" src="/js/src/bootstrap.js?v=2.1.x"></script>
+
+  </body>
+</html>
