@@ -3,6 +3,7 @@ title: callback、promise、async/await的使用
 date: 2017-02-09 11:49:48
 tags:
  - js
+ - es6
 ---
 
 以微信授权后的获取用户信息作为案例，分别用这三种方式实现
