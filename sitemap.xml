@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://mlxiao.com/2017/02/09/callback-promise-async-await/</loc>
+    
+    <lastmod>2017-02-09T06:16:36.875Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://mlxiao.com/2017/02/08/webpack/</loc>
+    
+    <lastmod>2017-02-09T03:47:27.002Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://mlxiao.com/2017/02/09/node-babel/</loc>
     
     <lastmod>2017-02-09T02:49:46.007Z</lastmod>
@@ -26,13 +40,6 @@
     <loc>http://mlxiao.com/2017/02/07/css-bfc/</loc>
     
     <lastmod>2017-02-07T11:42:06.810Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://mlxiao.com/2017/02/08/webpack/</loc>
-    
-    <lastmod>2017-02-07T11:36:07.103Z</lastmod>
     
   </url>
   

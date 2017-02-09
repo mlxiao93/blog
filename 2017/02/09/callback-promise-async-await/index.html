@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="description" content="callback、promise、async/await的使用"/>
+
+
+
+
+  <meta name="keywords" content="js," />
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="m.l 's blog">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.1.x" />
+
+
+
+<link rel="canonical" href="http://mlxiao.com/2017/02/09/callback-promise-async-await/"/>
+
+
+<meta name="description" content="以微信授权后的获取用户信息作为案例，分别用这三种方式实现">
+<meta property="og:type" content="article">
+<meta property="og:title" content="callback、promise、async/await的使用">
+<meta property="og:url" content="http://mlxiao.com/2017/02/09/callback-promise-async-await/index.html">
+<meta property="og:site_name" content="m.l 's blog">
+<meta property="og:description" content="以微信授权后的获取用户信息作为案例，分别用这三种方式实现">
+<meta property="og:updated_time" content="2017-02-09T06:16:36.875Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="callback、promise、async/await的使用">
+<meta name="twitter:description" content="以微信授权后的获取用户信息作为案例，分别用这三种方式实现">
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.1.x" />
+
+
+
+  <link rel="stylesheet" type="text/css" href="/lib/fancybox/jquery.fancybox.css" />
+
+
+
+
+  
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?b749a7ec8f4ce4e8913350bbc7a424d8";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+    <title> callback、promise、async/await的使用 · m.l 's blog </title>
+  </head>
+
+  <body>
+    <div class="container">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/." class="logo">m.l 's blog</a>
+</div>
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/">
+            
+            
+              Home
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/archives/">
+            
+            
+              Archives
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/tags">
+            
+            
+              Tags
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/about">
+            
+            
+              About
+            
+          </a>
+        </li>
+      
+      
+        <li class="menu-search">
+          <form>
+            <i class="iconfont icon-search" id="open-search"></i>
+            <input type="text" class="search-input" id="search-input" />
+            <i class="iconfont icon-close" id="close-search"></i>
+          </form>
+        </li>
+      
+    </ul>
+  
+</nav>
+
+<div class="mobile-navbar">
+  <div class="mobile-header">
+    <div class="mobile-header-logo">
+      <a href="/." class="logo">m.l 's blog</a>
+    </div>
+
+    <div class="mobile-header-icon">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+  <nav class="mobile-menu">
+    
+      <a class="mobile-menu-item" href="/">
+        
+        
+          Home
+        
+      </a>
+    
+      <a class="mobile-menu-item" href="/archives/">
+        
+        
+          Archives
+        
+      </a>
+    
+      <a class="mobile-menu-item" href="/tags">
+        
+        
+          Tags
+        
+      </a>
+    
+      <a class="mobile-menu-item" href="/about">
+        
+        
+          About
+        
+      </a>
+    
+  </nav>
+</div>
+      </header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content">
+            
+  
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          callback、promise、async/await的使用
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          Feb 9, 2017
+        </span>
+      </div>
+    </header>
+
+    
+      <div class="post-toc" id="post-toc">
+        <h2 class="post-toc-title">文章目录</h2>
+        <div class="post-toc-content">
+          <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#主要流程"><span class="toc-text">主要流程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#callback方式"><span class="toc-text">callback方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#promise方式"><span class="toc-text">promise方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#async-await方式"><span class="toc-text">async/await方式</span></a></li></ol>
+        </div>
+      </div>
+    
+
+    <div class="post-content">
+      
+        <p>以微信授权后的获取用户信息作为案例，分别用这三种方式实现</p>
+<a id="more"></a>
+<h2 id="主要流程"><a href="#主要流程" class="headerlink" title="主要流程"></a>主要流程</h2><p><em>code已知</em></p>
+<ol>
+<li>通过code换取accessToken，得到openId</li>
+<li>通过openId拉取用户信息</li>
+<li>打印拉取到的用户信息</li>
+</ol>
+<p><strong>此文只做简单的流程抽象，实际情况请参阅<a href="http://mp.weixin.qq.com/wiki/17/c0f37d5704f0b64713d5d2c37b468d75.html" target="_blank" rel="external">微信网页授权文档</a></strong></p>
+<p>下文所有的http请求均使用<a href="https://github.com/bitinn/node-fetch" target="_blank" rel="external">node-fetch</a>发起</p>
+<h2 id="callback方式"><a href="#callback方式" class="headerlink" title="callback方式"></a>callback方式</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> fetch <span class="keyword">from</span> <span class="string">'node-fetch'</span>;</div><div class="line"></div><div class="line"><span class="keyword">const</span> code = <span class="string">"your code"</span>;</div><div class="line"><span class="keyword">const</span> accessTokenApi = <span class="string">"accessTokenApi"</span>;</div><div class="line"><span class="keyword">const</span> userInfoApi = <span class="string">"userInfoApi"</span>;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">getAccessToken</span>(<span class="params">code, callback = (</span>) =&gt; </span>&#123;&#125;) &#123;</div><div class="line">  fetch(accessTokenApi + <span class="string">`?code=<span class="subst">$&#123;code&#125;</span>`</span>).then(<span class="function"><span class="params">res</span> =&gt;</span> res.json()).then(<span class="function"><span class="params">body</span> =&gt;</span> &#123;</div><div class="line">    callback(<span class="literal">false</span>, body.accessToken);</div><div class="line">  &#125;).catch(<span class="function"><span class="params">error</span> =&gt;</span> callback(error));</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">getUserInfo</span>(<span class="params">accessToken, callback = (</span>) =&gt; </span>&#123;&#125;) &#123;</div><div class="line">  fetch(userInfoApi + <span class="string">`?accessToken=<span class="subst">$&#123;accessToken&#125;</span>`</span>).then(<span class="function"><span class="params">res</span> =&gt;</span> res.json()).then(<span class="function"><span class="params">body</span> =&gt;</span> &#123;</div><div class="line">    callback(<span class="literal">false</span>, body.userInfo);</div><div class="line">  &#125;).catch(<span class="function"><span class="params">error</span> =&gt;</span> callback(error));</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//调用</span></div><div class="line">(<span class="function"><span class="params">code</span> =&gt;</span> &#123;</div><div class="line">  getAccessToken(code, (error, accessToken) =&gt; &#123;</div><div class="line">    <span class="keyword">if</span> (error) <span class="keyword">return</span> <span class="built_in">console</span>.log(error);</div><div class="line">    getUserInfo(accessToken, (eror, userInfo) =&gt; &#123;</div><div class="line">      <span class="keyword">if</span> (error) <span class="keyword">return</span> <span class="built_in">console</span>.log(error);</div><div class="line">      <span class="built_in">console</span>.log(userInfo);</div><div class="line">    &#125;)</div><div class="line">  &#125;)</div><div class="line">&#125;)(code)</div></pre></td></tr></table></figure>
+<h2 id="promise方式"><a href="#promise方式" class="headerlink" title="promise方式"></a>promise方式</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> fetch <span class="keyword">from</span> <span class="string">'node-fetch'</span>;</div><div class="line"></div><div class="line"><span class="keyword">const</span> code = <span class="string">"your code"</span>;</div><div class="line"><span class="keyword">const</span> accessTokenApi = <span class="string">"accessTokenApi"</span>;</div><div class="line"><span class="keyword">const</span> userInfoApi = <span class="string">"userInfoApi"</span>;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">getAccessToken</span>(<span class="params">code</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</div><div class="line">    fetch(accessTokenApi + <span class="string">`?code=<span class="subst">$&#123;code&#125;</span>`</span>).then(<span class="function"><span class="params">res</span> =&gt;</span> res.json())</div><div class="line">      .then(<span class="function"><span class="params">body</span> =&gt;</span> resolve(body.accessToken))</div><div class="line">      .catch(<span class="function"><span class="params">error</span> =&gt;</span> reject(error));</div><div class="line">  &#125;);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">getUserInfo</span>(<span class="params">accessToken</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</div><div class="line">    fetch(userInfoApi + <span class="string">`?accessToken=<span class="subst">$&#123;accessToken&#125;</span>`</span>).then(<span class="function"><span class="params">res</span> =&gt;</span> res.json())</div><div class="line">      .then(<span class="function"><span class="params">body</span> =&gt;</span> resolve(body.userInfo))</div><div class="line">      .catch(<span class="function"><span class="params">error</span> =&gt;</span> reject(error));</div><div class="line">  &#125;);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//调用</span></div><div class="line">(<span class="function"><span class="params">code</span> =&gt;</span> &#123;</div><div class="line">  getAccessToken(code).then(<span class="function"><span class="params">accessToken</span> =&gt;</span> &#123;</div><div class="line">    getUserInfo(accessToken).then(<span class="function"><span class="params">userInfo</span> =&gt;</span> &#123;</div><div class="line">      <span class="built_in">console</span>.log(userInfo)</div><div class="line">    &#125;, error =&gt; <span class="built_in">console</span>.log(error))</div><div class="line">  &#125;, error =&gt; <span class="built_in">console</span>.log(eror))</div><div class="line">&#125;)(code)</div></pre></td></tr></table></figure>
+<h2 id="async-await方式"><a href="#async-await方式" class="headerlink" title="async/await方式"></a>async/await方式</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> fetch <span class="keyword">from</span> <span class="string">'node-fetch'</span>;</div><div class="line"></div><div class="line"><span class="keyword">const</span> code = <span class="string">"your code"</span>;</div><div class="line"><span class="keyword">const</span> accessTokenApi = <span class="string">"accessTokenApi"</span>;</div><div class="line"><span class="keyword">const</span> userInfoApi = <span class="string">"userInfoApi"</span>;</div><div class="line"></div><div class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">getAccessToken</span>(<span class="params">code</span>) </span>&#123;</div><div class="line">  <span class="keyword">let</span> body = <span class="keyword">await</span> fetch(accessTokenApi + <span class="string">`?code=<span class="subst">$&#123;code&#125;</span>`</span>).then(<span class="function"><span class="params">res</span> =&gt;</span> res.json())</div><div class="line">  <span class="keyword">return</span> <span class="built_in">Promise</span>.resolve(body.accessToken);  </div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">getUserInfo</span>(<span class="params">accessToken</span>) </span>&#123;</div><div class="line">  <span class="keyword">let</span> body = <span class="keyword">await</span> fetch(userInfoApi + <span class="string">`?accessToken=<span class="subst">$&#123;accessToken&#125;</span>`</span>).then(<span class="function"><span class="params">res</span> =&gt;</span> res.json());</div><div class="line">  <span class="keyword">return</span> <span class="built_in">Promise</span>.resolve(body.userInfo);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//调用</span></div><div class="line">(<span class="keyword">async</span> code =&gt; &#123;</div><div class="line">  <span class="keyword">let</span> accessToken = <span class="keyword">await</span> getAccessToken(code);</div><div class="line">  <span class="keyword">let</span> userInfo = <span class="keyword">await</span> getUserInfo(accessToken);</div><div class="line">  <span class="keyword">return</span> <span class="built_in">Promise</span>.reslove(userInfo);</div><div class="line">&#125;)(code)</div><div class="line">  .then(<span class="function"><span class="params">userInfo</span> =&gt;</span> <span class="built_in">console</span>.log(userInfo))</div><div class="line">  .catch(<span class="function"><span class="params">error</span> =&gt;</span> <span class="built_in">console</span>.log(error))</div></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+      <footer class="post-footer">
+        <div class="post-tags">
+          
+            <a href="/tags/js/">js</a>
+          
+        </div>
+
+        
+  <nav class="post-nav">
+    
+    
+      <a class="next" href="/2017/02/09/node-babel/">
+        <span class="next-text nav-default">为nodejs配置babel</span>
+        <span class="prev-text nav-mobile">下一篇</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    
+  </nav>
+
+      </footer>
+    
+  </article>
+
+
+          </div>
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/02/09/callback-promise-async-await/"
+           data-title="callback、promise、async/await的使用" data-url="http://mlxiao.com/2017/02/09/callback-promise-async-await/">
+      </div>
+    
+  </div>
+
+
+        </div>  
+      </main>
+
+      <footer id="footer" class="footer">
+  <div class="social-links">
+    
+      
+        
+          <a href="mailto:mlxiao93@163.com" class="iconfont icon-email" title="email"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        
+          <a href="https://github.com/mlxiao93" target="_blank" class="iconfont icon-github" title="github"></a>
+        
+      
+    
+      
+    
+      
+    
+
+    
+  </div>
+
+
+<div class="copyright">
+  <span class="power-by">
+    powered by <a class="hexo-link" target="_blank" href="https://hexo.io/">Hexo</a>
+  </span>
+
+  <span class="theme-info">
+    theme -
+    <a class="theme-link" target="_blank"  href="https://github.com/ahonn/hexo-theme-even">Even</a>
+  </span>
+
+  <span class="copyright-year">
+    
+    &copy;
+    
+    2017
+
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">m.l xiao</span>
+  </span>
+</div>
+
+      </footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"mlxiao"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+
+
+    
+  
+
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/jquery/jquery-3.1.1.min.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/fancybox/jquery.fancybox.pack.js"></script>
+  
+
+    <script type="text/javascript" src="/js/src/even.js?v=2.1.x"></script>
+<script type="text/javascript" src="/js/src/bootstrap.js?v=2.1.x"></script>
+
+  </body>
+</html>

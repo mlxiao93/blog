@@ -4,6 +4,44 @@
 
     
   <url>
+    <loc>http://mlxiao.com/2017/02/09/callback-promise-async-await/</loc>
+    <lastmod>2017-02-09T06:16:36.875Z</lastmod>
+    <data>
+        <display>
+        <title>callback、promise、async/await的使用</title>
+        <pubTime>2017-02-09T03:49:48.000Z</pubTime>
+        
+        <tag>js</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://mlxiao.com/2017/02/08/webpack/</loc>
+    <lastmod>2017-02-09T03:47:27.002Z</lastmod>
+    <data>
+        <display>
+        <title>使用webpack构建项目</title>
+        <pubTime>2017-02-08T03:48:09.000Z</pubTime>
+        
+        <tag>js</tag>
+         
+        <tag>webpack</tag>
+         
+        <tag>tool</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://mlxiao.com/2017/02/09/node-babel/</loc>
     <lastmod>2017-02-09T02:49:46.007Z</lastmod>
     <data>
@@ -71,27 +109,6 @@
         <pubTime>2017-02-07T08:10:33.000Z</pubTime>
         
         <tag>css</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://mlxiao.com/2017/02/08/webpack/</loc>
-    <lastmod>2017-02-07T11:36:07.103Z</lastmod>
-    <data>
-        <display>
-        <title>使用webpack构建项目</title>
-        <pubTime>2017-02-08T03:48:09.000Z</pubTime>
-        
-        <tag>js</tag>
-         
-        <tag>webpack</tag>
-         
-        <tag>工具</tag>
          
          
            

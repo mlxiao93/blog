@@ -16,7 +16,7 @@
 
 
 
-  <meta name="keywords" content="js,webpack,工具," />
+  <meta name="keywords" content="js,webpack,tool," />
 
 
 
@@ -42,7 +42,7 @@
 <meta property="og:image" content="http://o86lf0oxm.bkt.clouddn.com/webpack-concept.svg">
 <meta property="og:image" content="http://o86lf0oxm.bkt.clouddn.com/webpack-demo-01.png">
 <meta property="og:image" content="http://o86lf0oxm.bkt.clouddn.com/webpack-demo-03.png">
-<meta property="og:updated_time" content="2017-02-07T11:36:07.103Z">
+<meta property="og:updated_time" content="2017-02-09T03:47:27.002Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用webpack构建项目">
 <meta name="twitter:description" content="此文基于webpack2，做为个人稳定使用的一套webpack配置，记录下来，以供参考。查看源码">
@@ -202,7 +202,7 @@
 
     
       <div class="post-toc" id="post-toc">
-        <h2 class="post-toc-title">Contents</h2>
+        <h2 class="post-toc-title">文章目录</h2>
         <div class="post-toc-content">
           <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#webpack概念"><span class="toc-text">webpack概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#构建流程"><span class="toc-text">构建流程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#环境要求"><span class="toc-text">环境要求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#项目初始化"><span class="toc-text">项目初始化</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#创建项目"><span class="toc-text">创建项目</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#引入webpack2"><span class="toc-text">引入webpack2</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#项目初始结构分析"><span class="toc-text">项目初始结构分析</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#开始写webpack-config"><span class="toc-text">开始写webpack config</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#编写npm-scripts，区分环境"><span class="toc-text">编写npm scripts，区分环境</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#从dev环境写起"><span class="toc-text">从dev环境写起</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#webpack-dev-server"><span class="toc-text">webpack-dev-server</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#htmlWebpackPlugins"><span class="toc-text">htmlWebpackPlugins</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Loaders-Rules"><span class="toc-text">Loaders(Rules)</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#ES6-支持"><span class="toc-text">ES6+支持</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#css处理"><span class="toc-text">css处理</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#html模板、图片等的处理"><span class="toc-text">html模板、图片等的处理</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#配置production环境"><span class="toc-text">配置production环境</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#抽出公共部分"><span class="toc-text">抽出公共部分</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#production环境的其它处理"><span class="toc-text">production环境的其它处理</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#使用UglifyJsPlugin压缩js"><span class="toc-text">使用UglifyJsPlugin压缩js</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#使用CleanWebpackPlugin清空output目录"><span class="toc-text">使用CleanWebpackPlugin清空output目录</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#配置resolve-alias"><span class="toc-text">配置resolve.alias</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#最终成果"><span class="toc-text">最终成果</span></a></li></ol>
         </div>
@@ -344,7 +344,7 @@
           
             <a href="/tags/webpack/">webpack</a>
           
-            <a href="/tags/工具/">工具</a>
+            <a href="/tags/tool/">tool</a>
           
         </div>
 
@@ -354,13 +354,13 @@
       <a class="prev" href="/2017/02/09/node-babel/">
         <i class="iconfont icon-left"></i>
         <span class="prev-text nav-default">为nodejs配置babel</span>
-        <span class="prev-text nav-mobile">Prev</span>
+        <span class="prev-text nav-mobile">上一篇</span>
       </a>
     
     
       <a class="next" href="/2017/02/07/css-flex/">
         <span class="next-text nav-default">css3 flex</span>
-        <span class="prev-text nav-mobile">Next</span>
+        <span class="prev-text nav-mobile">下一篇</span>
         <i class="iconfont icon-right"></i>
       </a>
     
@@ -417,11 +417,11 @@
 
 <div class="copyright">
   <span class="power-by">
-    Powered by <a class="hexo-link" target="_blank" href="https://hexo.io/">Hexo</a>
+    powered by <a class="hexo-link" target="_blank" href="https://hexo.io/">Hexo</a>
   </span>
 
   <span class="theme-info">
-    Theme -
+    theme -
     <a class="theme-link" target="_blank"  href="https://github.com/ahonn/hexo-theme-even">Even</a>
   </span>
 
