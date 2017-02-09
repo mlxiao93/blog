@@ -4,7 +4,7 @@ date: 2017-02-08 11:48:09
 tags:
  - webpack
  - js
- - 工具
+ - tool
 ---
 
 此文基于[webpack2](https://webpack.js.org/)，做为个人稳定使用的一套webpack配置，记录下来，以供参考。
