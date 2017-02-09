@@ -2,7 +2,8 @@
 title: 实现一个Promise
 date: 2017-02-09 16:57:54
 tags:
- - js es6
+ - js
+ - es6
 ---
 
 使用es6语法做一个简单的实现
@@ -84,5 +85,5 @@ new Promise((resolve, reject) => {
   setTimeout(() => {
     resolve('world');
   }, 2000);
-}).then(data => console.log(data));   //两秒后输出world
+}).then(data => console.log(data));   //两秒后输出"world"
 ```
