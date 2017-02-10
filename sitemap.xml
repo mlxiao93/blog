@@ -2,9 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://mlxiao.com/2017/02/09/sort-algorithm/</loc>
+    <loc>http://mlxiao.com/2017/02/09/callback-promise-async-await/</loc>
     
-    <lastmod>2017-02-10T09:58:25.859Z</lastmod>
+    <lastmod>2017-02-10T10:25:50.580Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://mlxiao.com/2017/02/04/sort-algorithm/</loc>
+    
+    <lastmod>2017-02-10T10:16:10.956Z</lastmod>
     
   </url>
   
@@ -12,13 +19,6 @@
     <loc>http://mlxiao.com/2017/02/09/promise/</loc>
     
     <lastmod>2017-02-10T02:33:39.084Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://mlxiao.com/2017/02/09/callback-promise-async-await/</loc>
-    
-    <lastmod>2017-02-09T08:57:09.302Z</lastmod>
     
   </url>
   

@@ -4,12 +4,31 @@
 
     
   <url>
-    <loc>http://mlxiao.com/2017/02/09/sort-algorithm/</loc>
-    <lastmod>2017-02-10T09:58:25.859Z</lastmod>
+    <loc>http://mlxiao.com/2017/02/09/callback-promise-async-await/</loc>
+    <lastmod>2017-02-10T10:25:50.580Z</lastmod>
+    <data>
+        <display>
+        <title>callback、promise、async/await的使用</title>
+        <pubTime>2017-02-09T03:49:48.000Z</pubTime>
+        
+        <tag>js</tag>
+         
+        <tag>es6</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://mlxiao.com/2017/02/04/sort-algorithm/</loc>
+    <lastmod>2017-02-10T10:16:10.956Z</lastmod>
     <data>
         <display>
         <title>排序算法</title>
-        <pubTime>2017-02-09T10:02:50.000Z</pubTime>
+        <pubTime>2017-02-04T04:02:50.000Z</pubTime>
         
         <tag>js</tag>
          
@@ -29,25 +48,6 @@
         <display>
         <title>实现一个Promise</title>
         <pubTime>2017-02-09T08:57:54.000Z</pubTime>
-        
-        <tag>js</tag>
-         
-        <tag>es6</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://mlxiao.com/2017/02/09/callback-promise-async-await/</loc>
-    <lastmod>2017-02-09T08:57:09.302Z</lastmod>
-    <data>
-        <display>
-        <title>callback、promise、async/await的使用</title>
-        <pubTime>2017-02-09T03:49:48.000Z</pubTime>
         
         <tag>js</tag>
          
@@ -110,11 +110,11 @@
         <title>浏览器兼容性问题</title>
         <pubTime>2017-02-04T00:30:22.000Z</pubTime>
         
+        <tag>html</tag>
+         
         <tag>css</tag>
          
         <tag>js</tag>
-         
-        <tag>html</tag>
          
          
            
