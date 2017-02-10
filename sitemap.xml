@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://mlxiao.com/about/index.html</loc>
+    
+    <lastmod>2017-02-10T15:39:29.234Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://mlxiao.com/2017/02/04/sort-algorithm/</loc>
     
     <lastmod>2017-02-10T15:18:06.969Z</lastmod>
@@ -75,13 +82,6 @@
     <loc>http://mlxiao.com/2017/02/05/debounce-and-throttle/</loc>
     
     <lastmod>2017-02-07T10:29:14.086Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://mlxiao.com/about/index.html</loc>
-    
-    <lastmod>2017-02-06T02:08:45.908Z</lastmod>
     
   </url>
   
