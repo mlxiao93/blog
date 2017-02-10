@@ -5,7 +5,7 @@
     
   <url>
     <loc>http://mlxiao.com/2017/02/09/sort-algorithm/</loc>
-    <lastmod>2017-02-09T15:50:45.000Z</lastmod>
+    <lastmod>2017-02-10T02:56:55.874Z</lastmod>
     <data>
         <display>
         <title>排序算法</title>
@@ -23,69 +23,8 @@
 
     
   <url>
-    <loc>http://mlxiao.com/2017/02/04/browser-compatibility/</loc>
-    <lastmod>2017-02-09T12:19:13.000Z</lastmod>
-    <data>
-        <display>
-        <title>浏览器兼容性问题</title>
-        <pubTime>2017-02-04T00:30:22.000Z</pubTime>
-        
-        <tag>css</tag>
-         
-        <tag>js</tag>
-         
-        <tag>html</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://mlxiao.com/2017/02/09/callback-promise-async-await/</loc>
-    <lastmod>2017-02-09T12:19:13.000Z</lastmod>
-    <data>
-        <display>
-        <title>callback、promise、async/await的使用</title>
-        <pubTime>2017-02-09T03:49:48.000Z</pubTime>
-        
-        <tag>js</tag>
-         
-        <tag>es6</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://mlxiao.com/2017/02/09/node-babel/</loc>
-    <lastmod>2017-02-09T12:19:13.000Z</lastmod>
-    <data>
-        <display>
-        <title>为nodejs配置babel</title>
-        <pubTime>2017-02-09T01:00:45.000Z</pubTime>
-        
-        <tag>js</tag>
-         
-        <tag>node</tag>
-         
-        <tag>babel</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://mlxiao.com/2017/02/09/promise/</loc>
-    <lastmod>2017-02-09T12:19:13.000Z</lastmod>
+    <lastmod>2017-02-10T02:33:39.084Z</lastmod>
     <data>
         <display>
         <title>实现一个Promise</title>
@@ -103,8 +42,27 @@
 
     
   <url>
+    <loc>http://mlxiao.com/2017/02/09/callback-promise-async-await/</loc>
+    <lastmod>2017-02-09T08:57:09.302Z</lastmod>
+    <data>
+        <display>
+        <title>callback、promise、async/await的使用</title>
+        <pubTime>2017-02-09T03:49:48.000Z</pubTime>
+        
+        <tag>js</tag>
+         
+        <tag>es6</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://mlxiao.com/2017/02/08/webpack/</loc>
-    <lastmod>2017-02-09T12:19:13.000Z</lastmod>
+    <lastmod>2017-02-09T03:47:27.002Z</lastmod>
     <data>
         <display>
         <title>使用webpack构建项目</title>
@@ -124,8 +82,50 @@
 
     
   <url>
+    <loc>http://mlxiao.com/2017/02/09/node-babel/</loc>
+    <lastmod>2017-02-09T02:49:46.007Z</lastmod>
+    <data>
+        <display>
+        <title>为nodejs配置babel</title>
+        <pubTime>2017-02-09T01:00:45.000Z</pubTime>
+        
+        <tag>js</tag>
+         
+        <tag>node</tag>
+         
+        <tag>babel</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://mlxiao.com/2017/02/04/browser-compatibility/</loc>
+    <lastmod>2017-02-09T00:39:38.757Z</lastmod>
+    <data>
+        <display>
+        <title>浏览器兼容性问题</title>
+        <pubTime>2017-02-04T00:30:22.000Z</pubTime>
+        
+        <tag>html</tag>
+         
+        <tag>css</tag>
+         
+        <tag>js</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://mlxiao.com/2017/02/07/css-flex/</loc>
-    <lastmod>2017-02-08T11:18:00.000Z</lastmod>
+    <lastmod>2017-02-08T05:07:29.621Z</lastmod>
     <data>
         <display>
         <title>css3 flex</title>
@@ -141,8 +141,25 @@
 
     
   <url>
+    <loc>http://mlxiao.com/2017/02/07/css-bfc/</loc>
+    <lastmod>2017-02-07T11:42:06.810Z</lastmod>
+    <data>
+        <display>
+        <title>css之BFC</title>
+        <pubTime>2017-02-07T08:10:33.000Z</pubTime>
+        
+        <tag>css</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://mlxiao.com/2017/02/05/lazy-man/</loc>
-    <lastmod>2017-02-07T15:25:21.000Z</lastmod>
+    <lastmod>2017-02-07T10:29:21.290Z</lastmod>
     <data>
         <display>
         <title>实现LazyMan</title>
@@ -159,7 +176,7 @@
     
   <url>
     <loc>http://mlxiao.com/2017/02/04/js-extend/</loc>
-    <lastmod>2017-02-07T15:25:21.000Z</lastmod>
+    <lastmod>2017-02-07T10:29:17.456Z</lastmod>
     <data>
         <display>
         <title>JS实现继承</title>
@@ -175,25 +192,8 @@
 
     
   <url>
-    <loc>http://mlxiao.com/2017/02/07/css-bfc/</loc>
-    <lastmod>2017-02-07T15:25:21.000Z</lastmod>
-    <data>
-        <display>
-        <title>css之BFC</title>
-        <pubTime>2017-02-07T08:10:33.000Z</pubTime>
-        
-        <tag>css</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://mlxiao.com/2017/02/05/debounce-and-throttle/</loc>
-    <lastmod>2017-02-07T15:25:21.000Z</lastmod>
+    <lastmod>2017-02-07T10:29:14.086Z</lastmod>
     <data>
         <display>
         <title>debounce和throttle函数</title>
