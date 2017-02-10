@@ -157,16 +157,16 @@ function mergeSort(arr, low, high) {
 function partion(arr, low, high) {
   var i = low,
       j = high,
-      k = low,    //切分前哨兵的索引
-      ele = arr[k];
+      m = low,    //哨兵的索引
+      ele = arr[m];
 
   while(true) {   //扫描左右，检查扫描是否结束
-    while(true) {    //从左边开始扫描，找出比哨兵大的
+    while(true) {    //从左边开始扫描，找出比ele大的
       if(i > j) break;
       if (arr[i] > ele) break;
       i++;
     }
-    while(true) {     //从右边开始扫描，找出比哨兵小的
+    while(true) {     //从右边开始扫描，找出比ele小的
       if(j < i) break;
       if (arr[j] < ele) break;
       j--;
@@ -174,9 +174,9 @@ function partion(arr, low, high) {
     if (i >= j) break;   //左边没找到比哨兵小的或者右边没找到比哨兵大的
     swap(arr, i, j); //交换左右找到的元素
   }
-  k = i - 1;     //切分后哨兵的索引
-  swap(arr, low, k);
-  return k;
+  var n = i - 1  //切分后哨兵的索引
+  swap(arr, m, n);
+  return n;
 }
 
 function quickSort(arr, low, high) {
@@ -185,7 +185,7 @@ function quickSort(arr, low, high) {
 
   if (low >= high) return arr;
 
-  var mid = partion(arr, low, high);
+  var mid =partion(arr, low, high);
   quickSort(arr, low, mid - 1);
   quickSort(arr, mid + 1, high);
 
