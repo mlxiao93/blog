@@ -22,7 +22,7 @@ function swap(arr, i, j) {
 ## 插入排序
 + 将元素插入有序数组
 + 稳定排序
-+ 时间复杂度：O(n^2)
++ 时间复杂度：O(n) ~ O(n^2)
 
 ``` js
 function insertionSort(arr) {
@@ -61,7 +61,7 @@ function selectionSort(arr) {
 ## 冒泡排序
 + 相邻两个元素作比较，每次冒出一个极值
 + 稳定排序
-+ 时间复杂度：O(n^2)
++ 时间复杂度：O(n) ~ O(n^2)
 
 ``` js
 function bubbleSort(arr) {
@@ -98,6 +98,97 @@ function shellSort(arr) {
     }
     h = Math.floor(h / 3);
   }
+  return arr;
+}
+```
+
+## 归并排序
++ 递归地将数组分成两半分别排序，然后将结果归并起来
++ 稳定排序
++ 时间复杂度：O(nlogn)
+
+``` js
+var aux = []    //归并所需的辅助数组
+
+//原地归并方法
+//arr是一个low到mid和mid+1到high各自有序的数组，借助aux原地merge这个数组
+function merge(arr, low, mid, high) {
+  aux = [];
+  var m = low,
+      n = mid + 1;
+
+  for (var k = low; k <= high; k++) {    //复制arr到aux
+    aux[k] = arr[k];
+  }
+
+  for (var i = low; i <= high; i++) {    //归并aux到arr
+    if (m > mid) {    //左边归并完成
+      arr[i] = aux[n++];
+    } else if (n > high) {  //右边归并完成
+      arr[i] = aux[m++];
+    } else if (aux[m] > aux[n]) {   //左边大于右边
+      arr[i] = aux[n++];
+    } else {       //右边大于左边
+      arr[i] = aux[m++];
+    }
+  }
+}
+
+function mergeSort(arr, low, high) {
+  if (low === undefined) low = 0;
+  if (high === undefined) high = arr.length - 1;
+  if (low >= high) return arr;
+  var mid = Math.floor((low + high) / 2);
+  mergeSort(arr, low, mid);
+  mergeSort(arr, mid + 1, high);
+  merge(arr, low, mid, high);
+  return arr;
+}
+```
+
+## 快速排序
++ 以升序为例，选择一个元素，所有比该元素小的放左边，大的放右边，再对两边分别递归调用
++ 不稳定排序
++ 时间复杂度：O(nlogn)
+
+``` js
+//选择一个元素（哨兵）对数组切分，小的放前面，大的放后面（升序）
+//返回切分后哨兵的索引
+function partion(arr, low, high) {
+  var i = low,
+      j = high,
+      k = low,    //切分前哨兵的索引
+      ele = arr[k];
+
+  while(true) {   //扫描左右，检查扫描是否结束
+    while(true) {    //从左边开始扫描，找出比哨兵大的
+      if(i > j) break;
+      if (arr[i] > ele) break;
+      i++;
+    }
+    while(true) {     //从右边开始扫描，找出比哨兵小的
+      if(j < i) break;
+      if (arr[j] < ele) break;
+      j--;
+    }
+    if (i >= j) break;   //左边没找到比哨兵小的或者右边没找到比哨兵大的
+    swap(arr, i, j); //交换左右找到的元素
+  }
+  k = i - 1;     //切分后哨兵的索引
+  swap(arr, low, k);
+  return k;
+}
+
+function quickSort(arr, low, high) {
+  if (low === undefined) low = 0;
+  if (high === undefined) high = arr.length - 1;
+
+  if (low >= high) return arr;
+
+  var mid = partion(arr, low, high);
+  quickSort(arr, low, mid - 1);
+  quickSort(arr, mid + 1, high);
+
   return arr;
 }
 ```
