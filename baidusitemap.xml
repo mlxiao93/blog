@@ -4,6 +4,25 @@
 
     
   <url>
+    <loc>http://mlxiao.com/2017/02/04/sort-algorithm/</loc>
+    <lastmod>2017-02-11T09:18:10.298Z</lastmod>
+    <data>
+        <display>
+        <title>排序算法</title>
+        <pubTime>2017-02-04T04:02:50.000Z</pubTime>
+        
+        <tag>js</tag>
+         
+        <tag>algorithm</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://mlxiao.com/2017/02/09/promise/</loc>
     <lastmod>2017-02-11T06:11:37.022Z</lastmod>
     <data>
@@ -22,25 +41,6 @@
     </url>
 
     
-    
-  <url>
-    <loc>http://mlxiao.com/2017/02/04/sort-algorithm/</loc>
-    <lastmod>2017-02-10T15:18:06.969Z</lastmod>
-    <data>
-        <display>
-        <title>排序算法</title>
-        <pubTime>2017-02-04T04:02:50.000Z</pubTime>
-        
-        <tag>js</tag>
-         
-        <tag>algorithm</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
     
   <url>
     <loc>http://mlxiao.com/2017/02/09/callback-promise-async-await/</loc>
@@ -111,11 +111,11 @@
         <title>浏览器兼容性问题</title>
         <pubTime>2017-02-04T00:30:22.000Z</pubTime>
         
+        <tag>js</tag>
+         
         <tag>html</tag>
          
         <tag>css</tag>
-         
-        <tag>js</tag>
          
          
            
