@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://mlxiao.com/2017/02/09/promise/</loc>
+    
+    <lastmod>2017-02-11T06:11:37.022Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://mlxiao.com/about/index.html</loc>
     
     <lastmod>2017-02-10T18:52:15.369Z</lastmod>
@@ -19,13 +26,6 @@
     <loc>http://mlxiao.com/2017/02/09/callback-promise-async-await/</loc>
     
     <lastmod>2017-02-10T10:25:50.580Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://mlxiao.com/2017/02/09/promise/</loc>
-    
-    <lastmod>2017-02-10T02:33:39.084Z</lastmod>
     
   </url>
   
