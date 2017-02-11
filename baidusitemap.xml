@@ -4,6 +4,27 @@
 
     
   <url>
+    <loc>http://mlxiao.com/2017/02/10/scss-skill/</loc>
+    <lastmod>2017-02-11T15:28:30.259Z</lastmod>
+    <data>
+        <display>
+        <title>scss实用技巧</title>
+        <pubTime>2017-02-10T14:23:09.000Z</pubTime>
+        
+        <tag>css</tag>
+         
+        <tag>scss</tag>
+         
+        <tag>BEM</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://mlxiao.com/2017/02/04/sort-algorithm/</loc>
     <lastmod>2017-02-11T09:18:10.298Z</lastmod>
     <data>
@@ -111,11 +132,11 @@
         <title>浏览器兼容性问题</title>
         <pubTime>2017-02-04T00:30:22.000Z</pubTime>
         
-        <tag>js</tag>
+        <tag>css</tag>
          
         <tag>html</tag>
          
-        <tag>css</tag>
+        <tag>js</tag>
          
          
            
