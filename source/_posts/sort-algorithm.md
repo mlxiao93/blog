@@ -192,3 +192,36 @@ function quickSort(arr, low, high) {
   return arr;
 }
 ```
+
+## 堆排序
++ 构造一个最大堆，交换堆顶和堆末元素, 堆大小依次减1，循坏至堆大小为1
++ 不稳定排序
++ 时间复杂度：O(nlogn)
+
+``` js
+function maxHeapify(arr, last, top) {
+  if (last === undefined) last = arr.length - 1;
+  if (top === undefined) top = 0;
+  if (top > last) return;
+  var lchild = (top * 2) + 1,
+      rchild = (top * 2) + 2,
+      max = top;
+
+  maxHeapify(arr, last, lchild);
+  maxHeapify(arr, last, rchild);
+
+  if (lchild <= last && arr[lchild] > arr[max]) max = lchild;
+  if (rchild <= last && arr[rchild] > arr[max]) max = rchild;
+
+  swap(arr, top, max);
+}
+
+function heapSort(arr) {
+  var len = arr.length;
+  for (var last = len - 1; last > 0; last--) {
+    maxHeapify(arr, last);
+    swap(arr, 0, last);
+  }
+  return arr;
+}
+```

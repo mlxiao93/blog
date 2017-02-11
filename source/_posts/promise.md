@@ -15,17 +15,17 @@ tags:
 此处只实现一个包含构造函数，resolve方法和reject方法的简化版本
 
 ## 实现思路
-+ 需要有一个对象(defferred)保存resolve callback和reject callback，一个工厂函数(Promise)返回这个对象
-+ defferred对象需要有个then方法用来注册resolve callback和reject callback
-+ defferred对象需要一个resolve方法执行resolve callback，一个reject方法执行reject callback
-+ 工厂函数(Promise)的构造函数接收一个函数作为参数，返回defferred对象
-+ 工厂函数(Promise)需要两个静态方法: resolve，reject，均返回defferred对象
++ 需要有一个对象(defer)保存resolve callback和reject callback，一个工厂函数(Promise)返回这个对象
++ defer对象需要有个then方法用来注册resolve callback和reject callback
++ defer对象需要一个resolve方法执行resolve callback，一个reject方法执行reject callback
++ 工厂函数(Promise)的构造函数接收一个函数作为参数，返回defer对象
++ 工厂函数(Promise)需要两个静态方法: resolve，reject，均返回defer对象
 + 使用setTimeout保证callback的注册先于resolve或reject方法的执行(见代码22行、30行、39行)
 
 ## 实现代码
 
 ``` js
-class Defferred {
+class Defer {
   resolveCallback = () => {};
   rejectCallback = () => {};
 
@@ -45,32 +45,32 @@ class Defferred {
 
 export default class Promise {
   static resolve = function(data) {
-    let defferred = new Defferred();
+    let defer = new Defer();
     setTimeout(() => {
-      defferred.resolve(data);
+      defer.resolve(data);
     })
-    return defferred;
+    return defer;
   }
 
   static reject = function(data) {
-    let defferred = new Defferred();
+    let defer = new Defer();
     setTimeout(() => {
-      defferred.reject(data);
+      defer.reject(data);
     })
-    return defferred;
+    return defer;
   }
 
-  defferred = new Defferred();
+  defer = new Defer();
 
   constructor(fn = () => {}) {
     setTimeout(() => {
       fn.call(null, data => {
-        this.defferred.resolve(data);
+        this.defer.resolve(data);
       }, data => {
-        this.defferred.reject(data);
+        this.defer.reject(data);
       });
     });
-    return this.defferred;
+    return this.defer;
   }
 }
 
