@@ -19,6 +19,8 @@ tags:
 + 添加`beforeEach`和`afterEach`
 + 只对fetch做扩展，可以和使用fetch一样使用$fetch
 
+*以下代码均需要babel环境，配置可参考另一篇博客[使用webpack构建项目 - ES6+支持](http://localhost:4000/2017/02/08/webpack/#ES6-支持)*
+
 ## 实现代码
 ``` js
 import "babel-polyfill";
