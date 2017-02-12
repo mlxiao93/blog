@@ -4,6 +4,46 @@
 
     
   <url>
+    <loc>http://mlxiao.com/2017/02/11/encapsulation-fetch/</loc>
+    <lastmod>2017-02-12T09:39:44.079Z</lastmod>
+    <data>
+        <display>
+        <title>封装fetch api</title>
+        <pubTime>2017-02-11T15:23:09.000Z</pubTime>
+        
+        <tag>javascript</tag>
+         
+        <tag>es6</tag>
+         
+        <tag>fetch</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://mlxiao.com/2017/02/04/sort-algorithm/</loc>
+    <lastmod>2017-02-11T17:22:53.302Z</lastmod>
+    <data>
+        <display>
+        <title>排序算法</title>
+        <pubTime>2017-02-04T04:02:50.000Z</pubTime>
+        
+        <tag>js</tag>
+         
+        <tag>algorithm</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://mlxiao.com/2017/02/10/scss-skill/</loc>
     <lastmod>2017-02-11T15:28:30.259Z</lastmod>
     <data>
@@ -16,25 +56,6 @@
         <tag>scss</tag>
          
         <tag>BEM</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://mlxiao.com/2017/02/04/sort-algorithm/</loc>
-    <lastmod>2017-02-11T09:18:10.298Z</lastmod>
-    <data>
-        <display>
-        <title>排序算法</title>
-        <pubTime>2017-02-04T04:02:50.000Z</pubTime>
-        
-        <tag>js</tag>
-         
-        <tag>algorithm</tag>
          
          
            
@@ -132,11 +153,11 @@
         <title>浏览器兼容性问题</title>
         <pubTime>2017-02-04T00:30:22.000Z</pubTime>
         
-        <tag>css</tag>
+        <tag>js</tag>
          
         <tag>html</tag>
          
-        <tag>js</tag>
+        <tag>css</tag>
          
          
            

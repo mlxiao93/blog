@@ -2,16 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://mlxiao.com/2017/02/10/scss-skill/</loc>
+    <loc>http://mlxiao.com/2017/02/11/encapsulation-fetch/</loc>
     
-    <lastmod>2017-02-11T15:28:30.259Z</lastmod>
+    <lastmod>2017-02-12T09:39:44.079Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://mlxiao.com/2017/02/04/sort-algorithm/</loc>
     
-    <lastmod>2017-02-11T09:18:10.298Z</lastmod>
+    <lastmod>2017-02-11T17:22:53.302Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://mlxiao.com/2017/02/10/scss-skill/</loc>
+    
+    <lastmod>2017-02-11T15:28:30.259Z</lastmod>
     
   </url>
   
