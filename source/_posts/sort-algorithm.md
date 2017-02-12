@@ -155,35 +155,34 @@ function mergeSort(arr, low, high) {
 //选择一个元素（哨兵）对数组切分，小的放前面，大的放后面（升序）
 //返回切分后哨兵的索引
 function partion(arr, low, high) {
-  var i = low,
-      j = high,
-      m = low,    //哨兵的索引
-      ele = arr[m];
+  var left = low,
+      right = high,
+      midVal = arr[low];   //哨兵
 
   while(true) {   //扫描左右，检查扫描是否结束
-    while(true) {    //从左边开始扫描，找出比ele大的
-      if(i > j) break;
-      if (arr[i] > ele) break;
-      i++;
+    while(true) {    //从左边开始扫描，找出比哨兵大的
+      if(left > right) break;
+      if (arr[left] > midVal) break;
+      left++;
     }
-    while(true) {     //从右边开始扫描，找出比ele小的
-      if(j < i) break;
-      if (arr[j] < ele) break;
-      j--;
+    while(true) {     //从右边开始扫描，找出比哨兵小的
+      if(right < left) break;
+      if (arr[right] < midVal) break;
+      right--;
     }
-    if (i >= j) break;   //左边没找到比哨兵小的或者右边没找到比哨兵大的
-    swap(arr, i, j); //交换左右找到的元素
+    if (left >= right) break;   //左边没找到比哨兵小的或者右边没找到比哨兵大的
+    swap(arr, left, right); //交换左右找到的元素
   }
-  var n = i - 1  //切分后哨兵的索引
-  swap(arr, m, n);
-  return n;
+  left--;  //切分后哨兵的索引
+  swap(arr, low, left);
+  return left;
 }
 
 function quickSort(arr, low, high) {
   if (low === undefined) low = 0;
   if (high === undefined) high = arr.length - 1;
 
-  if (low >= high) return arr;
+  if (low >= high) return;
 
   var mid =partion(arr, low, high);
   quickSort(arr, low, mid - 1);
