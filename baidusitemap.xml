@@ -5,15 +5,15 @@
     
   <url>
     <loc>http://mlxiao.com/2017/02/11/encapsulation-fetch/</loc>
-    <lastmod>2017-02-12T09:39:44.079Z</lastmod>
+    <lastmod>2017-02-13T10:36:15.929Z</lastmod>
     <data>
         <display>
         <title>封装fetch api</title>
         <pubTime>2017-02-11T15:23:09.000Z</pubTime>
         
-        <tag>javascript</tag>
-         
         <tag>es6</tag>
+         
+        <tag>javascript</tag>
          
         <tag>fetch</tag>
          
@@ -153,11 +153,11 @@
         <title>浏览器兼容性问题</title>
         <pubTime>2017-02-04T00:30:22.000Z</pubTime>
         
-        <tag>js</tag>
-         
         <tag>html</tag>
          
         <tag>css</tag>
+         
+        <tag>js</tag>
          
          
            
