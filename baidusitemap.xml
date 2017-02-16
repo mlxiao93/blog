@@ -5,7 +5,7 @@
     
   <url>
     <loc>http://mlxiao.com/2017/02/16/delegate-event/</loc>
-    <lastmod>2017-02-16T02:42:55.000Z</lastmod>
+    <lastmod>2017-02-16T06:08:30.000Z</lastmod>
     <data>
         <display>
         <title>dom事件代理函数</title>
@@ -45,25 +45,6 @@
 
     
   <url>
-    <loc>http://mlxiao.com/2017/02/09/promise/</loc>
-    <lastmod>2017-02-14T15:13:59.000Z</lastmod>
-    <data>
-        <display>
-        <title>实现一个Promise</title>
-        <pubTime>2017-02-09T08:57:54.000Z</pubTime>
-        
-        <tag>js</tag>
-         
-        <tag>es6</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://mlxiao.com/2017/02/10/scss-skill/</loc>
     <lastmod>2017-02-14T15:13:59.000Z</lastmod>
     <data>
@@ -76,6 +57,25 @@
         <tag>scss</tag>
          
         <tag>BEM</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://mlxiao.com/2017/02/09/promise/</loc>
+    <lastmod>2017-02-14T15:13:59.000Z</lastmod>
+    <data>
+        <display>
+        <title>实现一个Promise</title>
+        <pubTime>2017-02-09T08:57:54.000Z</pubTime>
+        
+        <tag>js</tag>
+         
+        <tag>es6</tag>
          
          
            
@@ -237,12 +237,12 @@
 
     
   <url>
-    <loc>http://mlxiao.com/2017/02/05/lazy-man/</loc>
+    <loc>http://mlxiao.com/2017/02/05/debounce-and-throttle/</loc>
     <lastmod>2017-02-07T15:25:21.000Z</lastmod>
     <data>
         <display>
-        <title>实现LazyMan</title>
-        <pubTime>2017-02-05T09:42:48.000Z</pubTime>
+        <title>debounce和throttle函数</title>
+        <pubTime>2017-02-05T13:55:19.000Z</pubTime>
         
         <tag>js</tag>
          
@@ -254,12 +254,12 @@
 
     
   <url>
-    <loc>http://mlxiao.com/2017/02/05/debounce-and-throttle/</loc>
+    <loc>http://mlxiao.com/2017/02/05/lazy-man/</loc>
     <lastmod>2017-02-07T15:25:21.000Z</lastmod>
     <data>
         <display>
-        <title>debounce和throttle函数</title>
-        <pubTime>2017-02-05T13:55:19.000Z</pubTime>
+        <title>实现LazyMan</title>
+        <pubTime>2017-02-05T09:42:48.000Z</pubTime>
         
         <tag>js</tag>
          
