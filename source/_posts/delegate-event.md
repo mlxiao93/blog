@@ -14,7 +14,6 @@ tags:
 + 利用事件冒泡，在父元素的事件响应函数里处理目标元素
 + IE使用attachEvent添加事件响应函数
 + IE的event对象需要使用window.event, event.target使用event.srcElement
-+ 利用`/\bclassname\b/`匹配classname
 
 ## 代码
 ``` js
@@ -23,7 +22,7 @@ function matchSelector(ele, selector) {
     return '#' + ele.id === selector
   }
   if (/^\./.test(selector)) {    //匹配classname
-    return new RegExp('\\b' + selector.substr(1) + '\\b').test(ele.className);
+    return ele.classList.contains(selector.substr(1))   //classList不兼容IE，此处不是重点
   }
   return ele.tagName.toLocaleLowerCase() === selector;    //匹配tagname
 }
