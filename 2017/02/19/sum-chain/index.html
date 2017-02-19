@@ -11,12 +11,12 @@
 
 
 
-  <meta name="description" content="css之BFC"/>
+  <meta name="description" content="js链式累加函数"/>
 
 
 
 
-  <meta name="keywords" content="css," />
+  <meta name="keywords" content="js," />
 
 
 
@@ -30,21 +30,19 @@
 
 
 
-<link rel="canonical" href="http://mlxiao.com/2017/02/07/css-bfc/"/>
+<link rel="canonical" href="http://mlxiao.com/2017/02/19/sum-chain/"/>
 
 
-<meta name="description" content="BFC是什么，block formatting context，翻译下来就是块级格式化上下文，那么它到底是什么?新建一个html，在body下写一个div，div里写一个p标签，p标签内写上大名鼎鼎的”Hello world”，然后给div加上一个背景色，然后神奇的事情发生了：">
+<meta name="description" content="实现sum(1, 2)(3)(4)使输出结果为10，即1 + 2 + 3 + 4 = 10">
 <meta property="og:type" content="article">
-<meta property="og:title" content="css之BFC">
-<meta property="og:url" content="http://mlxiao.com/2017/02/07/css-bfc/index.html">
+<meta property="og:title" content="js链式累加函数">
+<meta property="og:url" content="http://mlxiao.com/2017/02/19/sum-chain/index.html">
 <meta property="og:site_name" content="m.l 's blog">
-<meta property="og:description" content="BFC是什么，block formatting context，翻译下来就是块级格式化上下文，那么它到底是什么?新建一个html，在body下写一个div，div里写一个p标签，p标签内写上大名鼎鼎的”Hello world”，然后给div加上一个背景色，然后神奇的事情发生了：">
-<meta property="og:image" content="http://o86lf0oxm.bkt.clouddn.com/blog-css-bfc-01.png">
-<meta property="og:updated_time" content="2017-02-07T11:42:06.810Z">
+<meta property="og:description" content="实现sum(1, 2)(3)(4)使输出结果为10，即1 + 2 + 3 + 4 = 10">
+<meta property="og:updated_time" content="2017-02-19T04:50:01.482Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="css之BFC">
-<meta name="twitter:description" content="BFC是什么，block formatting context，翻译下来就是块级格式化上下文，那么它到底是什么?新建一个html，在body下写一个div，div里写一个p标签，p标签内写上大名鼎鼎的”Hello world”，然后给div加上一个背景色，然后神奇的事情发生了：">
-<meta name="twitter:image" content="http://o86lf0oxm.bkt.clouddn.com/blog-css-bfc-01.png">
+<meta name="twitter:title" content="js链式累加函数">
+<meta name="twitter:description" content="实现sum(1, 2)(3)(4)使输出结果为10，即1 + 2 + 3 + 4 = 10">
 
 
 <link rel="stylesheet" type="text/css" href="/css/style.css?v=2.1.x" />
@@ -70,7 +68,7 @@
 
 
 
-    <title> css之BFC · m.l 's blog </title>
+    <title> js链式累加函数 · m.l 's blog </title>
   </head>
 
   <body>
@@ -187,13 +185,13 @@
     <header class="post-header">
       <h1 class="post-title">
         
-          css之BFC
+          js链式累加函数
         
       </h1>
 
       <div class="post-meta">
         <span class="post-time">
-          Feb 7, 2017
+          Feb 19, 2017
         </span>
       </div>
     </header>
@@ -202,34 +200,23 @@
       <div class="post-toc" id="post-toc">
         <h2 class="post-toc-title">Contents</h2>
         <div class="post-toc-content">
-          <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#官方解释：BFC"><span class="toc-text">官方解释：BFC</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#BFC创建条件"><span class="toc-text">BFC创建条件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#margin重叠问题"><span class="toc-text">margin重叠问题</span></a></li></ol>
+          <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#要点"><span class="toc-text">要点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#代码"><span class="toc-text">代码</span></a></li></ol>
         </div>
       </div>
     
 
     <div class="post-content">
       
-        <p>BFC是什么，block formatting context，翻译下来就是块级格式化上下文，那么它到底是什么?<br>新建一个html，在body下写一个div，div里写一个p标签，p标签内写上大名鼎鼎的”Hello world”，然后给div加上一个背景色，然后神奇的事情发生了：</p>
+        <p>实现<code>sum(1, 2)(3)(4)</code>使输出结果为10，即<code>1 + 2 + 3 + 4 = 10</code></p>
 <a id="more"></a>
-<p><img src="http://o86lf0oxm.bkt.clouddn.com/blog-css-bfc-01.png" alt="demo"><br>去掉body的默认margin后，背景色居然没有从顶部开始，其实这个问题就可以用BFC来解决</p>
-<h2 id="官方解释：BFC"><a href="#官方解释：BFC" class="headerlink" title="官方解释：BFC"></a>官方解释：<a href="https://www.w3.org/TR/CSS2/visuren.html#block-formatting" target="_blank" rel="external">BFC</a></h2><p>个人理解：（参考<a href="http://www.html-js.com/article/1866" target="_blank" rel="external">这篇博文</a>）<br>1 在一个BFC中，盒子从包含块的顶端开始垂直地一个接一个地排列，两个盒子之间的垂直的间隙是由他们的margin 值所决定的。两个相邻的块级盒子的垂直外边距会发生重叠。<br>2 在BFC中，每一个盒子的margin会触碰到容器的border<br><small><em>注：盒子可以理解为一个块级元素</em></small></p>
-<h2 id="BFC创建条件"><a href="#BFC创建条件" class="headerlink" title="BFC创建条件"></a><a href="https://developer.mozilla.org/zh-CN/docs/Web/Guide/CSS/Block_formatting_context" target="_blank" rel="external">BFC创建条件</a></h2><p><small><em>摘抄自MDN：</em></small></p>
-<blockquote>
-<p>块格式化上下文（block formatting context） 是Web页面的可视CSS渲染的一部分。它是块盒子的布局发生及浮动体彼此交互的区域。<br>块格式化上下文由以下之一创建：</p>
-<ul>
-<li>根元素或其它包含它的元素</li>
-<li>浮动 (元素的 float 不是 none)</li>
-<li>绝对定位的元素 (元素具有 position 为 absolute 或 fixed)</li>
-<li>内联块 inline-blocks (元素具有 display: inline-block)</li>
-<li>表格单元格 (元素具有 display: table-cell，HTML表格单元格默认属性)</li>
-<li>表格标题 (元素具有 display: table-caption, HTML表格标题默认属性)</li>
-<li>块元素 元素具有overflow 值不是 visible</li>
-<li>弹性盒子 flex boxes (元素具有display: flex 或 inline-flex)</li>
-<li>display: flow-root</li>
+<h2 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h2><ul>
+<li>sum需要返回一个函数</li>
+<li>被返回函数的toString方法需要重写</li>
+<li>将arguments转为Array，调用reduce方法</li>
 </ul>
-</blockquote>
-<h2 id="margin重叠问题"><a href="#margin重叠问题" class="headerlink" title="margin重叠问题"></a><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Box_Model/Mastering_margin_collapsing" target="_blank" rel="external">margin重叠问题</a></h2><p>块级父元素的margin会和第一(最后)一个块级子元素的margin发生重叠</p>
-<p>这个问题其实就是本文开头提出的问题：p标签默认有一个margin值，和包裹p标签的div标签的margin发生重叠，使div也有了一个margin值。解决这个问题的办法就是使用上述<a href="#BFC创建条件">BFC创建条件</a>中的任意一种方法使div形成一个BFC就行了。(可以给div设一个”overflow: auto”)</p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><p>先做一个<code>sum(1)(2)(3)</code>的版本：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">sum</span> (<span class="params">x</span>) </span>&#123;</div><div class="line">  <span class="keyword">var</span> foo = <span class="function"><span class="keyword">function</span> (<span class="params">y</span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> sum(x + y);</div><div class="line">  &#125;;</div><div class="line">  foo.toString = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> x;</div><div class="line">  &#125;;</div><div class="line">  <span class="keyword">return</span> foo;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>完整实现：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">sum</span> (<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">var</span> x = <span class="built_in">Array</span>.prototype.slice.call(<span class="built_in">arguments</span>).reduce(<span class="function"><span class="keyword">function</span> (<span class="params">a, b</span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> a + b;</div><div class="line">  &#125;);</div><div class="line">  <span class="keyword">var</span> foo = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> y = <span class="built_in">Array</span>.prototype.slice.call(<span class="built_in">arguments</span>).reduce(<span class="function"><span class="keyword">function</span> (<span class="params">a, b</span>) </span>&#123;</div><div class="line">      <span class="keyword">return</span> a + b;</div><div class="line">    &#125;);</div><div class="line">    <span class="keyword">return</span> sum(x + y);</div><div class="line">  &#125;;</div><div class="line">  foo.toString = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> x;</div><div class="line">  &#125;;</div><div class="line">  <span class="keyword">return</span> foo;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -238,22 +225,16 @@
       <footer class="post-footer">
         <div class="post-tags">
           
-            <a href="/tags/css/">css</a>
+            <a href="/tags/js/">js</a>
           
         </div>
 
         
   <nav class="post-nav">
     
-      <a class="prev" href="/2017/02/07/css-flex/">
-        <i class="iconfont icon-left"></i>
-        <span class="prev-text nav-default">css3 flex</span>
-        <span class="prev-text nav-mobile">Prev</span>
-      </a>
     
-    
-      <a class="next" href="/2017/02/05/debounce-and-throttle/">
-        <span class="next-text nav-default">debounce和throttle函数</span>
+      <a class="next" href="/2017/02/16/delegate-event/">
+        <span class="next-text nav-default">dom事件代理函数</span>
         <span class="prev-text nav-mobile">Next</span>
         <i class="iconfont icon-right"></i>
       </a>
@@ -269,8 +250,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2017/02/07/css-bfc/"
-           data-title="css之BFC" data-url="http://mlxiao.com/2017/02/07/css-bfc/">
+      <div class="ds-thread" data-thread-key="2017/02/19/sum-chain/"
+           data-title="js链式累加函数" data-url="http://mlxiao.com/2017/02/19/sum-chain/">
       </div>
     
   </div>
