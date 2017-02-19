@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="description" content="js深拷贝"/>
+
+
+
+
+  <meta name="keywords" content="js," />
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="m.l 's blog">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.1.x" />
+
+
+
+<link rel="canonical" href="http://mlxiao.com/2017/02/19/deep-copy/"/>
+
+
+<meta name="description" content="深拷贝指的是对象属性所引用的对象全部进行新建对象复制，以保证深复制的对象的引用图不包含任何原有对象或对象图上的任何对象，隔离出两个完全不同的对象。可参考lodash的cloneDeep">
+<meta property="og:type" content="article">
+<meta property="og:title" content="js深拷贝">
+<meta property="og:url" content="http://mlxiao.com/2017/02/19/deep-copy/index.html">
+<meta property="og:site_name" content="m.l 's blog">
+<meta property="og:description" content="深拷贝指的是对象属性所引用的对象全部进行新建对象复制，以保证深复制的对象的引用图不包含任何原有对象或对象图上的任何对象，隔离出两个完全不同的对象。可参考lodash的cloneDeep">
+<meta property="og:updated_time" content="2017-02-19T08:55:50.656Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="js深拷贝">
+<meta name="twitter:description" content="深拷贝指的是对象属性所引用的对象全部进行新建对象复制，以保证深复制的对象的引用图不包含任何原有对象或对象图上的任何对象，隔离出两个完全不同的对象。可参考lodash的cloneDeep">
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.1.x" />
+
+
+
+  <link rel="stylesheet" type="text/css" href="/lib/fancybox/jquery.fancybox.css" />
+
+
+
+
+  
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?b749a7ec8f4ce4e8913350bbc7a424d8";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+    <title> js深拷贝 · m.l 's blog </title>
+  </head>
+
+  <body>
+    <div class="container">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/." class="logo">m.l 's blog</a>
+</div>
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/">
+            
+            
+              Home
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/archives/">
+            
+            
+              Archives
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/tags">
+            
+            
+              Tags
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/about">
+            
+            
+              About
+            
+          </a>
+        </li>
+      
+      
+        <li class="menu-search">
+          <form>
+            <i class="iconfont icon-search" id="open-search"></i>
+            <input type="text" class="search-input" id="search-input" />
+            <i class="iconfont icon-close" id="close-search"></i>
+          </form>
+        </li>
+      
+    </ul>
+  
+</nav>
+
+<div class="mobile-navbar">
+  <div class="mobile-header">
+    <div class="mobile-header-logo">
+      <a href="/." class="logo">m.l 's blog</a>
+    </div>
+
+    <div class="mobile-header-icon">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+  <nav class="mobile-menu">
+    
+      <a class="mobile-menu-item" href="/">
+        
+        
+          Home
+        
+      </a>
+    
+      <a class="mobile-menu-item" href="/archives/">
+        
+        
+          Archives
+        
+      </a>
+    
+      <a class="mobile-menu-item" href="/tags">
+        
+        
+          Tags
+        
+      </a>
+    
+      <a class="mobile-menu-item" href="/about">
+        
+        
+          About
+        
+      </a>
+    
+  </nav>
+</div>
+      </header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content">
+            
+  
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          js深拷贝
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          Feb 19, 2017
+        </span>
+      </div>
+    </header>
+
+    
+      <div class="post-toc" id="post-toc">
+        <h2 class="post-toc-title">Contents</h2>
+        <div class="post-toc-content">
+          <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#分析"><span class="toc-text">分析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#深度优先的实现方式"><span class="toc-text">深度优先的实现方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#广度优先的实现方式"><span class="toc-text">广度优先的实现方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#简洁的实现方式"><span class="toc-text">简洁的实现方式</span></a></li></ol>
+        </div>
+      </div>
+    
+
+    <div class="post-content">
+      
+        <p>深拷贝指的是对象属性所引用的对象全部进行新建对象复制，以保证深复制的对象的引用图不包含任何原有对象或对象图上的任何对象，隔离出两个完全不同的对象。可参考lodash的<a href="https://lodash.com/docs/4.17.3#cloneDeep" target="_blank" rel="external">cloneDeep</a></p>
+<a id="more"></a>
+<h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><ul>
+<li>非引用类型比如String, Number, Boolean, Function直接赋值</li>
+<li>RexExp和Date类型调用各自的构造函数进行复制</li>
+<li>其他类型比如Array, Object需对其所有子属性、孙子属性进行单独复制</li>
+</ul>
+<h2 id="深度优先的实现方式"><a href="#深度优先的实现方式" class="headerlink" title="深度优先的实现方式"></a>深度优先的实现方式</h2><p>使用递归处理子孙属性</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">deepCopyDepth</span>(<span class="params">target</span>) </span>&#123;</div><div class="line">  <span class="keyword">let</span> _target;</div><div class="line">  <span class="keyword">if</span> (<span class="built_in">Array</span>.isArray(target)) &#123;    <span class="comment">//数组</span></div><div class="line">    _target = [];</div><div class="line">    target.map(<span class="function"><span class="params">item</span> =&gt;</span> _target.push(deepCopyDepth(item)))</div><div class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span> (target <span class="keyword">instanceof</span> <span class="built_in">Date</span>) &#123;    <span class="comment">//Date对象</span></div><div class="line">    _target = <span class="keyword">new</span> <span class="built_in">Date</span>(target);</div><div class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span> (target <span class="keyword">instanceof</span> <span class="built_in">RegExp</span>) &#123;    <span class="comment">//RegExp对象</span></div><div class="line">    _target = <span class="keyword">new</span> <span class="built_in">RegExp</span>(target);</div><div class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span> (target &amp;&amp; <span class="keyword">typeof</span> target === <span class="string">'object'</span>) &#123;   <span class="comment">//Object，排除null</span></div><div class="line">    _target = &#123;&#125;;</div><div class="line">    <span class="built_in">Object</span>.keys(target).map(<span class="function"><span class="params">key</span> =&gt;</span> _target[key] = deepCopyDepth(target[key]));</div><div class="line">  &#125; <span class="keyword">else</span> &#123;     <span class="comment">//其它情况: String，Boolean，Number等</span></div><div class="line">    _target = target;</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">return</span> _target;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="广度优先的实现方式"><a href="#广度优先的实现方式" class="headerlink" title="广度优先的实现方式"></a>广度优先的实现方式</h2><ul>
+<li>利用队列，目标元素首先执行浅拷贝，然后入队</li>
+<li>出队浅拷贝所有子属性，然后子属性入队。循环直到队列为空</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">deepCopyBreadth</span>(<span class="params">target</span>) </span>&#123;</div><div class="line"></div><div class="line">  <span class="keyword">let</span> lightCopy = <span class="function"><span class="params">item</span> =&gt;</span> &#123;     <span class="comment">//浅拷贝</span></div><div class="line">    <span class="keyword">let</span> _item;</div><div class="line">    <span class="keyword">if</span> (<span class="built_in">Array</span>.isArray(item)) &#123;</div><div class="line">      _item = [...item]</div><div class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (item <span class="keyword">instanceof</span> <span class="built_in">Date</span>) &#123;    <span class="comment">//Date对象</span></div><div class="line">      _item = <span class="keyword">new</span> <span class="built_in">Date</span>(item);</div><div class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (item <span class="keyword">instanceof</span> <span class="built_in">RegExp</span>) &#123;    <span class="comment">//RegExp对象</span></div><div class="line">      _item = <span class="keyword">new</span> <span class="built_in">RegExp</span>(item);</div><div class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (item &amp;&amp; <span class="keyword">typeof</span> item === <span class="string">'object'</span>) &#123;</div><div class="line">      _item = &#123;...item&#125;</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">      _item = item;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> _item;</div><div class="line">  &#125;;</div><div class="line"></div><div class="line">  <span class="keyword">let</span> queue = [];</div><div class="line">  <span class="keyword">let</span> _target = lightCopy(target);     <span class="comment">//入队前对最外层执行浅拷贝</span></div><div class="line">  queue.unshift(_target);      <span class="comment">//首次入队</span></div><div class="line"></div><div class="line">  <span class="keyword">while</span> (queue.length &gt; <span class="number">0</span>) &#123;</div><div class="line">    <span class="keyword">let</span> copy = queue.pop();      <span class="comment">//出队处理子属性</span></div><div class="line">    <span class="keyword">if</span> (<span class="built_in">Array</span>.isArray(copy)) &#123;</div><div class="line">      copy.map(<span class="function">(<span class="params">item, i</span>) =&gt;</span> &#123;</div><div class="line">        copy[i] = lightCopy(item);  <span class="comment">//浅拷贝子属性</span></div><div class="line">        queue.unshift(copy[i])     <span class="comment">//子属性入队</span></div><div class="line">      &#125;)</div><div class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (copy &amp;&amp; <span class="keyword">typeof</span> copy === <span class="string">'object'</span> &amp;&amp; !(target <span class="keyword">instanceof</span> <span class="built_in">RegExp</span>) &amp;&amp; !(target <span class="keyword">instanceof</span> <span class="built_in">Date</span>) ) &#123;</div><div class="line">      <span class="built_in">Object</span>.keys(copy).map(<span class="function"><span class="params">key</span> =&gt;</span> &#123;</div><div class="line">        copy[key] = lightCopy(copy[key]);   <span class="comment">//浅拷贝子属性</span></div><div class="line">        queue.unshift(copy[key])   <span class="comment">//子属性入队</span></div><div class="line">      &#125;)</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">return</span> _target;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="简洁的实现方式"><a href="#简洁的实现方式" class="headerlink" title="简洁的实现方式"></a>简洁的实现方式</h2><ul>
+<li>利用JSON.stringify和JSON.parse进行序列化和反序列化</li>
+<li>无法对Function和RegExp进行复制</li>
+<li>一般需要进行深拷贝的数据不会出现Funtion和RegExp等类型的成员，此法最佳</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">deepCopy</span>(<span class="params">target</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> <span class="built_in">JSON</span>.parse(<span class="built_in">JSON</span>.stringify(target));</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+      <footer class="post-footer">
+        <div class="post-tags">
+          
+            <a href="/tags/js/">js</a>
+          
+        </div>
+
+        
+  <nav class="post-nav">
+    
+    
+      <a class="next" href="/2017/02/19/sum-chain/">
+        <span class="next-text nav-default">js链式累加函数</span>
+        <span class="prev-text nav-mobile">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    
+  </nav>
+
+      </footer>
+    
+  </article>
+
+
+          </div>
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/02/19/deep-copy/"
+           data-title="js深拷贝" data-url="http://mlxiao.com/2017/02/19/deep-copy/">
+      </div>
+    
+  </div>
+
+
+        </div>  
+      </main>
+
+      <footer id="footer" class="footer">
+  <div class="social-links">
+    
+      
+        
+          <a href="mailto:martin.xiao.cn@gmail.com" class="iconfont icon-email" title="email"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        
+          <a href="https://github.com/mlxiao93" target="_blank" class="iconfont icon-github" title="github"></a>
+        
+      
+    
+      
+    
+      
+    
+
+    
+  </div>
+
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" target="_blank" href="https://hexo.io/">Hexo</a>
+  </span>
+
+  <span class="theme-info">
+    Theme -
+    <a class="theme-link" target="_blank"  href="https://github.com/ahonn/hexo-theme-even">Even</a>
+  </span>
+
+  <span class="copyright-year">
+    
+    &copy;
+    
+    2017
+
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">m.l xiao</span>
+  </span>
+</div>
+
+      </footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"mlxiao"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+
+
+    
+  
+
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/jquery/jquery-3.1.1.min.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/fancybox/jquery.fancybox.pack.js"></script>
+  
+
+    <script type="text/javascript" src="/js/src/even.js?v=2.1.x"></script>
+<script type="text/javascript" src="/js/src/bootstrap.js?v=2.1.x"></script>
+
+  </body>
+</html>

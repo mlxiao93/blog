@@ -4,8 +4,25 @@
 
     
   <url>
+    <loc>http://mlxiao.com/2017/02/19/deep-copy/</loc>
+    <lastmod>2017-02-19T08:55:50.656Z</lastmod>
+    <data>
+        <display>
+        <title>js深拷贝</title>
+        <pubTime>2017-02-19T08:12:06.000Z</pubTime>
+        
+        <tag>js</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://mlxiao.com/2017/02/19/sum-chain/</loc>
-    <lastmod>2017-02-19T04:50:01.482Z</lastmod>
+    <lastmod>2017-02-19T05:07:29.733Z</lastmod>
     <data>
         <display>
         <title>js链式累加函数</title>
