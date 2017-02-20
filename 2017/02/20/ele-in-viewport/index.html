@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="description" content="判断元素是否出现在视口"/>
+
+
+
+
+  <meta name="keywords" content="js,dom," />
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="m.l 's blog">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.1.x" />
+
+
+
+<link rel="canonical" href="http://mlxiao.com/2017/02/20/ele-in-viewport/"/>
+
+
+<meta name="description" content="判断元素是否出现在视口即元素是否在当前窗口内可见，利用这个判定可以做图片的懒加载等功能">
+<meta property="og:type" content="article">
+<meta property="og:title" content="判断元素是否出现在视口">
+<meta property="og:url" content="http://mlxiao.com/2017/02/20/ele-in-viewport/index.html">
+<meta property="og:site_name" content="m.l 's blog">
+<meta property="og:description" content="判断元素是否出现在视口即元素是否在当前窗口内可见，利用这个判定可以做图片的懒加载等功能">
+<meta property="og:image" content="http://o86lf0oxm.bkt.clouddn.com/blog-el-in-viewport-01.png">
+<meta property="og:image" content="http://o86lf0oxm.bkt.clouddn.com/blog-el-in-viewport-02.png">
+<meta property="og:image" content="http://o86lf0oxm.bkt.clouddn.com/blog-el-in-viewport-03.png">
+<meta property="og:image" content="http://o86lf0oxm.bkt.clouddn.com/blog-el-in-viewport-04.png">
+<meta property="og:updated_time" content="2017-02-20T11:34:46.012Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="判断元素是否出现在视口">
+<meta name="twitter:description" content="判断元素是否出现在视口即元素是否在当前窗口内可见，利用这个判定可以做图片的懒加载等功能">
+<meta name="twitter:image" content="http://o86lf0oxm.bkt.clouddn.com/blog-el-in-viewport-01.png">
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.1.x" />
+
+
+
+  <link rel="stylesheet" type="text/css" href="/lib/fancybox/jquery.fancybox.css" />
+
+
+
+
+  
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?b749a7ec8f4ce4e8913350bbc7a424d8";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+    <title> 判断元素是否出现在视口 · m.l 's blog </title>
+  </head>
+
+  <body>
+    <div class="container">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/." class="logo">m.l 's blog</a>
+</div>
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/">
+            
+            
+              Home
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/archives/">
+            
+            
+              Archives
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/tags">
+            
+            
+              Tags
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/about">
+            
+            
+              About
+            
+          </a>
+        </li>
+      
+      
+        <li class="menu-search">
+          <form>
+            <i class="iconfont icon-search" id="open-search"></i>
+            <input type="text" class="search-input" id="search-input" />
+            <i class="iconfont icon-close" id="close-search"></i>
+          </form>
+        </li>
+      
+    </ul>
+  
+</nav>
+
+<div class="mobile-navbar">
+  <div class="mobile-header">
+    <div class="mobile-header-logo">
+      <a href="/." class="logo">m.l 's blog</a>
+    </div>
+
+    <div class="mobile-header-icon">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+  <nav class="mobile-menu">
+    
+      <a class="mobile-menu-item" href="/">
+        
+        
+          Home
+        
+      </a>
+    
+      <a class="mobile-menu-item" href="/archives/">
+        
+        
+          Archives
+        
+      </a>
+    
+      <a class="mobile-menu-item" href="/tags">
+        
+        
+          Tags
+        
+      </a>
+    
+      <a class="mobile-menu-item" href="/about">
+        
+        
+          About
+        
+      </a>
+    
+  </nav>
+</div>
+      </header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content">
+            
+  
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          判断元素是否出现在视口
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          Feb 20, 2017
+        </span>
+      </div>
+    </header>
+
+    
+      <div class="post-toc" id="post-toc">
+        <h2 class="post-toc-title">文章目录</h2>
+        <div class="post-toc-content">
+          <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前置知识"><span class="toc-text">前置知识</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#得到视口的尺寸"><span class="toc-text">得到视口的尺寸</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#getBoundingClientRec"><span class="toc-text">getBoundingClientRec</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#代码实现"><span class="toc-text">代码实现</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#是否完整出现在视口"><span class="toc-text">是否完整出现在视口</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#是否部分出现在视口"><span class="toc-text">是否部分出现在视口</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#扩展知识"><span class="toc-text">扩展知识</span></a></li></ol>
+        </div>
+      </div>
+    
+
+    <div class="post-content">
+      
+        <p>判断元素是否出现在视口即元素是否在当前窗口内可见，利用这个判定可以做<a href="https://mlxiao93.github.io/demos/#/img-lazy-load" target="_blank" rel="external">图片的懒加载</a>等功能</p>
+<a id="more"></a>
+<h2 id="前置知识"><a href="#前置知识" class="headerlink" title="前置知识"></a>前置知识</h2><h3 id="得到视口的尺寸"><a href="#得到视口的尺寸" class="headerlink" title="得到视口的尺寸"></a>得到视口的尺寸</h3><p><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Window/innerHeight" target="_blank" rel="external"><code>window.innerWidth</code></a>, <a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Window/innerWidth" target="_blank" rel="external"><code>window.innerHeight</code></a>，兼容性不佳。<br><code>document.documentElement.clinetWidth</code>, <code>document.doucmentElement.clientHeight</code>，IE也支持<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> viewportWidth = <span class="built_in">window</span>.innerWidth || <span class="built_in">document</span>.documentElement.clinetWidth;</div><div class="line"><span class="keyword">var</span> viewportHeight = <span class="built_in">window</span>.innerHeight || <span class="built_in">document</span>.doucmentElement.clientHeight;</div></pre></td></tr></table></figure></p>
+<h3 id="getBoundingClientRec"><a href="#getBoundingClientRec" class="headerlink" title="getBoundingClientRec"></a><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Element/getBoundingClientRect" target="_blank" rel="external">getBoundingClientRec</a></h3><p>该方法返回会一个矩形对象，包含4 个属性：left、top、right 和bottom。这些属性给出了元素在页面中相对于视口的位置。如下图所示：</p>
+<p><img src="http://o86lf0oxm.bkt.clouddn.com/blog-el-in-viewport-01.png" alt="getBoundingClientRec"></p>
+<h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2><h3 id="是否完整出现在视口"><a href="#是否完整出现在视口" class="headerlink" title="是否完整出现在视口"></a>是否完整出现在视口</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">isElementInViewPort</span>(<span class="params">el</span>) </span>&#123;</div><div class="line">  <span class="keyword">var</span> viewportWidth = <span class="built_in">window</span>.innerWidth || <span class="built_in">document</span>.documentElement.clinetWidth,</div><div class="line">      viewportHeight = <span class="built_in">window</span>.innerHeight || <span class="built_in">document</span>.doucmentElement.clientHeight,</div><div class="line">      rect = el.getBoundingClientRect();</div><div class="line">  <span class="keyword">return</span> rect.top &gt;= <span class="number">0</span> &amp;&amp;</div><div class="line">    rect.left &gt;= <span class="number">0</span> &amp;&amp;</div><div class="line">    rect.bottom &lt;= viewportHeight &amp;&amp;</div><div class="line">    rect.right &lt;= viewportWidth;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<h3 id="是否部分出现在视口"><a href="#是否部分出现在视口" class="headerlink" title="是否部分出现在视口"></a>是否部分出现在视口</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">isElementInViewPort</span>(<span class="params">el</span>) </span>&#123;</div><div class="line">  <span class="keyword">var</span> viewportWidth = <span class="built_in">window</span>.innerWidth || <span class="built_in">document</span>.documentElement.clinetWidth,</div><div class="line">      viewportHeight = <span class="built_in">window</span>.innerHeight || <span class="built_in">document</span>.doucmentElement.clientHeight,</div><div class="line">      rect = el.getBoundingClientRect();</div><div class="line">  <span class="keyword">return</span> rect.bottom &gt; <span class="number">0</span> &amp;&amp;</div><div class="line">    rect.bottom &lt; viewportHeight + el.offsetHeight &amp;&amp;</div><div class="line">    rect.right &gt; <span class="number">0</span> &amp;&amp;</div><div class="line">    rect.right &lt; viewportWidth + el.offsetWidth;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<h2 id="扩展知识"><a href="#扩展知识" class="headerlink" title="扩展知识"></a>扩展知识</h2><ul>
+<li><p><code>clientWidth</code>,<code>clientHeight</code><br>元素的客户区大小，指的是元素内容(content)及其内边距(padding)所占据的空间大小</p>
+<p><img src="http://o86lf0oxm.bkt.clouddn.com/blog-el-in-viewport-02.png" alt="clientWidth, clientHeight"></p>
+</li>
+<li><p><code>offsetWidth</code>, <code>offsetHeight</code> | <code>offsetLeft</code>, <code>offsetTop</code><br>元素在屏幕上占用的所有可见的空间 | 元素的外边框(margin)至包含元素的内边框(padding)之间的距离</p>
+<p><img src="http://o86lf0oxm.bkt.clouddn.com/blog-el-in-viewport-03.png" alt="offsetWidth, offsetHeight | offsetLeft, offsetTop"></p>
+</li>
+<li><p><code>scrollWidth</code>, <code>scrollHeight</code> | <code>scrollLeft</code>, <code>scrollTop</code><br> 包含滚动内容的元素的大小 | 被隐藏在内容区域左(上)测的像素数</p>
+<p> <img src="http://o86lf0oxm.bkt.clouddn.com/blog-el-in-viewport-04.png" alt="scrollWidth, scrollHeight | scrollLeft, scrollTop"></p>
+</li>
+</ul>
+
+      
+    </div>
+
+    
+      <footer class="post-footer">
+        <div class="post-tags">
+          
+            <a href="/tags/js/">js</a>
+          
+            <a href="/tags/dom/">dom</a>
+          
+        </div>
+
+        
+  <nav class="post-nav">
+    
+    
+      <a class="next" href="/2017/02/19/deep-copy/">
+        <span class="next-text nav-default">js深拷贝</span>
+        <span class="prev-text nav-mobile">下一篇</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    
+  </nav>
+
+      </footer>
+    
+  </article>
+
+
+          </div>
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/02/20/ele-in-viewport/"
+           data-title="判断元素是否出现在视口" data-url="http://mlxiao.com/2017/02/20/ele-in-viewport/">
+      </div>
+    
+  </div>
+
+
+        </div>  
+      </main>
+
+      <footer id="footer" class="footer">
+  <div class="social-links">
+    
+      
+        
+          <a href="mailto:martin.xiao.cn@gmail.com" class="iconfont icon-email" title="email"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        
+          <a href="https://github.com/mlxiao93" target="_blank" class="iconfont icon-github" title="github"></a>
+        
+      
+    
+      
+    
+      
+    
+
+    
+  </div>
+
+
+<div class="copyright">
+  <span class="power-by">
+    powered by <a class="hexo-link" target="_blank" href="https://hexo.io/">Hexo</a>
+  </span>
+
+  <span class="theme-info">
+    theme -
+    <a class="theme-link" target="_blank"  href="https://github.com/ahonn/hexo-theme-even">Even</a>
+  </span>
+
+  <span class="copyright-year">
+    
+    &copy;
+    
+    2017
+
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">m.l xiao</span>
+  </span>
+</div>
+
+      </footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"mlxiao"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+
+
+    
+  
+
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/jquery/jquery-3.1.1.min.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/fancybox/jquery.fancybox.pack.js"></script>
+  
+
+    <script type="text/javascript" src="/js/src/even.js?v=2.1.x"></script>
+<script type="text/javascript" src="/js/src/bootstrap.js?v=2.1.x"></script>
+
+  </body>
+</html>
