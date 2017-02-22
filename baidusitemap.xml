@@ -4,6 +4,23 @@
 
     
   <url>
+    <loc>http://mlxiao.com/2017/02/05/lazy-man/</loc>
+    <lastmod>2017-02-22T07:05:37.576Z</lastmod>
+    <data>
+        <display>
+        <title>实现LazyMan</title>
+        <pubTime>2017-02-05T09:42:48.000Z</pubTime>
+        
+        <tag>js</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://mlxiao.com/2017/02/04/sort-algorithm/</loc>
     <lastmod>2017-02-22T05:56:17.263Z</lastmod>
     <data>
@@ -264,23 +281,6 @@
         <pubTime>2017-02-07T08:10:33.000Z</pubTime>
         
         <tag>css</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://mlxiao.com/2017/02/05/lazy-man/</loc>
-    <lastmod>2017-02-07T10:29:21.290Z</lastmod>
-    <data>
-        <display>
-        <title>实现LazyMan</title>
-        <pubTime>2017-02-05T09:42:48.000Z</pubTime>
-        
-        <tag>js</tag>
          
          
            
