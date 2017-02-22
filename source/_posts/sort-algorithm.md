@@ -19,6 +19,24 @@ function swap(arr, i, j) {
 }
 ```
 
+## 选择排序
++ 每次选出最小的元素
++ 不稳定排序(比如 [5, 5, 2], 第一次交换就会把第一个5放到第二个5后面)
++ 时间复杂度：O(n^2)
+
+``` js
+function selectionSort(arr) {
+  var len = arr.length;
+  for (var i = 0; i < len - 1; i++) {     //依次选出 n-1 个小的，第 n 个就是最大的
+    for (var j = i + 1; j < len; j++) {
+      if (arr[j] < arr[min]) min = j;
+    }
+    if (min !== i) swap(arr, i, min);
+  }
+  return arr;
+}
+```
+
 ## 插入排序
 + 将元素插入有序数组
 + 稳定排序
@@ -30,29 +48,8 @@ function insertionSort(arr) {
   for (var i = 1; i < len; i++) {
     //将arr[i] 插入到 arr[i - 1]、arr[i - 2]、arr[i - 3]...之中
     for (var j = i; j > 0; j--) {  
-      if (arr[j] < arr[j - 1]) {
-        swap(arr, j, j - 1);
-      }
+      if (arr[j] < arr[j - 1]) swap(arr, j, j - 1);
     }
-  }
-  return arr;
-}
-```
-
-## 选择排序
-+ 每次选出最小的元素
-+ 不稳定排序(比如 [5, 5, 2], 第一次交换就会把第一个5放到第二个5后面)
-+ 时间复杂度：O(n^2)
-
-``` js
-function selectionSort(arr) {
-  var len = arr.length;
-  for (var i = 0; i < len; i++) {
-   var min = i;     //最小元素的索引
-   for (var j = i + 1; j < len; j++) {
-     if (arr[j] < arr[min]) min = j;
-   }
-   swap(arr, i, min);
   }
   return arr;
 }
@@ -66,11 +63,9 @@ function selectionSort(arr) {
 ``` js
 function bubbleSort(arr) {
   var len = arr.length;
-  for (var i = 0; i < len - 1; i++) {
-    for (var j = 0; j < len - 1; j++) {
-      if (arr[j] > arr[j + 1]) {
-        swap(arr, j, j + 1)
-      }
+  for(var i = 0; i < len - 1; i++) {
+    for(var j = 0; j < len - 1 - i; j++) {
+      if (arr[j] > arr[j + 1]) swap(arr, j, j + 1);
     }
   }
   return arr;
@@ -85,18 +80,15 @@ function bubbleSort(arr) {
 
 ``` js
 function shellSort(arr) {
-  var len = arr.length;
-  var h = Math.ceil(len / 3);
-  while(h > 0) {
-    //对间隔为h的元素进行插入排序
-    for (var i = h; i < len; i++) {
-      for (var j = i; j > 0; j -= h) {
-        if (arr[j] < arr[j - h]) {
-          swap(arr, j, j - h);
-        }
+  var len = arr.length,
+      step = Math.floor(len / 3);
+  while(step > 0) { //对间隔为 step 的元素进行插入排序
+    for(var i = step; i < len; i++) {
+      for(var j = i; j >= step; j--) {
+        if (arr[j] < arr[j - step]) swap(arr, j, j - step);
       }
     }
-    h = Math.floor(h / 3);
+    step = Math.floor(step / 3);
   }
   return arr;
 }
@@ -108,28 +100,23 @@ function shellSort(arr) {
 + 时间复杂度：O(nlogn)
 
 ``` js
-var aux = []    //归并所需的辅助数组
-
 //原地归并方法
-//arr是一个low到mid和mid+1到high各自有序的数组，借助aux原地merge这个数组
 function merge(arr, low, mid, high) {
-  aux = [];
-  var m = low,
-      n = mid + 1;
+  var aux = [];
+  for (var i = low; i <= high; i++) aux[i] = arr[i];  //复制arr到aux
 
-  for (var k = low; k <= high; k++) {    //复制arr到aux
-    aux[k] = arr[k];
-  }
+  var left = low,
+      right = mid + 1;
 
-  for (var i = low; i <= high; i++) {    //归并aux到arr
-    if (m > mid) {    //左边归并完成
-      arr[i] = aux[n++];
-    } else if (n > high) {  //右边归并完成
-      arr[i] = aux[m++];
-    } else if (aux[m] > aux[n]) {   //左边大于右边
-      arr[i] = aux[n++];
-    } else {       //右边大于左边
-      arr[i] = aux[m++];
+  for (var i = low; i <= high; i++) {   //归并aux到arr
+    if (left > mid) {       //左边归并完成
+      arr[i] = aux[right++];
+    } else if (right > high) {    //右边归并完成
+      arr[i] = aux[left++];
+    } else if (aux[left] < aux[right]) {  //左边小于右边
+      arr[i] = aux[left++];
+    } else {          //右边小于左边
+      arr[i] = aux[right++];
     }
   }
 }
@@ -137,7 +124,7 @@ function merge(arr, low, mid, high) {
 function mergeSort(arr, low, high) {
   if (low === undefined) low = 0;
   if (high === undefined) high = arr.length - 1;
-  if (low >= high) return arr;
+  if (low >= high) return;
   var mid = Math.floor((low + high) / 2);
   mergeSort(arr, low, mid);
   mergeSort(arr, mid + 1, high);
@@ -154,26 +141,23 @@ function mergeSort(arr, low, high) {
 ``` js
 //选择一个元素（哨兵）对数组切分，小的放前面，大的放后面（升序）
 //返回切分后哨兵的索引
-function partion(arr, low, high) {
+function splition(arr, low, high) {
   var left = low,
       right = high,
-      midVal = arr[low];   //哨兵
-
-  while(true) {   //扫描左右，检查扫描是否结束
-    while(true) {    //从左边开始扫描，找出比哨兵大的
-      if(left > right) break;
-      if (arr[left] > midVal) break;
+      midVal = arr[left];  //哨兵
+  while (true) {   //扫描左右，检查扫描是否结束
+    while (true) {  //从左边开始扫描，找出比哨兵大的
+      if (left > right || arr[left] > midVal) break;
       left++;
     }
-    while(true) {     //从右边开始扫描，找出比哨兵小的
-      if(right < left) break;
-      if (arr[right] < midVal) break;
+    while (true) {  //从右边开始扫描，找出比哨兵小的
+      if (right < left || arr[right] < midVal) break;
       right--;
     }
     if (left >= right) break;   //左边没找到比哨兵小的或者右边没找到比哨兵大的
-    swap(arr, left, right); //交换左右找到的元素
+    swap(arr, left, right)   //交换左右找到的元素
   }
-  left--;  //切分后哨兵的索引
+  left--;    //切分后哨兵的索引
   swap(arr, low, left);
   return left;
 }
@@ -181,14 +165,11 @@ function partion(arr, low, high) {
 function quickSort(arr, low, high) {
   if (low === undefined) low = 0;
   if (high === undefined) high = arr.length - 1;
-
   if (low >= high) return;
-
-  var mid =partion(arr, low, high);
-  quickSort(arr, low, mid - 1);
-  quickSort(arr, mid + 1, high);
-
-  return arr;
+  var split = splition(arr, low, high);
+  quickSort(arr, low, split - 1);
+  quickSort(arr, split + 1, high);
+  return arr
 }
 ```
 
@@ -198,28 +179,24 @@ function quickSort(arr, low, high) {
 + 时间复杂度：O(nlogn)
 
 ``` js
-function maxHeapify(arr, last, top) {
-  if (last === undefined) last = arr.length - 1;
-  if (top === undefined) top = 0;
-  if (top > last) return;
-  var lchild = (top * 2) + 1,
-      rchild = (top * 2) + 2,
-      max = top;
+function maxHeapify(arr, top, last) {
+  var lChild = top * 2 + 1,
+      rChild = top * 2 + 2;
 
-  maxHeapify(arr, last, lchild);
-  maxHeapify(arr, last, rchild);
+  if (lChild > last || rChild > last) return
 
-  if (lchild <= last && arr[lchild] > arr[max]) max = lchild;
-  if (rchild <= last && arr[rchild] > arr[max]) max = rchild;
-
-  swap(arr, top, max);
+  maxHeapify(arr, lChild, last);
+  maxHeapify(arr, rChild, last);
+  var max = top;
+  if (arr[lChild] > arr[max]) max = lChild;
+  if (arr[rChild] > arr[max]) max = rChild;
+  if (max !== top) swap(arr, top, max);
 }
 
 function heapSort(arr) {
-  var len = arr.length;
-  for (var last = len - 1; last > 0; last--) {
-    maxHeapify(arr, last);
-    swap(arr, 0, last);
+  for (var last = arr.length - 1; last > 0; last--) {
+    maxHeapify(arr, 0, last);
+    swap(arr, 0, last)
   }
   return arr;
 }
