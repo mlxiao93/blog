@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://mlxiao.com/2017/02/04/sort-algorithm/</loc>
+    
+    <lastmod>2017-02-22T05:56:17.263Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://mlxiao.com/2017/02/20/ele-in-viewport/</loc>
     
     <lastmod>2017-02-20T11:34:46.012Z</lastmod>
@@ -33,13 +40,6 @@
     <loc>http://mlxiao.com/2017/02/11/encapsulation-fetch/</loc>
     
     <lastmod>2017-02-13T10:36:15.929Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://mlxiao.com/2017/02/04/sort-algorithm/</loc>
-    
-    <lastmod>2017-02-11T17:22:53.302Z</lastmod>
     
   </url>
   
