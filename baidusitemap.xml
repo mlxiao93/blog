@@ -4,14 +4,34 @@
 
     
   <url>
-    <loc>http://mlxiao.com/2017/02/05/lazy-man/</loc>
-    <lastmod>2017-02-22T07:05:37.576Z</lastmod>
+    <loc>http://mlxiao.com/2017/02/09/callback-promise-async-await/</loc>
+    <lastmod>2017-03-16T06:52:52.000Z</lastmod>
     <data>
         <display>
-        <title>实现LazyMan</title>
-        <pubTime>2017-02-05T09:42:48.000Z</pubTime>
+        <title>callback、promise、async/await的使用</title>
+        <pubTime>2017-02-09T03:49:48.000Z</pubTime>
         
         <tag>js</tag>
+         
+        <tag>es6</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+    
+  <url>
+    <loc>http://mlxiao.com/2017/02/07/css-flex/</loc>
+    <lastmod>2017-03-13T05:51:25.000Z</lastmod>
+    <data>
+        <display>
+        <title>css3 flex</title>
+        <pubTime>2017-02-07T12:05:11.000Z</pubTime>
+        
+        <tag>css</tag>
          
          
            
@@ -21,16 +41,14 @@
 
     
   <url>
-    <loc>http://mlxiao.com/2017/02/04/sort-algorithm/</loc>
-    <lastmod>2017-02-22T05:56:17.263Z</lastmod>
+    <loc>http://mlxiao.com/2017/02/07/css-bfc/</loc>
+    <lastmod>2017-03-13T05:51:25.000Z</lastmod>
     <data>
         <display>
-        <title>排序算法</title>
-        <pubTime>2017-02-04T04:02:50.000Z</pubTime>
+        <title>css之BFC</title>
+        <pubTime>2017-02-07T08:10:33.000Z</pubTime>
         
-        <tag>js</tag>
-         
-        <tag>algorithm</tag>
+        <tag>css</tag>
          
          
            
@@ -40,16 +58,14 @@
 
     
   <url>
-    <loc>http://mlxiao.com/2017/02/20/ele-in-viewport/</loc>
-    <lastmod>2017-02-20T11:34:46.012Z</lastmod>
+    <loc>http://mlxiao.com/2017/02/05/debounce-and-throttle/</loc>
+    <lastmod>2017-03-13T05:51:25.000Z</lastmod>
     <data>
         <display>
-        <title>判断元素是否出现在视口</title>
-        <pubTime>2017-02-20T10:20:21.000Z</pubTime>
+        <title>debounce和throttle函数</title>
+        <pubTime>2017-02-05T13:55:19.000Z</pubTime>
         
         <tag>js</tag>
-         
-        <tag>dom</tag>
          
          
            
@@ -60,7 +76,7 @@
     
   <url>
     <loc>http://mlxiao.com/2017/02/19/deep-copy/</loc>
-    <lastmod>2017-02-19T08:55:50.656Z</lastmod>
+    <lastmod>2017-03-13T05:51:25.000Z</lastmod>
     <data>
         <display>
         <title>js深拷贝</title>
@@ -76,25 +92,8 @@
 
     
   <url>
-    <loc>http://mlxiao.com/2017/02/19/sum-chain/</loc>
-    <lastmod>2017-02-19T05:07:29.733Z</lastmod>
-    <data>
-        <display>
-        <title>js链式累加函数</title>
-        <pubTime>2017-02-19T04:17:34.000Z</pubTime>
-        
-        <tag>js</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://mlxiao.com/2017/02/16/delegate-event/</loc>
-    <lastmod>2017-02-18T12:51:18.910Z</lastmod>
+    <lastmod>2017-03-13T05:51:25.000Z</lastmod>
     <data>
         <display>
         <title>dom事件代理函数</title>
@@ -112,8 +111,27 @@
 
     
   <url>
+    <loc>http://mlxiao.com/2017/02/20/ele-in-viewport/</loc>
+    <lastmod>2017-03-13T05:51:25.000Z</lastmod>
+    <data>
+        <display>
+        <title>判断元素是否出现在视口</title>
+        <pubTime>2017-02-20T10:20:21.000Z</pubTime>
+        
+        <tag>js</tag>
+         
+        <tag>dom</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://mlxiao.com/2017/02/11/encapsulation-fetch/</loc>
-    <lastmod>2017-02-13T10:36:15.929Z</lastmod>
+    <lastmod>2017-03-13T05:51:25.000Z</lastmod>
     <data>
         <display>
         <title>封装fetch api</title>
@@ -133,8 +151,46 @@
 
     
   <url>
+    <loc>http://mlxiao.com/2017/02/04/browser-compatibility/</loc>
+    <lastmod>2017-03-13T05:51:25.000Z</lastmod>
+    <data>
+        <display>
+        <title>浏览器兼容性问题</title>
+        <pubTime>2017-02-04T00:30:22.000Z</pubTime>
+        
+        <tag>js</tag>
+         
+        <tag>html</tag>
+         
+        <tag>css</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://mlxiao.com/2017/02/05/lazy-man/</loc>
+    <lastmod>2017-03-13T05:51:25.000Z</lastmod>
+    <data>
+        <display>
+        <title>实现LazyMan</title>
+        <pubTime>2017-02-05T09:42:48.000Z</pubTime>
+        
+        <tag>js</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://mlxiao.com/2017/02/10/scss-skill/</loc>
-    <lastmod>2017-02-11T15:28:30.259Z</lastmod>
+    <lastmod>2017-03-13T05:51:25.000Z</lastmod>
     <data>
         <display>
         <title>scss实用技巧</title>
@@ -154,68 +210,8 @@
 
     
   <url>
-    <loc>http://mlxiao.com/2017/02/09/promise/</loc>
-    <lastmod>2017-02-11T06:11:37.022Z</lastmod>
-    <data>
-        <display>
-        <title>实现一个Promise</title>
-        <pubTime>2017-02-09T08:57:54.000Z</pubTime>
-        
-        <tag>js</tag>
-         
-        <tag>es6</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-    
-  <url>
-    <loc>http://mlxiao.com/2017/02/09/callback-promise-async-await/</loc>
-    <lastmod>2017-02-10T10:25:50.580Z</lastmod>
-    <data>
-        <display>
-        <title>callback、promise、async/await的使用</title>
-        <pubTime>2017-02-09T03:49:48.000Z</pubTime>
-        
-        <tag>js</tag>
-         
-        <tag>es6</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://mlxiao.com/2017/02/08/webpack/</loc>
-    <lastmod>2017-02-09T03:47:27.002Z</lastmod>
-    <data>
-        <display>
-        <title>使用webpack构建项目</title>
-        <pubTime>2017-02-08T03:48:09.000Z</pubTime>
-        
-        <tag>js</tag>
-         
-        <tag>webpack</tag>
-         
-        <tag>tool</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://mlxiao.com/2017/02/09/node-babel/</loc>
-    <lastmod>2017-02-09T02:49:46.007Z</lastmod>
+    <lastmod>2017-03-13T05:51:25.000Z</lastmod>
     <data>
         <display>
         <title>为nodejs配置babel</title>
@@ -235,18 +231,16 @@
 
     
   <url>
-    <loc>http://mlxiao.com/2017/02/04/browser-compatibility/</loc>
-    <lastmod>2017-02-09T00:39:38.757Z</lastmod>
+    <loc>http://mlxiao.com/2017/02/04/sort-algorithm/</loc>
+    <lastmod>2017-03-13T05:51:25.000Z</lastmod>
     <data>
         <display>
-        <title>浏览器兼容性问题</title>
-        <pubTime>2017-02-04T00:30:22.000Z</pubTime>
+        <title>排序算法</title>
+        <pubTime>2017-02-04T04:02:50.000Z</pubTime>
         
         <tag>js</tag>
          
-        <tag>css</tag>
-         
-        <tag>html</tag>
+        <tag>algorithm</tag>
          
          
            
@@ -256,14 +250,14 @@
 
     
   <url>
-    <loc>http://mlxiao.com/2017/02/07/css-flex/</loc>
-    <lastmod>2017-02-08T05:07:29.621Z</lastmod>
+    <loc>http://mlxiao.com/2017/02/19/sum-chain/</loc>
+    <lastmod>2017-03-13T05:51:25.000Z</lastmod>
     <data>
         <display>
-        <title>css3 flex</title>
-        <pubTime>2017-02-07T12:05:11.000Z</pubTime>
+        <title>js链式累加函数</title>
+        <pubTime>2017-02-19T04:17:34.000Z</pubTime>
         
-        <tag>css</tag>
+        <tag>js</tag>
          
          
            
@@ -273,14 +267,18 @@
 
     
   <url>
-    <loc>http://mlxiao.com/2017/02/07/css-bfc/</loc>
-    <lastmod>2017-02-07T11:42:06.810Z</lastmod>
+    <loc>http://mlxiao.com/2017/02/08/webpack/</loc>
+    <lastmod>2017-03-13T05:51:25.000Z</lastmod>
     <data>
         <display>
-        <title>css之BFC</title>
-        <pubTime>2017-02-07T08:10:33.000Z</pubTime>
+        <title>使用webpack构建项目</title>
+        <pubTime>2017-02-08T03:48:09.000Z</pubTime>
         
-        <tag>css</tag>
+        <tag>js</tag>
+         
+        <tag>webpack</tag>
+         
+        <tag>tool</tag>
          
          
            
@@ -288,10 +286,11 @@
     </data>
     </url>
 
+    
     
   <url>
     <loc>http://mlxiao.com/2017/02/04/js-extend/</loc>
-    <lastmod>2017-02-07T10:29:17.456Z</lastmod>
+    <lastmod>2017-03-13T05:51:25.000Z</lastmod>
     <data>
         <display>
         <title>JS实现继承</title>
@@ -305,22 +304,4 @@
     </data>
     </url>
 
-    
-  <url>
-    <loc>http://mlxiao.com/2017/02/05/debounce-and-throttle/</loc>
-    <lastmod>2017-02-07T10:29:14.086Z</lastmod>
-    <data>
-        <display>
-        <title>debounce和throttle函数</title>
-        <pubTime>2017-02-05T13:55:19.000Z</pubTime>
-        
-        <tag>js</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
 </urlset>
