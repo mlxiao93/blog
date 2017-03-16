@@ -44,9 +44,9 @@ function getUserInfo(accessToken, callback = () => {}) {
 //调用
 (code => {
   getAccessToken(code, (error, accessToken) => {
-    if (error) return console.log(error);
+    if (error) return console.error(error);
     getUserInfo(accessToken, (eror, userInfo) => {
-      if (error) return console.log(error);
+      if (error) return console.error(error);
       console.log(userInfo);
     })
   })
@@ -82,10 +82,9 @@ function getUserInfo(accessToken) {
 //调用
 (code => {
   getAccessToken(code).then(accessToken => {
-    getUserInfo(accessToken).then(userInfo => {
-      console.log(userInfo)
-    }, error => console.log(error))
-  }, error => console.log(eror))
+    return getUserInfo(accessToken);
+  }.then(userInfo => console.log(userInfo))
+   .catch(err => console.error(err))
 })(code)
 
 ```
