@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://mlxiao.com/2017/06/01/cookie/</loc>
+    
+    <lastmod>2017-06-01T10:02:42.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://mlxiao.com/2017/05/22/yeoman/</loc>
+    
+    <lastmod>2017-05-26T09:31:50.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://mlxiao.com/2017/02/09/callback-promise-async-await/</loc>
     
     <lastmod>2017-03-16T06:52:52.000Z</lastmod>
@@ -9,7 +23,7 @@
   </url>
   
   <url>
-    <loc>http://mlxiao.com/tags/index.html</loc>
+    <loc>http://mlxiao.com/2017/02/07/css-bfc/</loc>
     
     <lastmod>2017-03-13T05:51:25.000Z</lastmod>
     
@@ -17,13 +31,6 @@
   
   <url>
     <loc>http://mlxiao.com/2017/02/07/css-flex/</loc>
-    
-    <lastmod>2017-03-13T05:51:25.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://mlxiao.com/2017/02/07/css-bfc/</loc>
     
     <lastmod>2017-03-13T05:51:25.000Z</lastmod>
     
@@ -44,14 +51,14 @@
   </url>
   
   <url>
-    <loc>http://mlxiao.com/2017/02/16/delegate-event/</loc>
+    <loc>http://mlxiao.com/2017/02/20/ele-in-viewport/</loc>
     
     <lastmod>2017-03-13T05:51:25.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://mlxiao.com/2017/02/20/ele-in-viewport/</loc>
+    <loc>http://mlxiao.com/2017/02/16/delegate-event/</loc>
     
     <lastmod>2017-03-13T05:51:25.000Z</lastmod>
     
@@ -79,13 +86,6 @@
   </url>
   
   <url>
-    <loc>http://mlxiao.com/2017/02/10/scss-skill/</loc>
-    
-    <lastmod>2017-03-13T05:51:25.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://mlxiao.com/2017/02/09/node-babel/</loc>
     
     <lastmod>2017-03-13T05:51:25.000Z</lastmod>
@@ -93,7 +93,14 @@
   </url>
   
   <url>
-    <loc>http://mlxiao.com/2017/02/04/sort-algorithm/</loc>
+    <loc>http://mlxiao.com/2017/02/10/scss-skill/</loc>
+    
+    <lastmod>2017-03-13T05:51:25.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://mlxiao.com/tags/index.html</loc>
     
     <lastmod>2017-03-13T05:51:25.000Z</lastmod>
     
@@ -108,6 +115,13 @@
   
   <url>
     <loc>http://mlxiao.com/2017/02/08/webpack/</loc>
+    
+    <lastmod>2017-03-13T05:51:25.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://mlxiao.com/2017/02/04/sort-algorithm/</loc>
     
     <lastmod>2017-03-13T05:51:25.000Z</lastmod>
     

@@ -4,6 +4,66 @@
   
     
     <entry>
+      <title><![CDATA[http cookie]]></title>
+      <url>http://mlxiao.com/2017/06/01/cookie/</url>
+      <content type="html"><![CDATA[<p>cookie用于客户端存储会话信息。服务端对任意http请求发送 Set-Cookie 响应头，其中包含会话信息，浏览器接到响应后会存储会话信息，并在这之后，通过为每个请求添加 cookie 请求头将信息发送回服务器。</p>
+<a id="more"></a>
+<h2 id="cookie的构成"><a href="#cookie的构成" class="headerlink" title="cookie的构成"></a>cookie的构成</h2><blockquote>
+<p><code>name=value; domain=demo.com; path=/; expires=1496307358157; secure</code></p>
+</blockquote>
+<ul>
+<li>名称：cookie的名称。需被url编码</li>
+<li>值：cookie得值。需被url编码</li>
+<li>域(domain)：cookie作用的域。可以不包含子域(如.demo.com，则对于 demo.com的所有子域都有效)。如果没有指定，默认为设置 cookie 的那个域</li>
+<li>路径(path)：对于指定的域，cookie作用的路径。默认为”/“，即该域下所有路径</li>
+<li>失效时间(expires)：表示cookie被删除的时间戳。默认浏览器会话结束就删除</li>
+<li>安全标志(secure)：指定后，cookie 只有在使用 SSL 连接的时候才发送到服务器，例如https</li>
+</ul>
+<h2 id="客户端设置cookie"><a href="#客户端设置cookie" class="headerlink" title="客户端设置cookie"></a>客户端设置cookie</h2><p>利用<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Document/cookie" target="_blank" rel="external">document.cookie</a>，不过由于其简陋的接口与兼容性问题，推荐使用第三方库：(js-cookie)[<a href="https://github.com/js-cookie/js-cookie" target="_blank" rel="external">https://github.com/js-cookie/js-cookie</a>]</p>
+<h2 id="服务端设置cookie"><a href="#服务端设置cookie" class="headerlink" title="服务端设置cookie"></a>服务端设置cookie</h2><p>通过返回Set-Cookie响应头设置，以express为例:<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">app.get(<span class="string">'/'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">req, res</span>) </span>&#123;</div><div class="line">    res.cookie(<span class="string">'foo'</span>, <span class="string">'123'</span>, &#123;<span class="attr">path</span>: <span class="string">'/'</span>&#125;);</div><div class="line">    res.json(<span class="string">'ok'</span>);</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<h2 id="向服务端发送cookie"><a href="#向服务端发送cookie" class="headerlink" title="向服务端发送cookie"></a>向服务端发送cookie</h2><h3 id="同源"><a href="#同源" class="headerlink" title="同源"></a>同源</h3><p>同源自动添加cookie至请求头</p>
+<h3 id="跨域"><a href="#跨域" class="headerlink" title="跨域"></a>跨域</h3><ul>
+<li>客户端设置’with-credentials=true’</li>
+<li><p>服务端添加响应头：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">res.header(<span class="string">'Access-Control-Allow-Origin'</span>, req.headers.origin);   <span class="comment">//注：'with-credentials=true'的情况下不能用通配符</span></div><div class="line">res.header(<span class="string">'Access-Control-Allow-Credentials'</span>, <span class="string">'true'</span>);</div></pre></td></tr></table></figure>
+</li>
+<li><p>最后发送的是服务端域下的cookie。比如a.com（前端）请求b.com(接口），发送的是b.com域下的cookie</p>
+</li>
+</ul>
+]]></content>
+      
+        
+        <tags>
+            
+            <tag> css </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[使用yeoman生成和定制项目脚手架]]></title>
+      <url>http://mlxiao.com/2017/05/22/yeoman/</url>
+      <content type="html"><![CDATA[<p>yeoman是一个快速生成<u>项目脚手架</u>(项目的目录结构和初始文件)的工具</p>
+<blockquote>
+<p><a href="http://yeoman.io/" target="_blank" rel="external">http://yeoman.io/</a></p>
+</blockquote>
+<a id="more"></a>
+<h2 id="使用yeoman"><a href="#使用yeoman" class="headerlink" title="使用yeoman"></a>使用yeoman</h2><h2 id="制作生成器"><a href="#制作生成器" class="headerlink" title="制作生成器"></a>制作生成器</h2><p><code>mkdir generate-multi-page-app</code></p>
+]]></content>
+      
+        
+        <tags>
+            
+            <tag> css </tag>
+            
+            <tag> html </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[判断元素是否出现在视口]]></title>
       <url>http://mlxiao.com/2017/02/20/ele-in-viewport/</url>
       <content type="html"><![CDATA[<p>判断元素是否出现在视口即元素是否在当前窗口内可见，利用这个判定可以做<a href="https://mlxiao93.github.io/demos/#/img-lazy-load" target="_blank" rel="external">图片的懒加载</a>等功能</p>
@@ -637,11 +697,11 @@
         
         <tags>
             
-            <tag> js </tag>
+            <tag> css </tag>
             
             <tag> html </tag>
             
-            <tag> css </tag>
+            <tag> js </tag>
             
         </tags>
         

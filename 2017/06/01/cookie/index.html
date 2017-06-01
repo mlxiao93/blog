@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="description" content="http cookie"/>
+
+
+
+
+  <meta name="keywords" content="css," />
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="m.l 's blog">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.1.x" />
+
+
+
+<link rel="canonical" href="http://mlxiao.com/2017/06/01/cookie/"/>
+
+
+<meta name="description" content="cookie用于客户端存储会话信息。服务端对任意http请求发送 Set-Cookie 响应头，其中包含会话信息，浏览器接到响应后会存储会话信息，并在这之后，通过为每个请求添加 cookie 请求头将信息发送回服务器。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="http cookie">
+<meta property="og:url" content="http://mlxiao.com/2017/06/01/cookie/index.html">
+<meta property="og:site_name" content="m.l 's blog">
+<meta property="og:description" content="cookie用于客户端存储会话信息。服务端对任意http请求发送 Set-Cookie 响应头，其中包含会话信息，浏览器接到响应后会存储会话信息，并在这之后，通过为每个请求添加 cookie 请求头将信息发送回服务器。">
+<meta property="og:updated_time" content="2017-06-01T10:02:42.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="http cookie">
+<meta name="twitter:description" content="cookie用于客户端存储会话信息。服务端对任意http请求发送 Set-Cookie 响应头，其中包含会话信息，浏览器接到响应后会存储会话信息，并在这之后，通过为每个请求添加 cookie 请求头将信息发送回服务器。">
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.1.x" />
+
+
+
+  <link rel="stylesheet" type="text/css" href="/lib/fancybox/jquery.fancybox.css" />
+
+
+
+
+  
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?b749a7ec8f4ce4e8913350bbc7a424d8";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+    <title> http cookie · m.l 's blog </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  </head>
+
+  <body>
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/." class="logo">m.l 's blog</a>
+</div>
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/">
+            
+            
+              Home
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/archives/">
+            
+            
+              Archives
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/tags">
+            
+            
+              Tags
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/about">
+            
+            
+              About
+            
+          </a>
+        </li>
+      
+      
+        <li class="menu-search">
+          <form>
+            <i class="iconfont icon-search" id="open-search"></i>
+            <input type="text" class="search-input" id="search-input" />
+            <i class="iconfont icon-close" id="close-search"></i>
+          </form>
+        </li>
+      
+    </ul>
+  
+</nav>
+
+<div class="mobile-navbar">
+  <div class="mobile-header">
+    <div class="mobile-header-logo">
+      <a href="/." class="logo">m.l 's blog</a>
+    </div>
+
+    <div class="mobile-header-icon">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+  <nav class="mobile-menu">
+    
+      <a class="mobile-menu-item" href="/">
+        
+        
+          Home
+        
+      </a>
+    
+      <a class="mobile-menu-item" href="/archives/">
+        
+        
+          Archives
+        
+      </a>
+    
+      <a class="mobile-menu-item" href="/tags">
+        
+        
+          Tags
+        
+      </a>
+    
+      <a class="mobile-menu-item" href="/about">
+        
+        
+          About
+        
+      </a>
+    
+  </nav>
+</div>
+      </header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content">
+            
+  
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          http cookie
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          Jun 1, 2017
+        </span>
+      </div>
+    </header>
+
+    
+      <div class="post-toc" id="post-toc">
+        <h2 class="post-toc-title">Contents</h2>
+        <div class="post-toc-content">
+          <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#cookie的构成"><span class="toc-text">cookie的构成</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#客户端设置cookie"><span class="toc-text">客户端设置cookie</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#服务端设置cookie"><span class="toc-text">服务端设置cookie</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#向服务端发送cookie"><span class="toc-text">向服务端发送cookie</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#同源"><span class="toc-text">同源</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#跨域"><span class="toc-text">跨域</span></a></li></ol></li></ol>
+        </div>
+      </div>
+    
+
+    <div class="post-content">
+      
+        <p>cookie用于客户端存储会话信息。服务端对任意http请求发送 Set-Cookie 响应头，其中包含会话信息，浏览器接到响应后会存储会话信息，并在这之后，通过为每个请求添加 cookie 请求头将信息发送回服务器。</p>
+<a id="more"></a>
+<h2 id="cookie的构成"><a href="#cookie的构成" class="headerlink" title="cookie的构成"></a>cookie的构成</h2><blockquote>
+<p><code>name=value; domain=demo.com; path=/; expires=1496307358157; secure</code></p>
+</blockquote>
+<ul>
+<li>名称：cookie的名称。需被url编码</li>
+<li>值：cookie得值。需被url编码</li>
+<li>域(domain)：cookie作用的域。可以不包含子域(如.demo.com，则对于 demo.com的所有子域都有效)。如果没有指定，默认为设置 cookie 的那个域</li>
+<li>路径(path)：对于指定的域，cookie作用的路径。默认为”/“，即该域下所有路径</li>
+<li>失效时间(expires)：表示cookie被删除的时间戳。默认浏览器会话结束就删除</li>
+<li>安全标志(secure)：指定后，cookie 只有在使用 SSL 连接的时候才发送到服务器，例如https</li>
+</ul>
+<h2 id="客户端设置cookie"><a href="#客户端设置cookie" class="headerlink" title="客户端设置cookie"></a>客户端设置cookie</h2><p>利用<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Document/cookie" target="_blank" rel="external">document.cookie</a>，不过由于其简陋的接口与兼容性问题，推荐使用第三方库：(js-cookie)[<a href="https://github.com/js-cookie/js-cookie" target="_blank" rel="external">https://github.com/js-cookie/js-cookie</a>]</p>
+<h2 id="服务端设置cookie"><a href="#服务端设置cookie" class="headerlink" title="服务端设置cookie"></a>服务端设置cookie</h2><p>通过返回Set-Cookie响应头设置，以express为例:<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">app.get(<span class="string">'/'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">req, res</span>) </span>&#123;</div><div class="line">    res.cookie(<span class="string">'foo'</span>, <span class="string">'123'</span>, &#123;<span class="attr">path</span>: <span class="string">'/'</span>&#125;);</div><div class="line">    res.json(<span class="string">'ok'</span>);</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<h2 id="向服务端发送cookie"><a href="#向服务端发送cookie" class="headerlink" title="向服务端发送cookie"></a>向服务端发送cookie</h2><h3 id="同源"><a href="#同源" class="headerlink" title="同源"></a>同源</h3><p>同源自动添加cookie至请求头</p>
+<h3 id="跨域"><a href="#跨域" class="headerlink" title="跨域"></a>跨域</h3><ul>
+<li>客户端设置’with-credentials=true’</li>
+<li><p>服务端添加响应头：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">res.header(<span class="string">'Access-Control-Allow-Origin'</span>, req.headers.origin);   <span class="comment">//注：'with-credentials=true'的情况下不能用通配符</span></div><div class="line">res.header(<span class="string">'Access-Control-Allow-Credentials'</span>, <span class="string">'true'</span>);</div></pre></td></tr></table></figure>
+</li>
+<li><p>最后发送的是服务端域下的cookie。比如a.com（前端）请求b.com(接口），发送的是b.com域下的cookie</p>
+</li>
+</ul>
+
+      
+    </div>
+
+    
+      <footer class="post-footer">
+        <div class="post-tags">
+          
+            <a href="/tags/css/">css</a>
+          
+        </div>
+
+        
+  <nav class="post-nav">
+    
+    
+      <a class="next" href="/2017/05/22/yeoman/">
+        <span class="next-text nav-default">使用yeoman生成和定制项目脚手架</span>
+        <span class="prev-text nav-mobile">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    
+  </nav>
+
+      </footer>
+    
+  </article>
+
+
+          </div>
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/06/01/cookie/"
+           data-title="http cookie" data-url="http://mlxiao.com/2017/06/01/cookie/">
+      </div>
+    
+  </div>
+
+
+        </div>  
+      </main>
+
+      <footer id="footer" class="footer">
+  <div class="social-links">
+    
+      
+        
+          <a href="mailto:martin.xiao.cn@gmail.com" class="iconfont icon-email" title="email"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        
+          <a href="https://github.com/mlxiao93" target="_blank" class="iconfont icon-github" title="github"></a>
+        
+      
+    
+      
+    
+      
+    
+
+    
+  </div>
+
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" target="_blank" href="https://hexo.io/">Hexo</a>
+  </span>
+
+  <span class="theme-info">
+    Theme -
+    <a class="theme-link" target="_blank"  href="https://github.com/ahonn/hexo-theme-even">Even</a>
+  </span>
+
+  <span class="copyright-year">
+    
+    &copy;
+    
+    2017
+
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">m.l xiao</span>
+  </span>
+</div>
+
+      </footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"mlxiao"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+
+
+    
+  
+
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/jquery/jquery-3.1.1.min.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/fancybox/jquery.fancybox.pack.js"></script>
+  
+
+    <script type="text/javascript" src="/js/src/even.js?v=2.1.x"></script>
+<script type="text/javascript" src="/js/src/bootstrap.js?v=2.1.x"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+  </body>
+</html>

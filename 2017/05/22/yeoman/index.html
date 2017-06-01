@@ -11,10 +11,12 @@
 
 
 
-  <meta name="description" content="前端 javascript es6 css html"/>
+  <meta name="description" content="使用yeoman生成和定制项目脚手架"/>
 
 
 
+
+  <meta name="keywords" content="css,html," />
 
 
 
@@ -28,18 +30,25 @@
 
 
 
-<link rel="canonical" href="http://mlxiao.com/tags/css/"/>
+<link rel="canonical" href="http://mlxiao.com/2017/05/22/yeoman/"/>
 
 
-<meta name="description" content="前端 javascript es6 css html">
-<meta property="og:type" content="website">
-<meta property="og:title" content="m.l 's blog">
-<meta property="og:url" content="http://mlxiao.com/tags/css/index.html">
+<meta name="description" content="yeoman是一个快速生成项目脚手架(项目的目录结构和初始文件)的工具
+
+http://yeoman.io/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用yeoman生成和定制项目脚手架">
+<meta property="og:url" content="http://mlxiao.com/2017/05/22/yeoman/index.html">
 <meta property="og:site_name" content="m.l 's blog">
-<meta property="og:description" content="前端 javascript es6 css html">
+<meta property="og:description" content="yeoman是一个快速生成项目脚手架(项目的目录结构和初始文件)的工具
+
+http://yeoman.io/">
+<meta property="og:updated_time" content="2017-05-26T09:31:50.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="m.l 's blog">
-<meta name="twitter:description" content="前端 javascript es6 css html">
+<meta name="twitter:title" content="使用yeoman生成和定制项目脚手架">
+<meta name="twitter:description" content="yeoman是一个快速生成项目脚手架(项目的目录结构和初始文件)的工具
+
+http://yeoman.io/">
 
 
 <link rel="stylesheet" type="text/css" href="/css/style.css?v=2.1.x" />
@@ -65,11 +74,7 @@
 
 
 
-    <title>
-  
-    css · m.l 's blog
-  
-</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    <title> 使用yeoman生成和定制项目脚手架 · m.l 's blog </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   </head>
 
   <body>
@@ -182,118 +187,85 @@
           <div id="content" class="content">
             
   
-  <section id="archive" class="archive">
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          使用yeoman生成和定制项目脚手架
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          May 22, 2017
+        </span>
+      </div>
+    </header>
+
     
-      
-        <div class="archive-title tag">
-          <h2 class="archive-name">css</h2>
+      <div class="post-toc" id="post-toc">
+        <h2 class="post-toc-title">Contents</h2>
+        <div class="post-toc-content">
+          <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#使用yeoman"><span class="toc-text">使用yeoman</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#制作生成器"><span class="toc-text">制作生成器</span></a></li></ol>
         </div>
-      
+      </div>
     
 
-    
+    <div class="post-content">
       
-      
-      <div class="archive-post">
-        <span class="archive-post-time">
-          
-            2017-06-01
-          
-        </span>
-        <span class="archive-post-title">
-          <a href="/2017/06/01/cookie/" class="archive-post-link">
-            http cookie
-          </a>
-        </span>
-      </div>
-    
-      
-      
-      <div class="archive-post">
-        <span class="archive-post-time">
-          
-            2017-05-22
-          
-        </span>
-        <span class="archive-post-title">
-          <a href="/2017/05/22/yeoman/" class="archive-post-link">
-            使用yeoman生成和定制项目脚手架
-          </a>
-        </span>
-      </div>
-    
-      
-      
-      <div class="archive-post">
-        <span class="archive-post-time">
-          
-            2017-02-10
-          
-        </span>
-        <span class="archive-post-title">
-          <a href="/2017/02/10/scss-skill/" class="archive-post-link">
-            scss实用技巧
-          </a>
-        </span>
-      </div>
-    
-      
-      
-      <div class="archive-post">
-        <span class="archive-post-time">
-          
-            2017-02-07
-          
-        </span>
-        <span class="archive-post-title">
-          <a href="/2017/02/07/css-flex/" class="archive-post-link">
-            css3 flex
-          </a>
-        </span>
-      </div>
-    
-      
-      
-      <div class="archive-post">
-        <span class="archive-post-time">
-          
-            2017-02-07
-          
-        </span>
-        <span class="archive-post-title">
-          <a href="/2017/02/07/css-bfc/" class="archive-post-link">
-            css之BFC
-          </a>
-        </span>
-      </div>
-    
-      
-      
-      <div class="archive-post">
-        <span class="archive-post-time">
-          
-            2017-02-04
-          
-        </span>
-        <span class="archive-post-title">
-          <a href="/2017/02/04/browser-compatibility/" class="archive-post-link">
-            浏览器兼容性问题
-          </a>
-        </span>
-      </div>
-    
-  </section>
+        <p>yeoman是一个快速生成<u>项目脚手架</u>(项目的目录结构和初始文件)的工具</p>
+<blockquote>
+<p><a href="http://yeoman.io/" target="_blank" rel="external">http://yeoman.io/</a></p>
+</blockquote>
+<a id="more"></a>
+<h2 id="使用yeoman"><a href="#使用yeoman" class="headerlink" title="使用yeoman"></a>使用yeoman</h2><h2 id="制作生成器"><a href="#制作生成器" class="headerlink" title="制作生成器"></a>制作生成器</h2><p><code>mkdir generate-multi-page-app</code></p>
 
-  
-  <nav class="pagination">
+      
+    </div>
+
     
+      <footer class="post-footer">
+        <div class="post-tags">
+          
+            <a href="/tags/css/">css</a>
+          
+            <a href="/tags/html/">html</a>
+          
+        </div>
+
+        
+  <nav class="post-nav">
+    
+      <a class="prev" href="/2017/06/01/cookie/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">http cookie</span>
+        <span class="prev-text nav-mobile">Prev</span>
+      </a>
+    
+    
+      <a class="next" href="/2017/02/20/ele-in-viewport/">
+        <span class="next-text nav-default">判断元素是否出现在视口</span>
+        <span class="prev-text nav-mobile">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
     
   </nav>
 
+      </footer>
+    
+  </article>
 
 
           </div>
           
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/05/22/yeoman/"
+           data-title="使用yeoman生成和定制项目脚手架" data-url="http://mlxiao.com/2017/05/22/yeoman/">
+      </div>
+    
+  </div>
+
 
         </div>  
       </main>
