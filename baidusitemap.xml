@@ -5,7 +5,7 @@
     
   <url>
     <loc>http://mlxiao.com/2017/06/01/cookie/</loc>
-    <lastmod>2017-06-01T10:02:42.000Z</lastmod>
+    <lastmod>2017-06-01T10:09:15.000Z</lastmod>
     <data>
         <display>
         <title>http cookie</title>
@@ -59,14 +59,14 @@
 
     
   <url>
-    <loc>http://mlxiao.com/2017/02/07/css-bfc/</loc>
+    <loc>http://mlxiao.com/2017/02/04/js-extend/</loc>
     <lastmod>2017-03-13T05:51:25.000Z</lastmod>
     <data>
         <display>
-        <title>css之BFC</title>
-        <pubTime>2017-02-07T08:10:33.000Z</pubTime>
+        <title>JS实现继承</title>
+        <pubTime>2017-02-04T08:15:40.000Z</pubTime>
         
-        <tag>css</tag>
+        <tag>js</tag>
          
          
            
@@ -127,12 +127,12 @@
 
     
   <url>
-    <loc>http://mlxiao.com/2017/02/20/ele-in-viewport/</loc>
+    <loc>http://mlxiao.com/2017/02/16/delegate-event/</loc>
     <lastmod>2017-03-13T05:51:25.000Z</lastmod>
     <data>
         <display>
-        <title>判断元素是否出现在视口</title>
-        <pubTime>2017-02-20T10:20:21.000Z</pubTime>
+        <title>dom事件代理函数</title>
+        <pubTime>2017-02-16T02:16:12.000Z</pubTime>
         
         <tag>js</tag>
          
@@ -146,12 +146,12 @@
 
     
   <url>
-    <loc>http://mlxiao.com/2017/02/16/delegate-event/</loc>
+    <loc>http://mlxiao.com/2017/02/20/ele-in-viewport/</loc>
     <lastmod>2017-03-13T05:51:25.000Z</lastmod>
     <data>
         <display>
-        <title>dom事件代理函数</title>
-        <pubTime>2017-02-16T02:16:12.000Z</pubTime>
+        <title>判断元素是否出现在视口</title>
+        <pubTime>2017-02-20T10:20:21.000Z</pubTime>
         
         <tag>js</tag>
          
@@ -265,7 +265,6 @@
     </url>
 
     
-    
   <url>
     <loc>http://mlxiao.com/2017/02/19/sum-chain/</loc>
     <lastmod>2017-03-13T05:51:25.000Z</lastmod>
@@ -275,6 +274,25 @@
         <pubTime>2017-02-19T04:17:34.000Z</pubTime>
         
         <tag>js</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://mlxiao.com/2017/02/04/sort-algorithm/</loc>
+    <lastmod>2017-03-13T05:51:25.000Z</lastmod>
+    <data>
+        <display>
+        <title>排序算法</title>
+        <pubTime>2017-02-04T04:02:50.000Z</pubTime>
+        
+        <tag>js</tag>
+         
+        <tag>algorithm</tag>
          
          
            
@@ -305,16 +323,14 @@
 
     
   <url>
-    <loc>http://mlxiao.com/2017/02/04/sort-algorithm/</loc>
+    <loc>http://mlxiao.com/2017/02/07/css-bfc/</loc>
     <lastmod>2017-03-13T05:51:25.000Z</lastmod>
     <data>
         <display>
-        <title>排序算法</title>
-        <pubTime>2017-02-04T04:02:50.000Z</pubTime>
+        <title>css之BFC</title>
+        <pubTime>2017-02-07T08:10:33.000Z</pubTime>
         
-        <tag>js</tag>
-         
-        <tag>algorithm</tag>
+        <tag>css</tag>
          
          
            
@@ -324,20 +340,4 @@
 
     
     
-  <url>
-    <loc>http://mlxiao.com/2017/02/04/js-extend/</loc>
-    <lastmod>2017-03-13T05:51:25.000Z</lastmod>
-    <data>
-        <display>
-        <title>JS实现继承</title>
-        <pubTime>2017-02-04T08:15:40.000Z</pubTime>
-        
-        <tag>js</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
 </urlset>
