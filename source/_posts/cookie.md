@@ -19,7 +19,7 @@ cookie用于客户端存储会话信息。服务端对任意http请求发送 Set
 + 安全标志(secure)：指定后，cookie 只有在使用 SSL 连接的时候才发送到服务器，例如https
 
 ## 客户端设置cookie
-利用[document.cookie](https://developer.mozilla.org/zh-CN/docs/Web/API/Document/cookie)，不过由于其简陋的接口与兼容性问题，推荐使用第三方库：(js-cookie)[https://github.com/js-cookie/js-cookie]
+利用[document.cookie](https://developer.mozilla.org/zh-CN/docs/Web/API/Document/cookie)，不过由于其简陋的接口与兼容性问题，推荐使用第三方库：[js-cookie](https://github.com/js-cookie/js-cookie)
 
 
 ## 服务端设置cookie
@@ -36,7 +36,7 @@ app.get('/', function (req, res) {
 同源自动添加cookie至请求头
 
 ### 跨域
-+ 客户端设置'with-credentials=true'
++ 客户端设置`with-credentials=true`
 + 服务端添加响应头：
   ```js
   res.header('Access-Control-Allow-Origin', req.headers.origin);   //注：'with-credentials=true'的情况下不能用通配符
