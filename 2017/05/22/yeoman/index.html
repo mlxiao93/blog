@@ -11,12 +11,12 @@
 
 
 
-  <meta name="description" content="使用yeoman生成和定制项目脚手架"/>
+  <meta name="description" content="使用yeoman生成项目脚手架"/>
 
 
 
 
-  <meta name="keywords" content="css,html," />
+  <meta name="keywords" content="js," />
 
 
 
@@ -33,22 +33,16 @@
 <link rel="canonical" href="http://mlxiao.com/2017/05/22/yeoman/"/>
 
 
-<meta name="description" content="yeoman是一个快速生成项目脚手架(项目的目录结构和初始文件)的工具
-
-http://yeoman.io/">
+<meta name="description" content="http://yeoman.io/">
 <meta property="og:type" content="article">
-<meta property="og:title" content="使用yeoman生成和定制项目脚手架">
+<meta property="og:title" content="使用yeoman生成项目脚手架">
 <meta property="og:url" content="http://mlxiao.com/2017/05/22/yeoman/index.html">
 <meta property="og:site_name" content="m.l 's blog">
-<meta property="og:description" content="yeoman是一个快速生成项目脚手架(项目的目录结构和初始文件)的工具
-
-http://yeoman.io/">
-<meta property="og:updated_time" content="2017-05-26T09:31:50.000Z">
+<meta property="og:description" content="http://yeoman.io/">
+<meta property="og:updated_time" content="2017-06-04T23:37:11.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="使用yeoman生成和定制项目脚手架">
-<meta name="twitter:description" content="yeoman是一个快速生成项目脚手架(项目的目录结构和初始文件)的工具
-
-http://yeoman.io/">
+<meta name="twitter:title" content="使用yeoman生成项目脚手架">
+<meta name="twitter:description" content="http://yeoman.io/">
 
 
 <link rel="stylesheet" type="text/css" href="/css/style.css?v=2.1.x" />
@@ -74,7 +68,7 @@ http://yeoman.io/">
 
 
 
-    <title> 使用yeoman生成和定制项目脚手架 · m.l 's blog </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    <title> 使用yeoman生成项目脚手架 · m.l 's blog </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   </head>
 
   <body>
@@ -191,7 +185,7 @@ http://yeoman.io/">
     <header class="post-header">
       <h1 class="post-title">
         
-          使用yeoman生成和定制项目脚手架
+          使用yeoman生成项目脚手架
         
       </h1>
 
@@ -206,19 +200,59 @@ http://yeoman.io/">
       <div class="post-toc" id="post-toc">
         <h2 class="post-toc-title">Contents</h2>
         <div class="post-toc-content">
-          <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#使用yeoman"><span class="toc-text">使用yeoman</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#制作生成器"><span class="toc-text">制作生成器</span></a></li></ol>
+          <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#什么是yeoman"><span class="toc-text">什么是yeoman</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#为什么要使用yeoman"><span class="toc-text">为什么要使用yeoman</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#怎样使用yeoman"><span class="toc-text">怎样使用yeoman</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#编写generator"><span class="toc-text">编写generator</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#上传generator至npm"><span class="toc-text">上传generator至npm</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#下载generator使用"><span class="toc-text">下载generator使用</span></a></li></ol></li></ol>
         </div>
       </div>
     
 
     <div class="post-content">
       
-        <p>yeoman是一个快速生成<u>项目脚手架</u>(项目的目录结构和初始文件)的工具</p>
-<blockquote>
+        <blockquote>
 <p><a href="http://yeoman.io/" target="_blank" rel="external">http://yeoman.io/</a></p>
 </blockquote>
 <a id="more"></a>
-<h2 id="使用yeoman"><a href="#使用yeoman" class="headerlink" title="使用yeoman"></a>使用yeoman</h2><h2 id="制作生成器"><a href="#制作生成器" class="headerlink" title="制作生成器"></a>制作生成器</h2><p><code>mkdir generate-multi-page-app</code></p>
+<h2 id="什么是yeoman"><a href="#什么是yeoman" class="headerlink" title="什么是yeoman"></a>什么是<a href="http://yeoman.io/" target="_blank" rel="external">yeoman</a></h2><p>yeoman提供一些接口制作generator，并且可以下载下来执行，用于定制和生成项目脚手架</p>
+<p><em>脚手架: 项目初始阶段的目录结构、配置文件和一些全局公用的逻辑代码，可被复用于新项目</em><br><em>generator: 定制脚手架的项目，generator被yeoman执行后可生成项目</em></p>
+<p>安装： <code>npm install -g yo</code></p>
+<h2 id="为什么要使用yeoman"><a href="#为什么要使用yeoman" class="headerlink" title="为什么要使用yeoman"></a>为什么要使用yeoman</h2><p><strong>生成新项目</strong></p>
+<ul>
+<li>方案一：从零开始写或者拷贝老项目的部分代码。缺点：费时费力</li>
+<li>方案二：利用vue-cli之类的cli工具生成。缺点：局限性大，不可定制</li>
+<li>方案三：使用yeoman定制脚手架并生成项目</li>
+</ul>
+<p><strong>生成新页面</strong><br><em>实际项目中，新页面会放在指定目录中，并且可能会存在初始的一些重复代码（包括用于该页面的action，store，service等）</em></p>
+<ul>
+<li>方案一：手动新建各种文件，然后写初始代码。缺点：重复、繁琐</li>
+<li>方案二：使用yeoman自动生成页面和与其相关的初始代码和文件</li>
+</ul>
+<h2 id="怎样使用yeoman"><a href="#怎样使用yeoman" class="headerlink" title="怎样使用yeoman"></a>怎样使用yeoman</h2><h3 id="编写generator"><a href="#编写generator" class="headerlink" title="编写generator"></a>编写generator</h3><p><strong>初始化generator项目</strong></p>
+<ul>
+<li><p>目录结构</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">├───package.json</div><div class="line">└───generators/</div><div class="line">    └───app/</div><div class="line">        └───index.js</div><div class="line">        └───templates/</div></pre></td></tr></table></figure>
+</li>
+<li><p>package.json</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  "name": "generator-sample-vue",    //name必须以generator-开头</div><div class="line">  "version": "1.0.0",</div><div class="line">  "description": "sample dashboard project using vue and vue-router",</div><div class="line">  "keywords": [</div><div class="line">    "yeoman-generator",        //keywords必须包含yeoman-generator</div><div class="line">  ],</div><div class="line">  "dependencies": &#123;</div><div class="line">    "yeoman-generator": "^1.1.1"</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>generators/app/index.js   </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var Generator = require(&apos;yeoman-generator&apos;);</div><div class="line">module.exports = class extends Generator &#123;</div><div class="line">  //下文提到的方法均放与此处，yeoman会自动执行</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+</li>
+<li><p>执行<code>npm link</code>，使generator在本地可用</p>
+</li>
+</ul>
+<p><strong>写好脚手架模板，并放入templates目录</strong><br>  <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">writing() &#123;</div><div class="line">  <span class="keyword">this</span>.fs.copyTpl(</div><div class="line">    <span class="keyword">this</span>.templatePath(<span class="string">'./'</span>),</div><div class="line">    <span class="keyword">this</span>.destinationPath(<span class="string">'./'</span>), &#123;</div><div class="line"></div><div class="line">    &#125;);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><strong>询问项目信息，在模板对应的地方做替换（模板替换使用的是<a href="https://github.com/tj/ejs" target="_blank" rel="external">ejs</a>语法）。以项目名称为例:</strong><br>  <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">prompting() &#123;</div><div class="line">  <span class="keyword">return</span> <span class="keyword">this</span>.prompt([</div><div class="line">    &#123;</div><div class="line">      <span class="attr">type</span>    : <span class="string">'input'</span>,</div><div class="line">      <span class="attr">name</span>    : <span class="string">'projectName'</span>,</div><div class="line">      <span class="attr">message</span> : <span class="string">'Your project name'</span>,</div><div class="line">      <span class="attr">default</span> : <span class="keyword">this</span>.appname <span class="comment">// Default to current folder name</span></div><div class="line">    &#125;</div><div class="line">  ]).then(<span class="function">(<span class="params">answers</span>) =&gt;</span> &#123;</div><div class="line">    <span class="keyword">this</span>.answers = answers;</div><div class="line">  &#125;);</div><div class="line">&#125;</div><div class="line">writing() &#123;</div><div class="line">  <span class="keyword">this</span>.fs.copyTpl(</div><div class="line">    <span class="keyword">this</span>.templatePath(<span class="string">'./'</span>),</div><div class="line">    <span class="keyword">this</span>.destinationPath(<span class="string">'./'</span>),</div><div class="line">    <span class="keyword">this</span>.answers</div><div class="line">  );</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;%= projectName %&gt;   //package.json的name，index.html的ttile</div></pre></td></tr></table></figure>
+<p><strong>执行npm install安装依赖</strong><br>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">installDependencies() &#123;</div><div class="line">  this.spawnCommand(&apos;npm&apos;, [&apos;install&apos;])</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><strong>生成页面</strong><br>执行<code>yo &lt;name&gt;</code>时默运行<code>generators/app/index.js</code>，现在新增一个目录<code>page</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">├───package.json</div><div class="line">└───generators/</div><div class="line">    └───app/</div><div class="line">    │   └───index.js</div><div class="line">    │   └───templates/</div><div class="line">    └───page/</div><div class="line">        └───index.js</div><div class="line">        └───templates/</div></pre></td></tr></table></figure></p>
+<p>执行<code>yo &lt;name&gt;:page</code>运行<code>generators/page/index.js</code></p>
+<p>询问页面名称，拷贝模板、替换变量，输到至指定路径：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> Generator = <span class="built_in">require</span>(<span class="string">'yeoman-generator'</span>);</div><div class="line"><span class="keyword">var</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>);</div><div class="line"></div><div class="line">prompting() &#123;</div><div class="line">  <span class="keyword">return</span> <span class="keyword">this</span>.prompt([</div><div class="line">    &#123;</div><div class="line">      <span class="attr">type</span>    : <span class="string">'input'</span>,</div><div class="line">      <span class="attr">name</span>    : <span class="string">'pageName'</span>,</div><div class="line">      <span class="attr">message</span> : <span class="string">'Your page name'</span>,</div><div class="line">      <span class="attr">default</span> : <span class="string">'new-page'</span></div><div class="line">    &#125;</div><div class="line">  ]).then(<span class="function">(<span class="params">answers</span>) =&gt;</span> &#123;</div><div class="line">    answers.pageName = answers.pageName.replace(<span class="regexp">/\s/g</span>, <span class="string">'-'</span>)</div><div class="line">    <span class="keyword">this</span>.answers = answers;</div><div class="line">  &#125;);</div><div class="line">&#125;</div><div class="line"></div><div class="line">writing() &#123;</div><div class="line">  <span class="keyword">var</span> pageName = <span class="keyword">this</span>.answers.pageName</div><div class="line">  <span class="keyword">this</span>.fs.copyTpl(</div><div class="line">    <span class="keyword">this</span>.templatePath(<span class="string">'./page.vue'</span>),</div><div class="line">    <span class="keyword">this</span>.destinationPath(<span class="string">`./src/pages/<span class="subst">$&#123;pageName&#125;</span>/index.vue`</span>),</div><div class="line">    <span class="keyword">this</span>.answers</div><div class="line">  );</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>为新页面添加路由和导航：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div></pre></td><td class="code"><pre><div class="line">updating() &#123;      <span class="comment">//用语句替换模板上的指定标记</span></div><div class="line">  <span class="keyword">var</span> that = <span class="keyword">this</span>;</div><div class="line">  <span class="keyword">var</span> pageName = <span class="keyword">this</span>.answers.pageName;</div><div class="line">  <span class="keyword">var</span> match = <span class="regexp">/-(\w)/</span>.exec(pageName);</div><div class="line">  <span class="keyword">var</span> w = match &amp;&amp; match[<span class="number">1</span>];</div><div class="line">  <span class="keyword">var</span> pageNameCamelStyle =  w ? pageName.replace(<span class="regexp">/-\w/</span>, w.toUpperCase()) : pageName</div><div class="line"></div><div class="line">  fs.readFile(that.destinationPath(<span class="string">'src/pages/index.js'</span>), &#123;<span class="attr">flag</span>: <span class="string">'r+'</span>, <span class="attr">encoding</span>: <span class="string">'utf8'</span>&#125;, <span class="function"><span class="keyword">function</span> (<span class="params">err, data</span>) </span>&#123;</div><div class="line">    <span class="keyword">if</span>(err) &#123;</div><div class="line">     <span class="built_in">console</span>.error(err);</div><div class="line">     <span class="keyword">return</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">var</span> impt = <span class="string">`import <span class="subst">$&#123;pageNameCamelStyle&#125;</span> from './<span class="subst">$&#123;pageName&#125;</span>'`</span></div><div class="line">    <span class="keyword">var</span> router = <span class="string">`&#123;</span></div><div class="line">  path: '/<span class="subst">$&#123;pageName&#125;</span>',</div><div class="line">  component: <span class="subst">$&#123;pageNameCamelStyle&#125;</span></div><div class="line">&#125;,`;</div><div class="line"></div><div class="line">    data = data.replace(<span class="regexp">/(\/\* yeoman-inject:import DO NOT DELETE OR MODIFY \*\/)/</span>, <span class="string">`<span class="subst">$&#123;impt&#125;</span>\n$1`</span>);</div><div class="line">    data = data.replace(<span class="regexp">/(\/\* yeoman-inject:router DO NOT DELETE OR MODIFY \*\/)/</span>, <span class="string">`<span class="subst">$&#123;router&#125;</span>\n$1`</span>);</div><div class="line"></div><div class="line">    fs.writeFile(that.destinationPath(<span class="string">'src/pages/index.js'</span>), <span class="keyword">new</span> Buffer(data), &#123;<span class="attr">flag</span>: <span class="string">'w+'</span>&#125;, <span class="function"><span class="keyword">function</span> (<span class="params">err</span>) </span>&#123;</div><div class="line">       <span class="keyword">if</span>(err) <span class="built_in">console</span>.error(err);</div><div class="line">    &#125;);</div><div class="line">  &#125;);</div><div class="line"></div><div class="line">  fs.readFile(that.destinationPath(<span class="string">'src/components/app-nav/index.vue'</span>), &#123;<span class="attr">flag</span>: <span class="string">'r+'</span>, <span class="attr">encoding</span>: <span class="string">'utf8'</span>&#125;, <span class="function"><span class="keyword">function</span> (<span class="params">err, data</span>) </span>&#123;</div><div class="line">    <span class="keyword">if</span>(err) &#123;</div><div class="line">     <span class="built_in">console</span>.error(err);</div><div class="line">     <span class="keyword">return</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">var</span> link = <span class="string">`&lt;li&gt;&lt;router-link to="/<span class="subst">$&#123;pageName&#125;</span>"&gt;<span class="subst">$&#123;pageNameCamelStyle&#125;</span>&lt;/router-link&gt;&lt;/li&gt;`</span></div><div class="line"></div><div class="line">    data = data.replace(<span class="regexp">/(&lt;!-- yeoman-inject:link DO NOT DELETE OR MODIFY --&gt;)/</span>, <span class="string">`<span class="subst">$&#123;link&#125;</span>\n$1`</span>);</div><div class="line"></div><div class="line">    fs.writeFile(that.destinationPath(<span class="string">'src/components/app-nav/index.vue'</span>), <span class="keyword">new</span> Buffer(data), &#123;<span class="attr">flag</span>: <span class="string">'w+'</span>&#125;, <span class="function"><span class="keyword">function</span> (<span class="params">err</span>) </span>&#123;</div><div class="line">       <span class="keyword">if</span>(err) <span class="built_in">console</span>.error(err);</div><div class="line">    &#125;);</div><div class="line">  &#125;);</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="上传generator至npm"><a href="#上传generator至npm" class="headerlink" title="上传generator至npm"></a>上传generator至npm</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">npm adduser  //如果没有账号，用此命令注册</div><div class="line">npm login   //如果有账号，用此命令登陆</div><div class="line">npm publish --access=public     //上传到npm官网</div></pre></td></tr></table></figure>
+<h3 id="下载generator使用"><a href="#下载generator使用" class="headerlink" title="下载generator使用"></a>下载generator使用</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">npm install -g generator-sample-vue</div><div class="line">yo sample-vue         //生成项目</div><div class="line">yo sample-vue:page    //生成新页面</div></pre></td></tr></table></figure>
+<hr>
+<blockquote>
+<p>本例generator源码：<a href="https://github.com/mlxiao93/generator-sample-vue" target="_blank" rel="external">https://github.com/mlxiao93/generator-sample-vue</a></p>
+</blockquote>
 
       
     </div>
@@ -227,9 +261,7 @@ http://yeoman.io/">
       <footer class="post-footer">
         <div class="post-tags">
           
-            <a href="/tags/css/">css</a>
-          
-            <a href="/tags/html/">html</a>
+            <a href="/tags/js/">js</a>
           
         </div>
 
@@ -261,7 +293,7 @@ http://yeoman.io/">
   <div class="comments" id="comments">
     
       <div class="ds-thread" data-thread-key="2017/05/22/yeoman/"
-           data-title="使用yeoman生成和定制项目脚手架" data-url="http://mlxiao.com/2017/05/22/yeoman/">
+           data-title="使用yeoman生成项目脚手架" data-url="http://mlxiao.com/2017/05/22/yeoman/">
       </div>
     
   </div>
