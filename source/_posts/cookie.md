@@ -2,7 +2,7 @@
 title: http cookie
 date: 2017-06-01 16:19:33
 tags:
- - css
+ - js
 ---
 cookie用于客户端存储会话信息。服务端对任意http请求发送 Set-Cookie 响应头，其中包含会话信息，浏览器接到响应后会存储会话信息，并在这之后，通过为每个请求添加 cookie 请求头将信息发送回服务器。
 
