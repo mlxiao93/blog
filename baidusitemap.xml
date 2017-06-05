@@ -5,7 +5,7 @@
     
   <url>
     <loc>http://mlxiao.com/2017/05/22/yeoman/</loc>
-    <lastmod>2017-06-04T23:37:11.000Z</lastmod>
+    <lastmod>2017-06-05T00:49:35.000Z</lastmod>
     <data>
         <display>
         <title>使用yeoman生成项目脚手架</title>
@@ -64,11 +64,28 @@
         <title>浏览器兼容性问题</title>
         <pubTime>2017-02-04T00:30:22.000Z</pubTime>
         
+        <tag>js</tag>
+         
         <tag>css</tag>
          
         <tag>html</tag>
          
-        <tag>js</tag>
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://mlxiao.com/2017/02/07/css-flex/</loc>
+    <lastmod>2017-03-13T05:51:25.000Z</lastmod>
+    <data>
+        <display>
+        <title>css3 flex</title>
+        <pubTime>2017-02-07T12:05:11.000Z</pubTime>
+        
+        <tag>css</tag>
          
          
            
@@ -95,14 +112,14 @@
 
     
   <url>
-    <loc>http://mlxiao.com/2017/02/07/css-flex/</loc>
+    <loc>http://mlxiao.com/2017/02/19/deep-copy/</loc>
     <lastmod>2017-03-13T05:51:25.000Z</lastmod>
     <data>
         <display>
-        <title>css3 flex</title>
-        <pubTime>2017-02-07T12:05:11.000Z</pubTime>
+        <title>js深拷贝</title>
+        <pubTime>2017-02-19T08:12:06.000Z</pubTime>
         
-        <tag>css</tag>
+        <tag>js</tag>
          
          
            
@@ -131,31 +148,16 @@
 
     
   <url>
-    <loc>http://mlxiao.com/2017/02/19/deep-copy/</loc>
+    <loc>http://mlxiao.com/2017/02/20/ele-in-viewport/</loc>
     <lastmod>2017-03-13T05:51:25.000Z</lastmod>
     <data>
         <display>
-        <title>js深拷贝</title>
-        <pubTime>2017-02-19T08:12:06.000Z</pubTime>
+        <title>判断元素是否出现在视口</title>
+        <pubTime>2017-02-20T10:20:21.000Z</pubTime>
         
         <tag>js</tag>
          
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://mlxiao.com/2017/02/04/js-extend/</loc>
-    <lastmod>2017-03-13T05:51:25.000Z</lastmod>
-    <data>
-        <display>
-        <title>JS实现继承</title>
-        <pubTime>2017-02-04T08:15:40.000Z</pubTime>
-        
-        <tag>js</tag>
+        <tag>dom</tag>
          
          
            
@@ -185,16 +187,15 @@
     </url>
 
     
-    
   <url>
-    <loc>http://mlxiao.com/2017/02/05/lazy-man/</loc>
+    <loc>http://mlxiao.com/2017/02/07/css-bfc/</loc>
     <lastmod>2017-03-13T05:51:25.000Z</lastmod>
     <data>
         <display>
-        <title>实现LazyMan</title>
-        <pubTime>2017-02-05T09:42:48.000Z</pubTime>
+        <title>css之BFC</title>
+        <pubTime>2017-02-07T08:10:33.000Z</pubTime>
         
-        <tag>js</tag>
+        <tag>css</tag>
          
          
            
@@ -246,6 +247,23 @@
 
     
   <url>
+    <loc>http://mlxiao.com/2017/02/05/lazy-man/</loc>
+    <lastmod>2017-03-13T05:51:25.000Z</lastmod>
+    <data>
+        <display>
+        <title>实现LazyMan</title>
+        <pubTime>2017-02-05T09:42:48.000Z</pubTime>
+        
+        <tag>js</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://mlxiao.com/2017/02/04/sort-algorithm/</loc>
     <lastmod>2017-03-13T05:51:25.000Z</lastmod>
     <data>
@@ -256,23 +274,6 @@
         <tag>js</tag>
          
         <tag>algorithm</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://mlxiao.com/2017/02/07/css-bfc/</loc>
-    <lastmod>2017-03-13T05:51:25.000Z</lastmod>
-    <data>
-        <display>
-        <title>css之BFC</title>
-        <pubTime>2017-02-07T08:10:33.000Z</pubTime>
-        
-        <tag>css</tag>
          
          
            
@@ -298,6 +299,7 @@
     </url>
 
     
+    
   <url>
     <loc>http://mlxiao.com/2017/02/08/webpack/</loc>
     <lastmod>2017-03-13T05:51:25.000Z</lastmod>
@@ -321,16 +323,14 @@
     
     
   <url>
-    <loc>http://mlxiao.com/2017/02/20/ele-in-viewport/</loc>
+    <loc>http://mlxiao.com/2017/02/04/js-extend/</loc>
     <lastmod>2017-03-13T05:51:25.000Z</lastmod>
     <data>
         <display>
-        <title>判断元素是否出现在视口</title>
-        <pubTime>2017-02-20T10:20:21.000Z</pubTime>
+        <title>JS实现继承</title>
+        <pubTime>2017-02-04T08:15:40.000Z</pubTime>
         
         <tag>js</tag>
-         
-        <tag>dom</tag>
          
          
            

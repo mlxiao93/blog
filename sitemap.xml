@@ -4,7 +4,7 @@
   <url>
     <loc>http://mlxiao.com/2017/05/22/yeoman/</loc>
     
-    <lastmod>2017-06-04T23:37:11.000Z</lastmod>
+    <lastmod>2017-06-05T00:49:35.000Z</lastmod>
     
   </url>
   
@@ -30,13 +30,6 @@
   </url>
   
   <url>
-    <loc>http://mlxiao.com/2017/02/05/debounce-and-throttle/</loc>
-    
-    <lastmod>2017-03-13T05:51:25.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://mlxiao.com/2017/02/07/css-flex/</loc>
     
     <lastmod>2017-03-13T05:51:25.000Z</lastmod>
@@ -44,7 +37,7 @@
   </url>
   
   <url>
-    <loc>http://mlxiao.com/2017/02/16/delegate-event/</loc>
+    <loc>http://mlxiao.com/2017/02/05/debounce-and-throttle/</loc>
     
     <lastmod>2017-03-13T05:51:25.000Z</lastmod>
     
@@ -58,7 +51,14 @@
   </url>
   
   <url>
-    <loc>http://mlxiao.com/2017/02/04/js-extend/</loc>
+    <loc>http://mlxiao.com/2017/02/16/delegate-event/</loc>
+    
+    <lastmod>2017-03-13T05:51:25.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://mlxiao.com/2017/02/20/ele-in-viewport/</loc>
     
     <lastmod>2017-03-13T05:51:25.000Z</lastmod>
     
@@ -72,14 +72,7 @@
   </url>
   
   <url>
-    <loc>http://mlxiao.com/tags/index.html</loc>
-    
-    <lastmod>2017-03-13T05:51:25.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://mlxiao.com/2017/02/05/lazy-man/</loc>
+    <loc>http://mlxiao.com/2017/02/07/css-bfc/</loc>
     
     <lastmod>2017-03-13T05:51:25.000Z</lastmod>
     
@@ -100,6 +93,13 @@
   </url>
   
   <url>
+    <loc>http://mlxiao.com/2017/02/05/lazy-man/</loc>
+    
+    <lastmod>2017-03-13T05:51:25.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://mlxiao.com/2017/02/04/sort-algorithm/</loc>
     
     <lastmod>2017-03-13T05:51:25.000Z</lastmod>
@@ -107,14 +107,14 @@
   </url>
   
   <url>
-    <loc>http://mlxiao.com/2017/02/07/css-bfc/</loc>
+    <loc>http://mlxiao.com/2017/02/19/sum-chain/</loc>
     
     <lastmod>2017-03-13T05:51:25.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://mlxiao.com/2017/02/19/sum-chain/</loc>
+    <loc>http://mlxiao.com/tags/index.html</loc>
     
     <lastmod>2017-03-13T05:51:25.000Z</lastmod>
     
@@ -135,7 +135,7 @@
   </url>
   
   <url>
-    <loc>http://mlxiao.com/2017/02/20/ele-in-viewport/</loc>
+    <loc>http://mlxiao.com/2017/02/04/js-extend/</loc>
     
     <lastmod>2017-03-13T05:51:25.000Z</lastmod>
     
