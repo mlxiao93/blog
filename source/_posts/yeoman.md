@@ -40,7 +40,7 @@ yeoman提供一些接口制作generator，并且可以下载下来执行，用�
           └───templates/
   ```
 + package.json
-  ``` json
+  ```json
   {
     "name": "generator-sample-vue",    //name必须以generator-开头
     "version": "1.0.0",
@@ -62,7 +62,7 @@ yeoman提供一些接口制作generator，并且可以下载下来执行，用�
   ```
 + 执行`npm link`，使generator在本地可用
 
-**写好脚手架模板，并放入templates目录**
+**写好脚手架模板，并放入templates目录，然后执行拷贝：**
   ```js
   writing() {
     this.fs.copyTpl(
